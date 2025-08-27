@@ -10,8 +10,8 @@ import Darwin
 
 public class Application {
   private let node: Node
-  private let window: Window
-  private let control: Control
+  let window: Window
+  let control: Control
   private let renderer: Renderer
 
   private let runLoopType: RunLoopType
