@@ -2,191 +2,278 @@ import Foundation
 #if os(macOS)
 import AppKit
 #endif
+#if os(Linux)
+import Glibc
+#else
+import Darwin
+#endif
 
 public class Application {
-    private let node: Node
-    private let window: Window
-    private let control: Control
-    private let renderer: Renderer
+  private let node: Node
+  private let window: Window
+  private let control: Control
+  private let renderer: Renderer
 
-    private let runLoopType: RunLoopType
+  private let runLoopType: RunLoopType
 
-    private var arrowKeyParser = ArrowKeyParser()
+  private var arrowKeyParser = ArrowKeyParser()
+  private var mouseParser = SGRMouseParser()
 
-    private var invalidatedNodes: [Node] = []
-    private var updateScheduled = false
+  private var invalidatedNodes: [Node] = []
+  private var updateScheduled = false
 
-    public init<I: View>(rootView: I, runLoopType: RunLoopType = .dispatch) {
-        self.runLoopType = runLoopType
+  // Global key handler to let apps intercept characters (e.g., 'r', 'g', 'G')
+  public var globalKeyHandler: ((Character) -> Void)? = nil
 
-        node = Node(view: VStack(content: rootView).view)
-        node.build()
+  public init<I: View>(rootView: I, runLoopType: RunLoopType = .dispatch) {
+      self.runLoopType = runLoopType
 
-        control = node.control!
+      node = Node(view: VStack(content: rootView).view)
+      node.build()
 
-        window = Window()
-        window.addControl(control)
+      control = node.control!
 
-        window.firstResponder = control.firstSelectableElement
-        window.firstResponder?.becomeFirstResponder()
+      window = Window()
+      window.addControl(control)
 
-        renderer = Renderer(layer: window.layer)
-        window.layer.renderer = renderer
+      window.firstResponder = control.firstSelectableElement
+      window.firstResponder?.becomeFirstResponder()
 
-        node.application = self
-        renderer.application = self
-    }
+      renderer = Renderer(layer: window.layer)
+      window.layer.renderer = renderer
 
-    var stdInSource: DispatchSourceRead?
+      node.application = self
+      renderer.application = self
+  }
 
-    public enum RunLoopType {
-        /// The default option, using Dispatch for the main run loop.
-        case dispatch
+  var stdInSource: DispatchSourceRead?
 
-        #if os(macOS)
-        /// This creates and runs an NSApplication with an associated run loop. This allows you
-        /// e.g. to open NSWindows running simultaneously to the terminal app. This requires macOS
-        /// and AppKit.
-        case cocoa
-        #endif
-    }
+  public enum RunLoopType {
+      /// The default option, using Dispatch for the main run loop.
+      case dispatch
 
-    public func start() {
-        setInputMode()
-        updateWindowSize()
-        control.layout(size: window.layer.frame.size)
-        renderer.draw()
+      #if os(macOS)
+      /// This creates and runs an NSApplication with an associated run loop. This allows you
+      /// e.g. to open NSWindows running simultaneously to the terminal app. This requires macOS
+      /// and AppKit.
+      case cocoa
+      #endif
+  }
 
-        let stdInSource = DispatchSource.makeReadSource(fileDescriptor: STDIN_FILENO, queue: .main)
-        stdInSource.setEventHandler(qos: .default, flags: [], handler: self.handleInput)
-        stdInSource.resume()
-        self.stdInSource = stdInSource
+  public func start() {
+      // Ensure we are attached to a TTY; otherwise exit gracefully
+      let stdinTTY = isatty(STDIN_FILENO) != 0
+      let stdoutTTY = isatty(STDOUT_FILENO) != 0
+      if !stdinTTY || !stdoutTTY {
+          fputs("SwiftTUI: Non-TTY detected. Please run in a terminal.\n", stderr)
+          return
+      }
+      setInputMode()
+       // Enable xterm mouse reporting (SGR 1006 + basic 1000)
+      writeOut(EscapeSequence.enableMouseSGR)
+      writeOut(EscapeSequence.enableMouseBasic)
+      updateWindowSize()
+      control.layout(size: window.layer.frame.size)
+      renderer.draw()
 
-        let sigWinChSource = DispatchSource.makeSignalSource(signal: SIGWINCH, queue: .main)
-        sigWinChSource.setEventHandler(qos: .default, flags: [], handler: self.handleWindowSizeChange)
-        sigWinChSource.resume()
+      let stdInSource = DispatchSource.makeReadSource(fileDescriptor: STDIN_FILENO, queue: .main)
+      stdInSource.setEventHandler(qos: .default, flags: [], handler: self.handleInput)
+      stdInSource.resume()
+      self.stdInSource = stdInSource
 
-        signal(SIGINT, SIG_IGN)
-        let sigIntSource = DispatchSource.makeSignalSource(signal: SIGINT, queue: .main)
-        sigIntSource.setEventHandler(qos: .default, flags: [], handler: self.stop)
-        sigIntSource.resume()
+      let sigWinChSource = DispatchSource.makeSignalSource(signal: SIGWINCH, queue: .main)
+      sigWinChSource.setEventHandler(qos: .default, flags: [], handler: self.handleWindowSizeChange)
+      sigWinChSource.resume()
 
-        switch runLoopType {
-        case .dispatch:
-            dispatchMain()
-        #if os(macOS)
-        case .cocoa:
-            NSApplication.shared.setActivationPolicy(.accessory)
-            NSApplication.shared.run()
-        #endif
-        }
-    }
+      signal(SIGINT, SIG_IGN)
+      let sigIntSource = DispatchSource.makeSignalSource(signal: SIGINT, queue: .main)
+      sigIntSource.setEventHandler(qos: .default, flags: [], handler: self.stop)
+      sigIntSource.resume()
 
-    private func setInputMode() {
-        var tattr = termios()
-        tcgetattr(STDIN_FILENO, &tattr)
-        tattr.c_lflag &= ~tcflag_t(ECHO | ICANON)
-        tcsetattr(STDIN_FILENO, TCSAFLUSH, &tattr);
-    }
+      switch runLoopType {
+      case .dispatch:
+          dispatchMain()
+      #if os(macOS)
+      case .cocoa:
+          NSApplication.shared.setActivationPolicy(.accessory)
+          NSApplication.shared.run()
+      #endif
+      }
+  }
 
-    private func handleInput() {
-        let data = FileHandle.standardInput.availableData
+  private func setInputMode() {
+      var tattr = termios()
+      tcgetattr(STDIN_FILENO, &tattr)
+      tattr.c_lflag &= ~tcflag_t(ECHO | ICANON)
+      tcsetattr(STDIN_FILENO, TCSAFLUSH, &tattr);
+  }
 
-        guard let string = String(data: data, encoding: .utf8) else {
-            return
-        }
+  private func handleInput() {
+      let data = FileHandle.standardInput.availableData
 
-        for char in string {
-            if arrowKeyParser.parse(character: char) {
-                guard let key = arrowKeyParser.arrowKey else { continue }
-                arrowKeyParser.arrowKey = nil
-                if key == .down {
-                    if let next = window.firstResponder?.selectableElement(below: 0) {
-                        window.firstResponder?.resignFirstResponder()
-                        window.firstResponder = next
-                        window.firstResponder?.becomeFirstResponder()
-                    }
-                } else if key == .up {
-                    if let next = window.firstResponder?.selectableElement(above: 0) {
-                        window.firstResponder?.resignFirstResponder()
-                        window.firstResponder = next
-                        window.firstResponder?.becomeFirstResponder()
-                    }
-                } else if key == .right {
-                    if let next = window.firstResponder?.selectableElement(rightOf: 0) {
-                        window.firstResponder?.resignFirstResponder()
-                        window.firstResponder = next
-                        window.firstResponder?.becomeFirstResponder()
-                    }
-                } else if key == .left {
-                    if let next = window.firstResponder?.selectableElement(leftOf: 0) {
-                        window.firstResponder?.resignFirstResponder()
-                        window.firstResponder = next
-                        window.firstResponder?.becomeFirstResponder()
-                    }
-                }
-            } else if char == ASCII.EOT {
-                stop()
-            } else {
-                window.firstResponder?.handleEvent(char)
-            }
-        }
-    }
+       // Some terminals emit bytes not valid UTF-8; ignore them
+      guard let string = String(data: data, encoding: .utf8) else {
+          return
+      }
 
-    func invalidateNode(_ node: Node) {
-        invalidatedNodes.append(node)
-        scheduleUpdate()
-    }
+      for char in string {
+          let arrowConsumed = arrowKeyParser.parse(character: char)
+          if let key = arrowKeyParser.arrowKey {
+              arrowKeyParser.arrowKey = nil
+              switch key {
+              case .down:
+                  if let next = window.firstResponder?.selectableElement(below: 0) {
+                      window.firstResponder?.resignFirstResponder()
+                      window.firstResponder = next
+                      window.firstResponder?.becomeFirstResponder()
+                  }
+              case .up:
+                  if let next = window.firstResponder?.selectableElement(above: 0) {
+                      window.firstResponder?.resignFirstResponder()
+                      window.firstResponder = next
+                      window.firstResponder?.becomeFirstResponder()
+                  }
+              case .right:
+                  if let next = window.firstResponder?.selectableElement(rightOf: 0) {
+                      window.firstResponder?.resignFirstResponder()
+                      window.firstResponder = next
+                      window.firstResponder?.becomeFirstResponder()
+                  }
+              case .left:
+                  if let next = window.firstResponder?.selectableElement(leftOf: 0) {
+                      window.firstResponder?.resignFirstResponder()
+                      window.firstResponder = next
+                      window.firstResponder?.becomeFirstResponder()
+                  }
+              }
+              continue
+          }
 
-    func scheduleUpdate() {
-        if !updateScheduled {
-            DispatchQueue.main.async { self.update() }
-            updateScheduled = true
-        }
-    }
+          let mouseConsumed = mouseParser.parse(character: char)
+          if let event = mouseParser.event {
+              mouseParser.event = nil
+              handleMouse(event)
+              continue
+          }
 
-    private func update() {
-        updateScheduled = false
+          if arrowConsumed || mouseConsumed { continue }
 
-        for node in invalidatedNodes {
-            node.update(using: node.view)
-        }
-        invalidatedNodes = []
+          if char == ASCII.EOT {
+              stop()
+          } else if char == "j" {
+              if let next = window.firstResponder?.selectableElement(below: 0) {
+                  window.firstResponder?.resignFirstResponder()
+                  window.firstResponder = next
+                  window.firstResponder?.becomeFirstResponder()
+              }
+          } else if char == "k" {
+              if let next = window.firstResponder?.selectableElement(above: 0) {
+                  window.firstResponder?.resignFirstResponder()
+                  window.firstResponder = next
+                  window.firstResponder?.becomeFirstResponder()
+              }
+          } else if char == "h" {
+              if let next = window.firstResponder?.selectableElement(leftOf: 0) {
+                  window.firstResponder?.resignFirstResponder()
+                  window.firstResponder = next
+                  window.firstResponder?.becomeFirstResponder()
+              }
+          } else if char == "l" {
+              if let next = window.firstResponder?.selectableElement(rightOf: 0) {
+                  window.firstResponder?.resignFirstResponder()
+                  window.firstResponder = next
+                  window.firstResponder?.becomeFirstResponder()
+              }
+          } else {
+              // Let the app intercept arbitrary keys first (e.g., 'r', 'g', 'G')
+              globalKeyHandler?(char)
+              window.firstResponder?.handleEvent(char)
+          }
+      }
+  }
 
-        control.layout(size: window.layer.frame.size)
-        renderer.update()
-    }
+  func invalidateNode(_ node: Node) {
+      invalidatedNodes.append(node)
+       scheduleUpdate()
+  }
 
-    private func handleWindowSizeChange() {
-        updateWindowSize()
-        control.layer.invalidate()
-        update()
-    }
+  func scheduleUpdate() {
+      if !updateScheduled {
+          DispatchQueue.main.async { self.update() }
+          updateScheduled = true
+      }
+  }
 
-    private func updateWindowSize() {
-        var size = winsize()
-        guard ioctl(STDOUT_FILENO, UInt(TIOCGWINSZ), &size) == 0,
-              size.ws_col > 0, size.ws_row > 0 else {
-            assertionFailure("Could not get window size")
-            return
-        }
-        window.layer.frame.size = Size(width: Extended(Int(size.ws_col)), height: Extended(Int(size.ws_row)))
-        renderer.setCache()
-    }
+  private func update() {
+      updateScheduled = false
 
-    private func stop() {
-        renderer.stop()
-        resetInputMode() // Fix for: https://github.com/rensbreur/SwiftTUI/issues/25
-        exit(0)
-    }
+      for node in invalidatedNodes {
+          node.update(using: node.view)
+      }
+      invalidatedNodes = []
 
-    /// Fix for: https://github.com/rensbreur/SwiftTUI/issues/25
-    private func resetInputMode() {
-        // Reset ECHO and ICANON values:
-        var tattr = termios()
-        tcgetattr(STDIN_FILENO, &tattr)
-        tattr.c_lflag |= tcflag_t(ECHO | ICANON)
-        tcsetattr(STDIN_FILENO, TCSAFLUSH, &tattr);
-    }
+      control.layout(size: window.layer.frame.size)
+      renderer.update()
+  }
 
+  private func handleWindowSizeChange() {
+      updateWindowSize()
+      control.layer.invalidate()
+      update()
+  }
+
+  private func updateWindowSize() {
+      var size = winsize()
+      guard ioctl(STDOUT_FILENO, UInt(TIOCGWINSZ), &size) == 0,
+            size.ws_col > 0, size.ws_row > 0 else {
+          // Fallback to a default size to avoid crashing in edge cases
+          window.layer.frame.size = Size(width: Extended(80), height: Extended(24))
+          renderer.setCache()
+          return
+      }
+      window.layer.frame.size = Size(width: Extended(Int(size.ws_col)), height: Extended(Int(size.ws_row)))
+      renderer.setCache()
+  }
+
+  private func stop() {
+      renderer.stop()
+      // Disable mouse reporting
+      writeOut(EscapeSequence.disableMouseBasic)
+      writeOut(EscapeSequence.disableMouseSGR)
+      resetInputMode() // Fix for: https://github.com/rensbreur/SwiftTUI/issues/25
+      exit(0)
+  }
+
+  /// Fix for: https://github.com/rensbreur/SwiftTUI/issues/25
+  private func resetInputMode() {
+      // Reset ECHO and ICANON values:
+      var tattr = termios()
+      tcgetattr(STDIN_FILENO, &tattr)
+      tattr.c_lflag |= tcflag_t(ECHO | ICANON)
+      tcsetattr(STDIN_FILENO, TCSAFLUSH, &tattr);
+  }
+
+}
+
+// MARK: - Mouse handling helpers
+private extension Application {
+   func handleMouse(_ event: SGRMouseParser.Event) {
+       // Only act on left button clicks
+       guard event.button == .left else { return }
+       let pos = Position(column: Extended(event.column), line: Extended(event.line))
+       switch event.kind {
+       case .press:
+           if let target = control.hitTest(screenPosition: pos) {
+               window.firstResponder?.resignFirstResponder()
+               window.firstResponder = target
+               window.firstResponder?.becomeFirstResponder()
+           }
+       case .release:
+           window.firstResponder?.handleEvent("\n")
+       }
+   }
+
+   func writeOut(_ str: String) {
+       str.withCString { _ = write(STDOUT_FILENO, $0, strlen($0)) }
+   }
 }
