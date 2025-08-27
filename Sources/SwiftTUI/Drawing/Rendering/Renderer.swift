@@ -49,9 +49,8 @@ class Renderer {
         for line in rect.minLine.intValue ... rect.maxLine.intValue {
             for column in rect.minColumn.intValue ... rect.maxColumn.intValue {
                 let position = Position(column: Extended(column), line: Extended(line))
-                if let cell = layer.cell(at: position) {
-                    drawPixel(cell, at: Position(column: Extended(column), line: Extended(line)))
-                }
+                let cell = layer.cell(at: position) ?? Cell(char: " ")
+                    ; drawPixel(cell, at: Position(column: Extended(column), line: Extended(line)))
             }
         }
     }
