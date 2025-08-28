@@ -1,4 +1,0 @@
-module OpenCombineDispatch {
-    header "/Users/navan.chauhan/Developer/navanchauhan/swift-hn/SwiftTUI/.scratch/TUIHarness/.build/arm64-apple-macosx/debug/OpenCombineDispatch.build/OpenCombineDispatch-Swift.h"
-    requires objc
-}

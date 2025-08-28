@@ -1,4 +1,0 @@
-module OpenCombineFoundation {
-    header "/Users/navan.chauhan/Developer/navanchauhan/swift-hn/SwiftTUI/.scratch/TUIHarness/.build/arm64-apple-macosx/debug/OpenCombineFoundation.build/OpenCombineFoundation-Swift.h"
-    requires objc
-}

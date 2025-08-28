@@ -1,4 +1,0 @@
-module SwiftTUI {
-    header "/Users/navan.chauhan/Developer/navanchauhan/swift-hn/SwiftTUI/.scratch/TUIHarness/.build/arm64-apple-macosx/debug/SwiftTUI.build/SwiftTUI-Swift.h"
-    requires objc
-}

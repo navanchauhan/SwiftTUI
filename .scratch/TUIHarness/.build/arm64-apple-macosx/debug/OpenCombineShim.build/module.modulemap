@@ -1,4 +1,0 @@
-module OpenCombineShim {
-    header "/Users/navan.chauhan/Developer/navanchauhan/swift-hn/SwiftTUI/.scratch/TUIHarness/.build/arm64-apple-macosx/debug/OpenCombineShim.build/OpenCombineShim-Swift.h"
-    requires objc
-}
