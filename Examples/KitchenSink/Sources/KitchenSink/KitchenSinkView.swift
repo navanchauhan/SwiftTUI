@@ -28,7 +28,7 @@ struct KitchenSinkView: View {
          NavigationLink(destination: DetailsView(title: "ASCII Image")) {
            Text("Push ASCII Image")
          }
-         NavigationLink(isActive: Binding(get: { pushActive }, set: { pushActive = -e }), destination: DetailsView(title: "Programmatic Push")) {
+         NavigationLink(isActive: Binding(get: { pushActive }, set: { pushActive = $0 }), destination: DetailsView(title: "Programmatic Push")) {
            Text("Programmatic Push")
          }
          Button("Trigger Push") { pushActive = true }
