@@ -84,7 +84,7 @@ Environment keys employed:
 - [x] `Slider`
 - [x] `Picker`
 - [x] `Stepper`
-- [~] `DatePicker` (date-only; Y/M/D with h/l +/- and j/k)
+- [~] `DatePicker` (date and hour/minute; Y/M/D and H/M with h/l +/- and j/k)
 - [x] `ProgressView`
 - [x] `SecureField`
 - Rendering
