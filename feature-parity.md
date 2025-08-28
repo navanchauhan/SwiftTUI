@@ -68,6 +68,7 @@ Environment keys employed:
 
 - [~] `Picker` simplified: string options with h/l to cycle; optional label; no custom content/tags yet
 - [~] `List` simplified: vertical only, implemented as `ScrollView` + `VStack`; no row separators or styles yet
+- [~] `Image` is terminal-oriented: ASCII and Color-matrix initializers; no file/asset decoding
 ## Missing, Common SwiftUI APIs (TODO)
 
 - Layout/containers
@@ -84,7 +85,7 @@ Environment keys employed:
 - [x] `ProgressView`
 - [x] `SecureField`
 - Rendering
-- [ ] `Image`
+- [x] `Image` (ASCII and Color-matrix; no external asset decoding)
 - [ ] Shapes, clipping, masking
 - Interaction/other
 - [ ] Animations, transitions, gestures
