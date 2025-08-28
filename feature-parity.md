@@ -73,7 +73,7 @@ Environment keys employed:
 - Layout/containers
 - [x] `List`
 - [~] `LazyVStack`/`LazyHStack` (implemented as plain stacks; not lazy)
-- [ ] `NavigationView`/`NavigationStack`
+- [~] `NavigationView`/`NavigationStack` (minimal push/pop via NavigationStack + NavigationLink)
 - [~] `TabView` (titles + selection; simplified tab bar)
 - Controls
 - [x] `Toggle`  
