@@ -64,7 +64,7 @@ Environment keys employed:
 - [~] `TextField` fires action on Enter and clears; no live `Binding<String>` editing
 - [~] `Button` exposes `hover` closure on focus changes
 - [~] `.background(_:)` supports `Color` only (no view backgrounds)
-- [ ] No font/size APIs yet
+- [~] Fonts: `.fontWeight(_:)` and `.font(.system(size:weight:design:))` map weight to bold; size/design currently ignored
 
 - [~] `Picker` simplified: string options with h/l to cycle; optional label; no custom content/tags yet
 - [~] `List` simplified: vertical only, implemented as `ScrollView` + `VStack`; no row separators or styles yet
