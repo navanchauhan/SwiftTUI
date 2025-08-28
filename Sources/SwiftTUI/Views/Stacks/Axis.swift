@@ -1,5 +1,11 @@
 import Foundation
 
+/// Public axis for user-facing APIs like ScrollView.
+public enum Axis {
+   case horizontal
+   case vertical
+}
+
 enum StackOrientation {
     case horizontal
     case vertical
@@ -17,4 +23,3 @@ extension EnvironmentValues {
         set { self[StackOrientationEnvironmentKey.self] = newValue }
     }
 }
-

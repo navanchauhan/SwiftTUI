@@ -56,7 +56,7 @@ Environment keys employed:
 
 - [x] Keyboard activation for `Button` (Enter/Space)
 - [x] Focus movement with arrow keys (and vim keys h/j/k/l)
-- [~] `ScrollView` auto-focus scrolling only (no explicit axis/APIs)
+- [~] `ScrollView` auto-focus scrolling only; now supports axis parameter
 
 ## Differences vs SwiftUI (keep in mind)
 
