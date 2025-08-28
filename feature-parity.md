@@ -78,7 +78,7 @@ Environment keys employed:
  - [x] `Toggle`  
  - [x] `Slider`
  - [x] `Picker`
- - [ ] `Stepper`
+ - [x] `Stepper`
  - [ ] `DatePicker`
  - [x] `ProgressView`
  - [x] `SecureField`
