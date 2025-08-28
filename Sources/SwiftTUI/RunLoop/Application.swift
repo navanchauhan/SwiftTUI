@@ -19,6 +19,7 @@ public class Application {
 
  private var arrowKeyParser = ArrowKeyParser()
  private var mouseParser = SGRMouseParser()
+ private var mouseReportingActive = false
 
  private var invalidatedNodes: [Node] = []
  private var updateScheduled = false
@@ -74,9 +75,15 @@ public class Application {
      // Initialize renderer and input mode only after confirming TTY
      renderer.start()
      setInputMode()
-      // Enable xterm mouse reporting (SGR 1006 + basic 1000)
-     writeOut(EscapeSequence.enableMouseSGR)
-     writeOut(EscapeSequence.enableMouseBasic)
+      // Enable xterm mouse reporting (SGR 1006 + basic 1000) unless disabled by env
+     let disableMouse = ProcessInfo.processInfo.environment["SWIFTTUI_DISABLE_MOUSE"] == "1"
+     if !disableMouse {
+         writeOut(EscapeSequence.enableMouseSGR)
+         writeOut(EscapeSequence.enableMouseBasic)
+         mouseReportingActive = true
+     } else {
+         mouseReportingActive = false
+     }
      updateWindowSize()
      control.layout(size: window.layer.frame.size)
      renderer.draw()
@@ -261,9 +268,11 @@ public class Application {
 
  private func stop() {
      renderer.stop()
-     // Disable mouse reporting
-     writeOut(EscapeSequence.disableMouseBasic)
-     writeOut(EscapeSequence.disableMouseSGR)
+     // Disable mouse reporting if it was enabled
+     if mouseReportingActive {
+         writeOut(EscapeSequence.disableMouseBasic)
+         writeOut(EscapeSequence.disableMouseSGR)
+     }
      resetInputMode() // Fix for: https://github.com/rensbreur/SwiftTUI/issues/25
      exit(0)
  }

@@ -38,6 +38,7 @@ Legend
 - [x] `.bold()`, `.italic()`, `.underline()`, `.strikethrough()`
 - [x] `.onAppear { ... }`
 - [x] `.onFocusChange { isFocused in ... }`
+- [x] `.onSubmit { ... }` (for TextField/SecureField binding mode)
 
 Environment keys employed:
 
@@ -79,7 +80,7 @@ Environment keys employed:
 - Layout/containers
 - [x] `List`
 - [~] `LazyVStack`/`LazyHStack` (implemented as plain stacks; not lazy)
-- [~] `NavigationView`/`NavigationStack` (minimal push/pop via NavigationStack + NavigationLink; NavigationView is a thin wrapper around NavigationStack)
+- [~] `NavigationView`/`NavigationStack` (minimal push/pop via NavigationStack + NavigationLink; `NavigationLink(isActive:)` supported for programmatic navigation; `NavigationView` is a thin wrapper around `NavigationStack`)
 - [~] `TabView` (titles + selection; simplified tab bar)
 - Controls
 - [x] `Toggle`  
@@ -93,7 +94,7 @@ Environment keys employed:
 - [x] `Image` (ASCII and Color-matrix; no external asset decoding)
 - [~] Shapes, clipping (Rectangle, RoundedRectangle, Circle, Ellipse, Capsule with fill/stroke; `clipShape` for these)
 - Interaction/other
-- [~] Gestures: `onTapGesture` (Enter/Space/mouse release; count=1 supported)
+- [x] Gestures: `onTapGesture` (Enter/Space/mouse release; count supported)
 - [~] Animations, transitions (API stubs; immediate updates, no visual tweening yet)
 - [~] Accessibility hooks (label, hint via Environment; not rendered yet)
 
@@ -113,6 +114,7 @@ Runtime/IO
 - [ ] Validate terminal mouse support across common Linux terminals (xterm, gnome-terminal, Alacritty, Kitty)
 - [x] Verify UTF-8 handling when stdin provides invalid sequences on Linux
 - Application decodes stdin lossily (invalid bytes replaced with U+FFFD) so parsers continue through invalid input. Unit tests cover parser behavior in presence of invalid bytes.
+- [x] Add SWIFTTUI_DISABLE_MOUSE env toggle to disable mouse reporting at runtime (for terminals with limited mouse support)
 
 Docs/README
 
