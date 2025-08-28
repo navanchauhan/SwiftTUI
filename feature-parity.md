@@ -75,7 +75,7 @@ Environment keys employed:
  - [ ] `TabView`
 - Controls
  - [x] `Toggle`  
- - [ ] `Slider`
+ - [x] `Slider`
  - [ ] `Picker`
  - [ ] `Stepper`
  - [ ] `DatePicker`

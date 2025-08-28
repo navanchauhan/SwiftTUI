@@ -13,7 +13,7 @@
         "id": 1,
         "title": "Implement Slider control",
         "description": "Add keyboard-driven slider control; update feature-parity; include Linux support.",
-        "status": "in-progress",
+        "status": "done",
         "priority": "high"
       },
       {
