@@ -90,13 +90,6 @@ Environment keys employed:
 
 ## Linux Compatibility TODO
 
-Build/packaging
-
-- [ ] Ensure Package.swift builds cleanly on Linux CI
-  - [ ] Consider lowering `// swift-tools-version:` if needed for Linux toolchains in CI
-  - [ ] Make the DocC plugin dev-only or optional to avoid Linux plugin issues
-- [ ] Add Linux build/test job in CI (e.g., GitHub Actions `ubuntu-latest`)
-
 APIs and conditionals
 
 - [ ] Provide `@ObservedObject` support on Linux
