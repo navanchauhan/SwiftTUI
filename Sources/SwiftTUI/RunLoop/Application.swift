@@ -71,6 +71,8 @@ public class Application {
           fputs("SwiftTUI: Non-TTY detected. Please run in a terminal.\n", stderr)
           return
       }
+      // Initialize renderer and input mode only after confirming TTY
+      renderer.start()
       setInputMode()
        // Enable xterm mouse reporting (SGR 1006 + basic 1000)
       writeOut(EscapeSequence.enableMouseSGR)

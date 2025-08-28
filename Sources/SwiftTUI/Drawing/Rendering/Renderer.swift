@@ -26,12 +26,18 @@ class Renderer {
     private let noAlternateBuffer: Bool
     private let asciiSnapshot: Bool
 
+    private var didSetup = false /* will set true after setup */
+
     init(layer: Layer) {
         self.layer = layer
         let env = ProcessInfo.processInfo.environment
         self.noAlternateBuffer = (env["SWIFTTUI_NO_ALT"] == "1")
         self.asciiSnapshot = (env["SWIFTTUI_ASCII_SNAPSHOT"] == "1")
         setCache()
+    }
+
+    /// Explicit start hook to prepare the terminal after confirming a TTY.
+    func start() {
         setup()
     }
 
@@ -65,7 +71,7 @@ class Renderer {
     }
 
     func stop() {
-        if !noAlternateBuffer {
+        if didSetup, !noAlternateBuffer {
             write(EscapeSequence.disableAlternateBuffer)
             write(EscapeSequence.showCursor)
         }
@@ -99,10 +105,12 @@ class Renderer {
     }
 
     private func setup() {
+        if didSetup { return }
         if !noAlternateBuffer { write(EscapeSequence.enableAlternateBuffer) }
         write(EscapeSequence.clearScreen)
         write(EscapeSequence.moveTo(currentPosition))
         write(EscapeSequence.hideCursor)
+        didSetup = true
     }
 
     private func updateAttributes(_ attributes: CellAttributes) {
