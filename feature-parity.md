@@ -13,7 +13,7 @@ Legend
 - [x] `Button` (action + label)
 - [~] Focus “hover” callback (not pointer hover)
 - [x] `TextField` (single line, action on Enter)
-- [~] Placeholder + `Environment(\.placeholderColor)`; no live `Binding<String>` editing
+- [x] Placeholder + `Environment(\.placeholderColor)`; live `Binding<String>` editing supported (action-based submit also available)
 - [x] `Divider` (uses stack orientation); `.style(...)`
 - [x] `Spacer` (expands on parent axis)
 - [x] `Color` as a view (ANSI/xterm/true color)
