@@ -37,5 +37,33 @@ final class TabViewDatePickerTests: XCTestCase {
        let d1 = cal.dateComponents([.year, .month, .day], from: date)
        let d2 = cal.dateComponents([.year, .month, .day], from: next)
        XCTAssertEqual(d1, d2)
+
+
+  func test_TabView_hl_ChangesSelection() throws {
+      var selection: Int = 0
+      let view = TabView(titles: ["One", "Two", "Three"], selection: Binding(get: { selection }, set: { selection = $0 })) {
+          Text("First")
+          Text("Second")
+          Text("Third")
+      }
+      let node = Node(view: VStack(content: view).view)
+      node.build()
+      let root = try XCTUnwrap(node.control)
+      let tabViewContainer = try XCTUnwrap(root.children.first)
+      let firstTabButton = try XCTUnwrap(tabViewContainer.children.first)
+
+      // Move selection to the right with 'l'
+      firstTabButton.handleEvent("l")
+      XCTAssertEqual(selection, 1)
+
+      // Move selection further right
+      firstTabButton.handleEvent("l")
+      XCTAssertEqual(selection, 2)
+
+      // Move selection left with 'h'
+      firstTabButton.handleEvent("h")
+      XCTAssertEqual(selection, 1)
+  }
+
    }
 }

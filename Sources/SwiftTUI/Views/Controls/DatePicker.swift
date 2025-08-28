@@ -260,7 +260,7 @@ public struct DatePicker<Label: View>: View, PrimitiveView {
 
      // Clamp day when adding months so 31st becomes 28/29 if needed
      private func clampedAddMonths(_ delta: Int, from date: Date) -> Date {
-         var comps = calendar.dateComponents(in: calendar.timeZone, from: date)
+         let comps = calendar.dateComponents(in: calendar.timeZone, from: date)
          guard var year = comps.year, var month = comps.month, let day = comps.day else {
              return date
          }
@@ -289,7 +289,7 @@ public struct DatePicker<Label: View>: View, PrimitiveView {
 
      // Clamp Feb 29 -> Feb 28 on non-leap year when adding years
      private func clampedAddYears(_ delta: Int, from date: Date) -> Date {
-         var comps = calendar.dateComponents(in: calendar.timeZone, from: date)
+         let comps = calendar.dateComponents(in: calendar.timeZone, from: date)
          guard var year = comps.year, let month = comps.month, let day = comps.day else { return date }
          year += delta
          let maxDay = daysInMonth(year: year, month: month)

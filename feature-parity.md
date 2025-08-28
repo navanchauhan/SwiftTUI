@@ -64,7 +64,7 @@ Environment keys employed:
 
 ## Differences vs SwiftUI (keep in mind)
 
-- [~] `ScrollView` has no indicators; axis is supported; keeps focused control visible
+- [~] `ScrollView` has no indicators; axis is supported; keeps focused control visible. A no-op `.scrollIndicators(_:)` modifier is provided for source parity.
 - [~] `TextField`: supports both action-on-Enter (clears) and live `Binding<String>` editing (onCommit does not clear)
 - [~] `Button` exposes `hover` closure on focus changes
 - [~] `.background(_:)` supports both `Color` and view variants; the view variant composes behind content
@@ -72,17 +72,19 @@ Environment keys employed:
 
 - [~] `onFocusChange` fires when focus enters or leaves the subtree; moves within the subtree may trigger an exit+enter pair in quick succession (terminal simplification)
 
-- [~] `Picker` simplified: string options with h/l to cycle; optional label; no custom content/tags yet
+- [~] `Picker` simplified: string options with h/l to cycle; optional label; supports tag-based selection via `(title, tag)` options; no custom content builder yet
+
+- [~] Arrow keys vs focus: Arrow keys primarily move focus across controls. When a focus move isn’t possible, arrow keys are forwarded to the focused control using vim-key equivalents (← h, → l, ↑ k, ↓ j) so single-focus controls (e.g. `Picker`) can react.
 - [~] `List` simplified: vertical only, implemented as `ScrollView` + `VStack`; row separators available via `.listSeparators(style:)`
 - [~] `Image` is terminal-oriented: ASCII and Color-matrix initializers; no file/asset decoding
 ## Missing, Common SwiftUI APIs (TODO)
 
 - Layout/containers
 - [x] `List`
-- [~] Row separators: Available via `.listSeparators(style:color:)` with styles (plain/heavy/double/none) and optional color. Still basic (no per-row customization).
+- [x] Row separators: Available via `.listSeparators(style:color:)` (global) and per-row via `.listRowSeparator(style:color:)`. Styles supported: plain/heavy/double/none (use `.none` to hide a row’s separator). Still basic overall (no per-section customization).
 - [~] `LazyVStack`/`LazyHStack` (implemented as plain stacks; not lazy)
 - [~] `NavigationView`/`NavigationStack` (minimal push/pop via NavigationStack + NavigationLink; `NavigationLink(isActive:)` supported for programmatic navigation; `NavigationView` is a thin wrapper around `NavigationStack`)
-- [~] `TabView` (titles + selection; simplified tab bar)
+- [~] `TabView` (titles + selection; simplified tab bar; when a tab button is focused, h/l change selection; Enter/Space activates the focused tab)
 - Controls
 - [x] `Toggle`  
 - [x] `Slider`

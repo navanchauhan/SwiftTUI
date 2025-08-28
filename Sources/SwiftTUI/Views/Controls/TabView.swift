@@ -211,8 +211,26 @@ public struct TabView<Content: View>: View, PrimitiveView {
        }
 
        override func handleEvent(_ char: Character) {
-           if char == "\n" || char == "\r" || char == " " { onSelect() }
+           if char == "\n" || char == "\r" || char == " " { onSelect(); return }
+           // While a tab button is focused, allow 'h'/'l' to change selection
+           if char == "h" {
+               if let tv = parent as? TabViewControl {
+                   if tv.selection.wrappedValue > 0 { tv.selection.wrappedValue -= 1 }
+                   tv.installSelectedContent()
+                   tv.layer.invalidate()
+               }
+               return
+           }
+           if char == "l" {
+               if let tv = parent as? TabViewControl {
+                   if tv.selection.wrappedValue < max(0, tv.titles.count - 1) { tv.selection.wrappedValue += 1 }
+                   tv.installSelectedContent()
+                   tv.layer.invalidate()
+               }
+               return
+           }
        }
+
 
        override func cell(at position: Position) -> Cell? {
            guard position.line == 0 else { return nil }
