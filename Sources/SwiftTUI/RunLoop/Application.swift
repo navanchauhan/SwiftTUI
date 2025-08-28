@@ -78,17 +78,23 @@ public class Application {
       renderer.draw()
 
       let stdInSource = DispatchSource.makeReadSource(fileDescriptor: STDIN_FILENO, queue: .main)
-      stdInSource.setEventHandler(qos: .default, flags: [], handler: self.handleInput)
+      stdInSource.setEventHandler { [weak self] in
+          Task { @MainActor in self?.handleInput() }
+      }
       stdInSource.resume()
       self.stdInSource = stdInSource
 
       let sigWinChSource = DispatchSource.makeSignalSource(signal: SIGWINCH, queue: .main)
-      sigWinChSource.setEventHandler(qos: .default, flags: [], handler: self.handleWindowSizeChange)
+      sigWinChSource.setEventHandler { [weak self] in
+          Task { @MainActor in self?.handleWindowSizeChange() }
+      }
       sigWinChSource.resume()
 
       signal(SIGINT, SIG_IGN)
       let sigIntSource = DispatchSource.makeSignalSource(signal: SIGINT, queue: .main)
-      sigIntSource.setEventHandler(qos: .default, flags: [], handler: self.stop)
+      sigIntSource.setEventHandler { [weak self] in
+          Task { @MainActor in self?.stop() }
+      }
       sigIntSource.resume()
 
       switch runLoopType {
