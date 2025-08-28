@@ -34,6 +34,7 @@ Legend
 - [x] `.foregroundColor(_:)`
 - [x] `.background(_ color:)` and `.background(_ view:)`
 - [x] `.overlay(_ view:, alignment:)`
+- [x] `.cornerRadius(_:)` (via `clipShape(RoundedRectangle)`)
 - [x] `.bold()`, `.italic()`, `.underline()`, `.strikethrough()`
 - [x] `.onAppear { ... }`
 - [x] `.onFocusChange { isFocused in ... }`
@@ -90,9 +91,9 @@ Environment keys employed:
 - [x] `SecureField`
 - Rendering
 - [x] `Image` (ASCII and Color-matrix; no external asset decoding)
-- [~] Shapes, clipping, masking (Rectangle, RoundedRectangle with fill/stroke; clipShape for these)
+- [~] Shapes, clipping (Rectangle, RoundedRectangle, Circle, Capsule with fill/stroke; `clipShape` for these)
 - Interaction/other
-- [~] Gestures: `onTapGesture` (Enter/Space/mouse release)
+- [~] Gestures: `onTapGesture` (Enter/Space/mouse release; count=1 supported)
 - [~] Animations, transitions (API stubs; immediate updates, no visual tweening yet)
 - [~] Accessibility hooks (label, hint via Environment; not rendered yet)
 
@@ -111,7 +112,7 @@ Runtime/IO
 - [x] Dispatch-based run loop (works with swift-corelibs-libdispatch)
 - [ ] Validate terminal mouse support across common Linux terminals (xterm, gnome-terminal, Alacritty, Kitty)
 - [x] Verify UTF-8 handling when stdin provides invalid sequences on Linux
- - Application decodes stdin lossily (invalid bytes replaced with U+FFFD) so parsers continue through invalid input. Unit tests cover parser behavior in presence of invalid bytes.
+- Application decodes stdin lossily (invalid bytes replaced with U+FFFD) so parsers continue through invalid input. Unit tests cover parser behavior in presence of invalid bytes.
 
 Docs/README
 
