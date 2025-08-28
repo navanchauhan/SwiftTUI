@@ -73,14 +73,26 @@ struct KitchenSinkView: View {
            Text(doubleTapped ? "Double tapped!" : "Double-tap me")
              .onTapGesture(count: 2) { doubleTapped.toggle() }
 
-           // ScrollView horizontal
-           Text("Horizontal ScrollView:")
-           ScrollView(.horizontal) {
-             HStack(spacing: 1) {
-               ForEach(0..<10, id: \.self) { i in
-                 Text("[\(i)]").padding(1).border(.rounded)
+           // ScrollView demos grouped to keep child count within ViewBuilder limit
+           Group {
+             Text("Horizontal ScrollView:")
+             ScrollView(.horizontal) {
+               HStack(spacing: 1) {
+                 ForEach(0..<10, id: \.self) { i in
+                   Text("[\(i)]").padding(1).border(.rounded)
+                 }
                }
              }
+
+             Text("Vertical ScrollView (no indicators):")
+             ScrollView(.vertical) {
+               VStack(alignment: .leading, spacing: 0) {
+                 ForEach(0..<20, id: \.self) { i in
+                   Text("Row \((i+1))").padding(1)
+                 }
+               }
+             }
+             .scrollIndicators(.hidden)
            }
          }
          // Lists & Shapes tab
@@ -101,6 +113,15 @@ struct KitchenSinkView: View {
              Rectangle().stroke(.magenta).frame(width: 10, height: 4)
              RoundedRectangle(cornerRadius: 2).fill(.cyan).frame(width: 10, height: 4)
              Color.red.frame(width: 6, height: 3).clipShape(Circle())
+             Color.green.frame(width: 10, height: 3).cornerRadius(2)
+           }
+
+           Divider().padding(1)
+
+           Group {
+             Text("Overlay: text on top of color")
+             Color.blue.frame(width: 16, height: 3)
+               .overlay { Text("Overlay").bold().foregroundColor(.yellow) }
            }
 
            Divider().padding(1)
