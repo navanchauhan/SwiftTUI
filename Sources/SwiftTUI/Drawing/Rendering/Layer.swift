@@ -41,7 +41,9 @@ class Layer {
             parent.invalidate(rect: Rect(position: rect.position + frame.position, size: rect.size))
             return
         }
-        renderer?.application?.scheduleUpdate()
+        Task { @MainActor in
+            renderer?.application?.scheduleUpdate()
+        }
         guard let invalidated = self.invalidated else {
             self.invalidated = rect
             return

@@ -37,7 +37,9 @@ public struct State<T>: AnyState {
                 return
             }
             node.state[label] = newValue
-            node.root.application?.invalidateNode(node)
+            Task { @MainActor in
+                node.root.application?.invalidateNode(node)
+            }
         }
     }
 
