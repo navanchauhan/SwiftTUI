@@ -5,8 +5,12 @@ public struct Text: View, PrimitiveView {
     
     private var _attributedText: Any?
     
+    #if os(Linux)
+    private var attributedText: AttributedString? { _attributedText as? AttributedString }
+    #else
     @available(macOS 12, *)
     private var attributedText: AttributedString? { _attributedText as? AttributedString }
+    #endif
     
     @Environment(\.foregroundColor) private var foregroundColor: Color
     @Environment(\.bold) private var bold: Bool
@@ -18,10 +22,16 @@ public struct Text: View, PrimitiveView {
         self.text = text
     }
     
+    #if os(Linux)
+    public init(_ attributedText: AttributedString) {
+        self._attributedText = attributedText
+    }
+    #else
     @available(macOS 12, *)
     public init(_ attributedText: AttributedString) {
         self._attributedText = attributedText
     }
+    #endif
     
     static var size: Int? { 1 }
     
@@ -57,8 +67,12 @@ public struct Text: View, PrimitiveView {
         
         var _attributedText: Any?
         
+        #if os(Linux)
+        var attributedText: AttributedString? { _attributedText as? AttributedString }
+        #else
         @available(macOS 12, *)
         var attributedText: AttributedString? { _attributedText as? AttributedString }
+        #endif
         
         var foregroundColor: Color
         var bold: Bool
@@ -91,6 +105,26 @@ public struct Text: View, PrimitiveView {
         override func cell(at position: Position) -> Cell? {
             guard position.line == 0 else { return nil }
             guard position.column < Extended(characterCount) else { return .init(char: " ") }
+            #if os(Linux)
+            if let attributedText {
+                let characters = attributedText.characters
+                let i = characters.index(characters.startIndex, offsetBy: position.column.intValue)
+                let char = attributedText[i ..< characters.index(after: i)]
+                let cellAttributes = CellAttributes(
+                    bold: char.bold ?? bold,
+                    italic: char.italic ?? italic,
+                    underline: char.underline ?? underline,
+                    strikethrough: char.strikethrough ?? strikethrough,
+                    inverted: char.inverted ?? false
+                )
+                return Cell(
+                    char: char.characters[char.startIndex],
+                    foregroundColor: char.foregroundColor ?? foregroundColor,
+                    backgroundColor: char.backgroundColor,
+                    attributes: cellAttributes
+                )
+            }
+            #else
             if #available(macOS 12, *), let attributedText {
                 let characters = attributedText.characters
                 let i = characters.index(characters.startIndex, offsetBy: position.column.intValue)
@@ -109,6 +143,7 @@ public struct Text: View, PrimitiveView {
                     attributes: cellAttributes
                 )
             }
+            #endif
             if let text {
                 let cellAttributes = CellAttributes(
                     bold: bold,
@@ -126,9 +161,11 @@ public struct Text: View, PrimitiveView {
         }
         
         private var characterCount: Int {
-            if #available(macOS 12, *), let attributedText {
-                return attributedText.characters.count
-            }
+            #if os(Linux)
+            if let attributedText { return attributedText.characters.count }
+            #else
+            if #available(macOS 12, *), let attributedText { return attributedText.characters.count }
+            #endif
             return text?.count ?? 0
         }
     }

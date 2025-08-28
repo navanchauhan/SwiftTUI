@@ -94,7 +94,7 @@ APIs and conditionals
 
 - [x] Provide `@ObservedObject` support on Linux
  - Implemented via OpenCombine fallback with cross-platform typealiases
-- [ ] Audit availability for `AttributedString`
+- [x] Audit availability for `AttributedString`
  - Ensure availability attributes don’t block Linux (or gate usages behind `#if canImport(Foundation)` and Swift version checks)
 
 Runtime/IO
@@ -106,7 +106,7 @@ Runtime/IO
 
 Docs/README
 
-- [ ] Document Linux prerequisites (Swift version, terminals tested)
+- [x] Document Linux prerequisites (Swift version, terminals tested)
 - [x] Note macOS-only features (`RunLoopType.cocoa`)
 
 If you add or change APIs in `Sources/SwiftTUI`, please update the relevant TODO items above.
