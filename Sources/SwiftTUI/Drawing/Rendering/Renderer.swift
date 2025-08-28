@@ -20,8 +20,17 @@ class Renderer {
 
     weak var application: Application?
 
+    // Snapshot/debug toggles (read from environment)
+    // - SWIFTTUI_NO_ALT=1      -> do not use alternate screen buffer
+    // - SWIFTTUI_ASCII_SNAPSHOT=1 -> render background-only cells as block characters
+    private let noAlternateBuffer: Bool
+    private let asciiSnapshot: Bool
+
     init(layer: Layer) {
         self.layer = layer
+        let env = ProcessInfo.processInfo.environment
+        self.noAlternateBuffer = (env.get("SWIFTTUI_NO_ALT", None) == "1")
+        self.asciiSnapshot = (env.get("SWIFTTUI_ASCII_SNAPSHOT", None) == "1")
         setCache()
         setup()
     }
@@ -56,25 +65,29 @@ class Renderer {
     }
 
     func stop() {
-        write(EscapeSequence.disableAlternateBuffer)
-        write(EscapeSequence.showCursor)
+        if !noAlternateBuffer {
+            write(EscapeSequence.disableAlternateBuffer)
+            write(EscapeSequence.showCursor)
+        }
     }
 
     private func drawPixel(_ cell: Cell, at position: Position) {
         guard position.column >= 0, position.line >= 0, position.column < layer.frame.size.width, position.line < layer.frame.size.height else {
             return
         }
-        if cache[position.line.intValue][position.column.intValue] != cell {
-            cache[position.line.intValue][position.column.intValue] = cell
+        var outCell = cell
+        if asciiSnapshot, outCell.char == " ", let bg = outCell.backgroundColor, bg != .default { outCell.char = "█" }
+        if cache[position.line.intValue][position.column.intValue] != outCell {
+            cache[position.line.intValue][position.column.intValue] = outCell
             if self.currentPosition != position {
                 write(EscapeSequence.moveTo(position))
                 self.currentPosition = position
             }
-            if self.currentForegroundColor != cell.foregroundColor {
-                write(cell.foregroundColor.foregroundEscapeSequence)
-                self.currentForegroundColor = cell.foregroundColor
+            if self.currentForegroundColor != outCell.foregroundColor {
+                write(outCell.foregroundColor.foregroundEscapeSequence)
+                self.currentForegroundColor = outCell.foregroundColor
             }
-            let backgroundColor = cell.backgroundColor ?? .default
+            let backgroundColor = outCell.backgroundColor ?? .default
             if self.currentBackgroundColor != backgroundColor {
                 write(backgroundColor.backgroundEscapeSequence)
                 self.currentBackgroundColor = backgroundColor
@@ -86,7 +99,7 @@ class Renderer {
     }
 
     private func setup() {
-        write(EscapeSequence.enableAlternateBuffer)
+        if !noAlternateBuffer { write(EscapeSequence.enableAlternateBuffer) }
         write(EscapeSequence.clearScreen)
         write(EscapeSequence.moveTo(currentPosition))
         write(EscapeSequence.hideCursor)
