@@ -8,6 +8,7 @@ import Glibc
 import Darwin
 #endif
 
+@MainActor
 public class Application {
   private let node: Node
   let window: Window
