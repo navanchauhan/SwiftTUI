@@ -13,7 +13,7 @@
         "id": 1,
         "title": "Implement Slider control",
         "description": "Add keyboard-driven slider control; update feature-parity; include Linux support.",
-        "status": "pending",
+        "status": "in-progress",
         "priority": "high"
       },
       {
@@ -146,7 +146,7 @@
         "id": 20,
         "title": "Fix Swift 6 concurrency build issues",
         "description": "Address Swift 6 concurrency errors (e.g., Edges) via minimal annotations or settings; avoid behavior changes.",
-        "status": "in-progress",
+        "status": "done",
         "priority": "high"
       },
       {
