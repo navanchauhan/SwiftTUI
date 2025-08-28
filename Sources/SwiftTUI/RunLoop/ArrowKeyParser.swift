@@ -8,6 +8,7 @@ struct ArrowKeyParser {
         case left
     }
 
+    // 0: idle, 1: ESC, 2: ESC [, 3: ESC O (SS3)
     private var partial: Int = 0
 
     var arrowKey: ArrowKey?
@@ -17,27 +18,31 @@ struct ArrowKeyParser {
             partial = 1
             return true
         }
-        if partial == 1 && character == "[" {
-            partial = 2
-            return true
+        if partial == 1 {
+            if character == "[" { partial = 2; return true }
+            if character == "O" { partial = 3; return true }
         }
-        if partial == 2 && character == "A" {
-            arrowKey = .up
-            partial = 0
-            return true
+        if partial == 2 {
+            switch character {
+            case "A": arrowKey = .up; partial = 0; return true
+            case "B": arrowKey = .down; partial = 0; return true
+            case "C": arrowKey = .right; partial = 0; return true
+            case "D": arrowKey = .left; partial = 0; return true
+            case "0","1","2","3","4","5","6","7","8","9",";":
+                return true
+            default:
+                arrowKey = nil; partial = 0; return false
+            }
         }
-        if partial == 2 && character == "B" {
-            arrowKey = .down
-            partial = 0
-            return true
-        }
-        if partial == 2 && character == "C" {
-            arrowKey = .right
-            partial = 0
-            return true
-        }
-        if partial == 2 && character == "D" {
-            arrowKey = .left
+        if partial == 3 {
+            switch character {
+            case "A": arrowKey = .up
+            case "B": arrowKey = .down
+            case "C": arrowKey = .right
+            case "D": arrowKey = .left
+            default:
+                arrowKey = nil; partial = 0; return false
+            }
             partial = 0
             return true
         }
