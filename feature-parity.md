@@ -91,7 +91,7 @@ Environment keys employed:
 - [x] `SecureField`
 - Rendering
 - [x] `Image` (ASCII and Color-matrix; no external asset decoding)
-- [~] Shapes, clipping (Rectangle, RoundedRectangle, Circle, Capsule with fill/stroke; `clipShape` for these)
+- [~] Shapes, clipping (Rectangle, RoundedRectangle, Circle, Ellipse, Capsule with fill/stroke; `clipShape` for these)
 - Interaction/other
 - [~] Gestures: `onTapGesture` (Enter/Space/mouse release; count=1 supported)
 - [~] Animations, transitions (API stubs; immediate updates, no visual tweening yet)
