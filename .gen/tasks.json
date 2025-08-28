@@ -1,1 +1,182 @@
-[]
+[
+  {
+    "id": 1,
+    "title": "SwiftUI feature parity: remaining APIs and docs sync",
+    "description": "Implement missing APIs from feature-parity.md and keep docs in sync across macOS and Linux.",
+    "status": "in-progress",
+    "dependencies": [],
+    "priority": "high",
+    "details": "",
+    "testStrategy": "",
+    "subtasks": [
+      {
+        "id": 1,
+        "title": "Implement Slider control",
+        "description": "Add keyboard-driven slider control; update feature-parity; include Linux support.",
+        "status": "pending",
+        "priority": "high"
+      },
+      {
+        "id": 2,
+        "title": "Implement Picker control",
+        "description": "Single/multi selection; keyboard navigation; Bindings-based API; update docs + parity.",
+        "status": "pending",
+        "priority": "high"
+      },
+      {
+        "id": 3,
+        "title": "Implement Stepper control",
+        "description": "Increment/decrement with +/- and Enter; Binding-based; update parity.",
+        "status": "pending",
+        "priority": "medium"
+      },
+      {
+        "id": 4,
+        "title": "Implement DatePicker control",
+        "description": "Text-based date input UI; initial coarse version acceptable; update parity.",
+        "status": "pending",
+        "priority": "medium"
+      },
+      {
+        "id": 5,
+        "title": "Implement List container",
+        "description": "Create vertical list container w/ selection + focus; update parity.",
+        "status": "pending",
+        "priority": "high"
+      },
+      {
+        "id": 6,
+        "title": "Implement LazyVStack/LazyHStack",
+        "description": "Lazy stacks for large content; incremental rendering; update parity.",
+        "status": "pending",
+        "priority": "medium"
+      },
+      {
+        "id": 7,
+        "title": "Implement NavigationStack",
+        "description": "Navigation stack abstraction; push/pop; keyboard back; update parity.",
+        "status": "pending",
+        "priority": "medium"
+      },
+      {
+        "id": 8,
+        "title": "Implement TabView",
+        "description": "Tab bar with keyboard switching; host multiple views; update parity.",
+        "status": "pending",
+        "priority": "medium"
+      },
+      {
+        "id": 9,
+        "title": "Implement Image support",
+        "description": "Text-mode image placeholder, possibly block drawing; update parity.",
+        "status": "pending",
+        "priority": "low"
+      },
+      {
+        "id": 10,
+        "title": "Add shapes/clipping/masking",
+        "description": "Foundational APIs for shapes/clipping/masking; scoped initial set.",
+        "status": "pending",
+        "priority": "low"
+      },
+      {
+        "id": 11,
+        "title": "Add basic animations/transitions/gestures",
+        "description": "APIs scaffolding, minimal demo where meaningful; document limitations.",
+        "status": "pending",
+        "priority": "low"
+      },
+      {
+        "id": 12,
+        "title": "Add accessibility hooks",
+        "description": "Expose hooks to describe view semantics; document approach.",
+        "status": "pending",
+        "priority": "low"
+      },
+      {
+        "id": 13,
+        "title": "Implement @StateObject",
+        "description": "Node-managed lifecycle; instantiate observable; update parity.",
+        "status": "pending",
+        "priority": "medium"
+      },
+      {
+        "id": 14,
+        "title": "Implement @EnvironmentObject",
+        "description": "Environment-scoped observable objects; injection + lookup; update parity.",
+        "status": "pending",
+        "priority": "medium"
+      },
+      {
+        "id": 15,
+        "title": "Implement @FocusState",
+        "description": "Keyboard focus bindings; surface focused state; update parity.",
+        "status": "pending",
+        "priority": "medium"
+      },
+      {
+        "id": 16,
+        "title": "Validate Linux mouse support",
+        "description": "Validate SGR mouse press/release across terminals (xterm, gnome-terminal, Alacritty, Kitty); file findings.",
+        "status": "pending",
+        "priority": "medium"
+      },
+      {
+        "id": 17,
+        "title": "Verify Linux UTF-8 handling",
+        "description": "Fuzz or inject invalid UTF-8 sequences; ensure graceful handling; file results.",
+        "status": "pending",
+        "priority": "medium"
+      },
+      {
+        "id": 18,
+        "title": "Audit AttributedString availability",
+        "description": "Gate AttributedString usage; add availability where needed; confirm Linux builds.",
+        "status": "pending",
+        "priority": "medium"
+      },
+      {
+        "id": 19,
+        "title": "Expand Linux docs",
+        "description": "Broaden Linux prerequisites and tested terminals in README/docs; keep parity doc synced.",
+        "status": "pending",
+        "priority": "medium"
+      },
+      {
+        "id": 20,
+        "title": "Fix Swift 6 concurrency build issues",
+        "description": "Address Swift 6 concurrency errors (e.g., Edges) via minimal annotations or settings; avoid behavior changes.",
+        "status": "in-progress",
+        "priority": "high"
+      },
+      {
+        "id": 21,
+        "title": "Add ControlsDemo example",
+        "description": "New example demonstrating Toggle, Slider, ProgressView, SecureField, Picker, Stepper, DatePicker.",
+        "status": "pending",
+        "priority": "medium"
+      },
+      {
+        "id": 22,
+        "title": "Maintain feature-parity.md",
+        "description": "Complete and refine parity doc as APIs land; reflect macOS/Linux differences where needed.",
+        "status": "in-progress",
+        "priority": "medium"
+      },
+      {
+        "id": 23,
+        "title": "Mark Toggle/ProgressView/SecureField as implemented",
+        "description": "Already implemented in this run; ensure tests/examples exist and docs updated.",
+        "status": "done",
+        "priority": "high"
+      },
+      {
+        "id": 24,
+        "title": "Provide @ObservedObject support on Linux",
+        "description": "Use OpenCombine fallback with typealiases; update Package.swift; adjust Node and wrappers.",
+        "status": "done",
+        "priority": "high"
+      }
+    ]
+  }
+]
