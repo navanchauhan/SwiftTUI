@@ -9,11 +9,11 @@ Legend
 ## Views (TODO)
 
 - [x] `Text` (string, and `AttributedString` with availability)
- - [x] Styling via `.foregroundColor`, `.bold`, `.italic`, `.underline`, `.strikethrough`
+- [x] Styling via `.foregroundColor`, `.bold`, `.italic`, `.underline`, `.strikethrough`
 - [x] `Button` (action + label)
- - [~] Focus “hover” callback (not pointer hover)
+- [~] Focus “hover” callback (not pointer hover)
 - [x] `TextField` (single line, action on Enter)
- - [~] Placeholder + `Environment(\.placeholderColor)`; no live `Binding<String>` editing
+- [~] Placeholder + `Environment(\.placeholderColor)`; no live `Binding<String>` editing
 - [x] `Divider` (uses stack orientation); `.style(...)`
 - [x] `Spacer` (expands on parent axis)
 - [x] `Color` as a view (ANSI/xterm/true color)
@@ -27,7 +27,7 @@ Legend
 
 ## Modifiers (TODO)
 
-- [x] `.padding(_:)`, `.padding(_:_:)` (edges/length; `Int`/`Extended`)
+- [x] `.padding(_:)`, `.padding(_:_: )` (edges/length; `Int`/`Extended`)
 - [x] `.frame(width:height:alignment:)` (fixed)
 - [x] `.frame(minWidth:maxWidth:minHeight:maxHeight:alignment:)` (flexible; `Extended.infinity`)
 - [x] `.border(_ color?, style:)` (default/rounded/heavy/double)
@@ -71,33 +71,33 @@ Environment keys employed:
 ## Missing, Common SwiftUI APIs (TODO)
 
 - Layout/containers
- - [x] `List`
- - [ ] `LazyVStack`/`LazyHStack`
- - [ ] `NavigationView`/`NavigationStack`
- - [ ] `TabView`
+- [x] `List`
+- [~] `LazyVStack`/`LazyHStack` (implemented as plain stacks; not lazy)
+- [ ] `NavigationView`/`NavigationStack`
+- [~] `TabView` (titles + selection; simplified tab bar)
 - Controls
- - [x] `Toggle`  
- - [x] `Slider`
- - [x] `Picker`
- - [x] `Stepper`
- - [ ] `DatePicker`
- - [x] `ProgressView`
- - [x] `SecureField`
+- [x] `Toggle`  
+- [x] `Slider`
+- [x] `Picker`
+- [x] `Stepper`
+- [~] `DatePicker` (date-only; Y/M/D with h/l +/- and j/k)
+- [x] `ProgressView`
+- [x] `SecureField`
 - Rendering
- - [ ] `Image`
- - [ ] Shapes, clipping, masking
+- [ ] `Image`
+- [ ] Shapes, clipping, masking
 - Interaction/other
- - [ ] Animations, transitions, gestures
- - [ ] Accessibility hooks
+- [ ] Animations, transitions, gestures
+- [ ] Accessibility hooks
 
 ## Linux Compatibility TODO
 
 APIs and conditionals
 
 - [x] Provide `@ObservedObject` support on Linux
- - Implemented via OpenCombine fallback with cross-platform typealiases
+- Implemented via OpenCombine fallback with cross-platform typealiases
 - [x] Audit availability for `AttributedString`
- - Ensure availability attributes don’t block Linux (or gate usages behind `#if canImport(Foundation)` and Swift version checks)
+- Ensure availability attributes don’t block Linux (or gate usages behind `#if canImport(Foundation)` and Swift version checks)
 
 Runtime/IO
 
