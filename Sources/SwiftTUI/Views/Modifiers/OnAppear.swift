@@ -29,7 +29,7 @@ private struct OnAppear<Content: View>: View, PrimitiveView, ModifierView {
     }
 
     private class OnAppearControl: Control {
-        var action: () -> Void
+        var action: @Sendable () -> Void
         var didAppear = false
 
         init(action: @escaping @Sendable () -> Void) {
