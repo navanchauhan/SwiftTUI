@@ -29,8 +29,8 @@ class Renderer {
     init(layer: Layer) {
         self.layer = layer
         let env = ProcessInfo.processInfo.environment
-        self.noAlternateBuffer = (env.get("SWIFTTUI_NO_ALT", None) == "1")
-        self.asciiSnapshot = (env.get("SWIFTTUI_ASCII_SNAPSHOT", None) == "1")
+        self.noAlternateBuffer = (env["SWIFTTUI_NO_ALT"] == "1")
+        self.asciiSnapshot = (env["SWIFTTUI_ASCII_SNAPSHOT"] == "1")
         setCache()
         setup()
     }

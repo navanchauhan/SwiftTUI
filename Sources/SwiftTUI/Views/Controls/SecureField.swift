@@ -42,7 +42,7 @@ public struct SecureField: View, PrimitiveView {
        }
 
        override func handleEvent(_ char: Character) {
-           if char == "\n" {
+           if char == "\n" || char == "\r" {
                action(text)
                self.text = ""
                layer.invalidate()

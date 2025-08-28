@@ -196,6 +196,12 @@ public class Application {
                   window.firstResponder?.becomeFirstResponder()
               }
           } else {
+              if char == "\r" {
+                  // Normalize CR to LF for Enter keys from some terminals
+                  globalKeyHandler?("\n")
+                  window.firstResponder?.handleEvent("\n")
+                  continue
+              }
               // Let the app intercept arbitrary keys first (e.g., 'r', 'g', 'G')
               globalKeyHandler?(char)
               window.firstResponder?.handleEvent(char)

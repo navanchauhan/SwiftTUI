@@ -11,4 +11,4 @@ A SwiftUI implementation for the terminal. We are trying to match the SwiftUI AP
 - Never make tests pass by hardcoding pathways for them
 
 # Goal
-Based on the feature parity document, implement remaining APIs for both macOS and Linux and keep the feature parity document in sync. We are implementing SwiftUI in the terminal!
+Based on the feature parity document, implement remaining APIs for both macOS and Linux and keep the feature parity document in sync. We are implementing SwiftUI in the terminal! We haven't completed our goal until every API in the feature parity document has been implemented properly.
