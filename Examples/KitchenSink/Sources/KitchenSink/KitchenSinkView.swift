@@ -45,6 +45,12 @@ var body: some View {
             Stepper(value: Binding(get: { stepperVal }, set: { stepperVal = $0 }), in: -10...10) { Text("Step: \(stepperVal)") }
           }
           Picker("Picker:", selection: Binding(get: { pickerIndex }, set: { pickerIndex = $0 }), options: ["One", "Two", "Three"]) 
+          Group {
+            Text("DatePicker (date):")
+            DatePicker("", selection: Binding(get: { date }, set: { date = $0 }), displayedComponents: [.date])
+            Text("DatePicker (date & time):")
+            DatePicker("", selection: Binding(get: { date }, set: { date = $0 }), displayedComponents: [.date, .hourAndMinute])
+          }
           HStack(spacing: 2) {
             Text("Progress:")
             ProgressView(value: Binding(get: { sliderVal }, set: { sliderVal = $0 }), total: 10)
