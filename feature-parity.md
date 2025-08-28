@@ -86,7 +86,7 @@ Environment keys employed:
 - [x] `SecureField`
 - Rendering
 - [x] `Image` (ASCII and Color-matrix; no external asset decoding)
-- [ ] Shapes, clipping, masking
+- [~] Shapes, clipping, masking (Rectangle, RoundedRectangle with fill/stroke; clipShape for these)
 - Interaction/other
 - [ ] Animations, transitions, gestures
 - [ ] Accessibility hooks
