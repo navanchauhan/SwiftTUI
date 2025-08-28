@@ -19,6 +19,18 @@ extension RoundedRectangle: _MaskShape {
    }
 }
 
+extension Circle: _MaskShape {
+   func _contains(_ pos: Position, size: Size) -> Bool {
+       return Circle.CircleControl.containsCircle(pos, size: size)
+   }
+}
+
+extension Capsule: _MaskShape {
+   func _contains(_ pos: Position, size: Size) -> Bool {
+       return Capsule.CapsuleControl.containsCapsule(pos, size: size)
+   }
+}
+
 public extension View {
    func clipShape(_ shape: Rectangle) -> some View {
        ClipShapeView(content: self, shape: shape)
@@ -27,6 +39,15 @@ public extension View {
    func clipShape(_ shape: RoundedRectangle) -> some View {
        ClipShapeView(content: self, shape: shape)
    }
+
+   func clipShape(_ shape: Circle) -> some View {
+       ClipShapeView(content: self, shape: shape)
+   }
+
+   func clipShape(_ shape: Capsule) -> some View {
+       ClipShapeView(content: self, shape: shape)
+   }
+
 }
 
 private struct ClipShapeView<Content: View, ShapeType: _MaskShape>: View, PrimitiveView, ModifierView {
