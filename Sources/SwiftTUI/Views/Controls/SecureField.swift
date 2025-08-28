@@ -1,68 +1,110 @@
 import Foundation
 
 public struct SecureField: View, PrimitiveView {
-   public let placeholder: String?
-   public let action: (String) -> Void
+  public let placeholder: String?
+  enum Mode {
+      case action((_ text: String) -> Void)
+      case binding(text: Binding<String>, onCommit: () -> Void)
+  }
+  let mode: Mode
 
-   @Environment(\.placeholderColor) private var placeholderColor: Color
+  @Environment(\.placeholderColor) private var placeholderColor: Color
 
-   public init(placeholder: String? = nil, action: @escaping (String) -> Void) {
-       self.placeholder = placeholder
-       self.action = action
-   }
+  // Legacy initializer: submit text on Enter and clear
+  public init(placeholder: String? = nil, action: @escaping (String) -> Void) {
+      self.placeholder = placeholder
+      self.mode = .action(action)
+  }
 
-   static var size: Int? { 1 }
+  // New initializer: live Binding editing; onCommit fires on Enter (does not clear)
+  public init(placeholder: String? = nil, text: Binding<String>, onCommit: @escaping () -> Void = {}) {
+      self.placeholder = placeholder
+      self.mode = .binding(text: text, onCommit: onCommit)
+  }
 
-   func buildNode(_ node: Node) {
-       setupEnvironmentProperties(node: node)
-       node.control = SecureFieldControl(placeholder: placeholder ?? "", placeholderColor: placeholderColor, action: action)
-   }
+  static var size: Int? { 1 }
 
-   func updateNode(_ node: Node) {
-       setupEnvironmentProperties(node: node)
-       node.view = self
-       (node.control as? SecureFieldControl)?.action = action
-   }
+  func buildNode(_ node: Node) {
+      setupEnvironmentProperties(node: node)
+      node.control = SecureFieldControl(placeholder: placeholder ?? "", placeholderColor: placeholderColor, mode: mode)
+  }
 
-   private class SecureFieldControl: Control {
-       var placeholder: String
-       var placeholderColor: Color
-       var action: (String) -> Void
+  func updateNode(_ node: Node) {
+      setupEnvironmentProperties(node: node)
+      node.view = self
+      if let c = node.control as? SecureFieldControl {
+          c.placeholder = placeholder ?? ""
+          c.placeholderColor = placeholderColor
+          c.mode = mode
+          c.layer.invalidate()
+      }
+  }
 
-       var text: String = ""
+  private class SecureFieldControl: Control {
+      var placeholder: String
+      var placeholderColor: Color
+      var mode: Mode
 
-       init(placeholder: String, placeholderColor: Color, action: @escaping (String) -> Void) {
-           self.placeholder = placeholder
-           self.placeholderColor = placeholderColor
-           self.action = action
-       }
+      // Internal buffer used only in action-mode
+      private var internalText: String = ""
 
-       override func size(proposedSize: Size) -> Size {
-           return Size(width: Extended(max(text.count, placeholder.count)) + 1, height: 1)
-       }
+      init(placeholder: String, placeholderColor: Color, mode: Mode) {
+          self.placeholder = placeholder
+          self.placeholderColor = placeholderColor
+          self.mode = mode
+      }
+
+      private var editedText: String {
+          get {
+              switch mode {
+              case .action:
+                  return internalText
+              case .binding(let binding, _):
+                  return binding.wrappedValue
+              }
+          }
+          set {
+              switch mode {
+              case .action:
+                  internalText = newValue
+              case .binding(let binding, _):
+                  binding.wrappedValue = newValue
+              }
+          }
+      }
+
+      override func size(proposedSize: Size) -> Size {
+          return Size(width: Extended(max(editedText.count, placeholder.count)) + 1, height: 1)
+      }
 
        override func handleEvent(_ char: Character) {
            if char == "\n" || char == "\r" {
-               action(text)
-               self.text = ""
+               switch mode {
+               case .action(let submit):
+                   submit(editedText)
+                   internalText = ""
+               case .binding(_, let onCommit):
+                   onCommit()
+               }
                layer.invalidate()
                return
            }
 
            if char == ASCII.DEL {
-               if !self.text.isEmpty {
-                   self.text.removeLast()
+               if !editedText.isEmpty {
+                   editedText.removeLast()
                    layer.invalidate()
                }
                return
            }
 
-           self.text += String(char)
+           editedText.append(char)
            layer.invalidate()
        }
 
        override func cell(at position: Position) -> Cell? {
            guard position.line == 0 else { return nil }
+           let text = editedText
            if text.isEmpty {
                if position.column.intValue < placeholder.count {
                    let showUnderline = (position.column.intValue == 0) && isFirstResponder
@@ -92,5 +134,5 @@ public struct SecureField: View, PrimitiveView {
            super.resignFirstResponder()
            layer.invalidate()
        }
-   }
+  }
 }
