@@ -176,6 +176,13 @@
         "description": "Use OpenCombine fallback with typealiases; update Package.swift; adjust Node and wrappers.",
         "status": "done",
         "priority": "high"
+      },
+      {
+        "id": 25,
+        "title": "Increase test coverage for controls",
+        "description": "Add unit tests for Toggle, Slider, ProgressView, SecureField to raise coverage; keep adding tests for new controls.",
+        "status": "done",
+        "priority": "medium"
       }
     ]
   }

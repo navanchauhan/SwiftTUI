@@ -1,0 +1,623 @@
+{
+  "": {
+    "swift-dependencies": "/Users/navan.chauhan/Developer/navanchauhan/swift-hn/SwiftTUI/.scratch/TUIHarness/.build/arm64-apple-macosx/debug/OpenCombine.build/master.swiftdeps"
+  },
+  "/Users/navan.chauhan/Developer/navanchauhan/swift-hn/SwiftTUI/.scratch/TUIHarness/.build/checkouts/OpenCombine/Sources/OpenCombine/AnyCancellable.swift": {
+    "dependencies": "/Users/navan.chauhan/Developer/navanchauhan/swift-hn/SwiftTUI/.scratch/TUIHarness/.build/arm64-apple-macosx/debug/OpenCombine.build/AnyCancellable.d",
+    "object": "/Users/navan.chauhan/Developer/navanchauhan/swift-hn/SwiftTUI/.scratch/TUIHarness/.build/arm64-apple-macosx/debug/OpenCombine.build/AnyCancellable.swift.o",
+    "swiftmodule": "/Users/navan.chauhan/Developer/navanchauhan/swift-hn/SwiftTUI/.scratch/TUIHarness/.build/arm64-apple-macosx/debug/OpenCombine.build/AnyCancellable~partial.swiftmodule",
+    "swift-dependencies": "/Users/navan.chauhan/Developer/navanchauhan/swift-hn/SwiftTUI/.scratch/TUIHarness/.build/arm64-apple-macosx/debug/OpenCombine.build/AnyCancellable.swiftdeps"
+  },
+  "/Users/navan.chauhan/Developer/navanchauhan/swift-hn/SwiftTUI/.scratch/TUIHarness/.build/checkouts/OpenCombine/Sources/OpenCombine/AnyPublisher.swift": {
+    "dependencies": "/Users/navan.chauhan/Developer/navanchauhan/swift-hn/SwiftTUI/.scratch/TUIHarness/.build/arm64-apple-macosx/debug/OpenCombine.build/AnyPublisher.d",
+    "object": "/Users/navan.chauhan/Developer/navanchauhan/swift-hn/SwiftTUI/.scratch/TUIHarness/.build/arm64-apple-macosx/debug/OpenCombine.build/AnyPublisher.swift.o",
+    "swiftmodule": "/Users/navan.chauhan/Developer/navanchauhan/swift-hn/SwiftTUI/.scratch/TUIHarness/.build/arm64-apple-macosx/debug/OpenCombine.build/AnyPublisher~partial.swiftmodule",
+    "swift-dependencies": "/Users/navan.chauhan/Developer/navanchauhan/swift-hn/SwiftTUI/.scratch/TUIHarness/.build/arm64-apple-macosx/debug/OpenCombine.build/AnyPublisher.swiftdeps"
+  },
+  "/Users/navan.chauhan/Developer/navanchauhan/swift-hn/SwiftTUI/.scratch/TUIHarness/.build/checkouts/OpenCombine/Sources/OpenCombine/AnySubscriber.swift": {
+    "dependencies": "/Users/navan.chauhan/Developer/navanchauhan/swift-hn/SwiftTUI/.scratch/TUIHarness/.build/arm64-apple-macosx/debug/OpenCombine.build/AnySubscriber.d",
+    "object": "/Users/navan.chauhan/Developer/navanchauhan/swift-hn/SwiftTUI/.scratch/TUIHarness/.build/arm64-apple-macosx/debug/OpenCombine.build/AnySubscriber.swift.o",
+    "swiftmodule": "/Users/navan.chauhan/Developer/navanchauhan/swift-hn/SwiftTUI/.scratch/TUIHarness/.build/arm64-apple-macosx/debug/OpenCombine.build/AnySubscriber~partial.swiftmodule",
+    "swift-dependencies": "/Users/navan.chauhan/Developer/navanchauhan/swift-hn/SwiftTUI/.scratch/TUIHarness/.build/arm64-apple-macosx/debug/OpenCombine.build/AnySubscriber.swiftdeps"
+  },
+  "/Users/navan.chauhan/Developer/navanchauhan/swift-hn/SwiftTUI/.scratch/TUIHarness/.build/checkouts/OpenCombine/Sources/OpenCombine/Cancellable.swift": {
+    "dependencies": "/Users/navan.chauhan/Developer/navanchauhan/swift-hn/SwiftTUI/.scratch/TUIHarness/.build/arm64-apple-macosx/debug/OpenCombine.build/Cancellable.d",
+    "object": "/Users/navan.chauhan/Developer/navanchauhan/swift-hn/SwiftTUI/.scratch/TUIHarness/.build/arm64-apple-macosx/debug/OpenCombine.build/Cancellable.swift.o",
+    "swiftmodule": "/Users/navan.chauhan/Developer/navanchauhan/swift-hn/SwiftTUI/.scratch/TUIHarness/.build/arm64-apple-macosx/debug/OpenCombine.build/Cancellable~partial.swiftmodule",
+    "swift-dependencies": "/Users/navan.chauhan/Developer/navanchauhan/swift-hn/SwiftTUI/.scratch/TUIHarness/.build/arm64-apple-macosx/debug/OpenCombine.build/Cancellable.swiftdeps"
+  },
+  "/Users/navan.chauhan/Developer/navanchauhan/swift-hn/SwiftTUI/.scratch/TUIHarness/.build/checkouts/OpenCombine/Sources/OpenCombine/Codable.swift": {
+    "dependencies": "/Users/navan.chauhan/Developer/navanchauhan/swift-hn/SwiftTUI/.scratch/TUIHarness/.build/arm64-apple-macosx/debug/OpenCombine.build/Codable.d",
+    "object": "/Users/navan.chauhan/Developer/navanchauhan/swift-hn/SwiftTUI/.scratch/TUIHarness/.build/arm64-apple-macosx/debug/OpenCombine.build/Codable.swift.o",
+    "swiftmodule": "/Users/navan.chauhan/Developer/navanchauhan/swift-hn/SwiftTUI/.scratch/TUIHarness/.build/arm64-apple-macosx/debug/OpenCombine.build/Codable~partial.swiftmodule",
+    "swift-dependencies": "/Users/navan.chauhan/Developer/navanchauhan/swift-hn/SwiftTUI/.scratch/TUIHarness/.build/arm64-apple-macosx/debug/OpenCombine.build/Codable.swiftdeps"
+  },
+  "/Users/navan.chauhan/Developer/navanchauhan/swift-hn/SwiftTUI/.scratch/TUIHarness/.build/checkouts/OpenCombine/Sources/OpenCombine/CombineIdentifier.swift": {
+    "dependencies": "/Users/navan.chauhan/Developer/navanchauhan/swift-hn/SwiftTUI/.scratch/TUIHarness/.build/arm64-apple-macosx/debug/OpenCombine.build/CombineIdentifier.d",
+    "object": "/Users/navan.chauhan/Developer/navanchauhan/swift-hn/SwiftTUI/.scratch/TUIHarness/.build/arm64-apple-macosx/debug/OpenCombine.build/CombineIdentifier.swift.o",
+    "swiftmodule": "/Users/navan.chauhan/Developer/navanchauhan/swift-hn/SwiftTUI/.scratch/TUIHarness/.build/arm64-apple-macosx/debug/OpenCombine.build/CombineIdentifier~partial.swiftmodule",
+    "swift-dependencies": "/Users/navan.chauhan/Developer/navanchauhan/swift-hn/SwiftTUI/.scratch/TUIHarness/.build/arm64-apple-macosx/debug/OpenCombine.build/CombineIdentifier.swiftdeps"
+  },
+  "/Users/navan.chauhan/Developer/navanchauhan/swift-hn/SwiftTUI/.scratch/TUIHarness/.build/checkouts/OpenCombine/Sources/OpenCombine/Concurrency/ConcurrencyHelpers.swift": {
+    "dependencies": "/Users/navan.chauhan/Developer/navanchauhan/swift-hn/SwiftTUI/.scratch/TUIHarness/.build/arm64-apple-macosx/debug/OpenCombine.build/ConcurrencyHelpers.d",
+    "object": "/Users/navan.chauhan/Developer/navanchauhan/swift-hn/SwiftTUI/.scratch/TUIHarness/.build/arm64-apple-macosx/debug/OpenCombine.build/ConcurrencyHelpers.swift.o",
+    "swiftmodule": "/Users/navan.chauhan/Developer/navanchauhan/swift-hn/SwiftTUI/.scratch/TUIHarness/.build/arm64-apple-macosx/debug/OpenCombine.build/ConcurrencyHelpers~partial.swiftmodule",
+    "swift-dependencies": "/Users/navan.chauhan/Developer/navanchauhan/swift-hn/SwiftTUI/.scratch/TUIHarness/.build/arm64-apple-macosx/debug/OpenCombine.build/ConcurrencyHelpers.swiftdeps"
+  },
+  "/Users/navan.chauhan/Developer/navanchauhan/swift-hn/SwiftTUI/.scratch/TUIHarness/.build/checkouts/OpenCombine/Sources/OpenCombine/Concurrency/Future+Concurrency.swift": {
+    "dependencies": "/Users/navan.chauhan/Developer/navanchauhan/swift-hn/SwiftTUI/.scratch/TUIHarness/.build/arm64-apple-macosx/debug/OpenCombine.build/Future+Concurrency.d",
+    "object": "/Users/navan.chauhan/Developer/navanchauhan/swift-hn/SwiftTUI/.scratch/TUIHarness/.build/arm64-apple-macosx/debug/OpenCombine.build/Future+Concurrency.swift.o",
+    "swiftmodule": "/Users/navan.chauhan/Developer/navanchauhan/swift-hn/SwiftTUI/.scratch/TUIHarness/.build/arm64-apple-macosx/debug/OpenCombine.build/Future+Concurrency~partial.swiftmodule",
+    "swift-dependencies": "/Users/navan.chauhan/Developer/navanchauhan/swift-hn/SwiftTUI/.scratch/TUIHarness/.build/arm64-apple-macosx/debug/OpenCombine.build/Future+Concurrency.swiftdeps"
+  },
+  "/Users/navan.chauhan/Developer/navanchauhan/swift-hn/SwiftTUI/.scratch/TUIHarness/.build/checkouts/OpenCombine/Sources/OpenCombine/Concurrency/GENERATED-Publisher+Concurrency.swift": {
+    "dependencies": "/Users/navan.chauhan/Developer/navanchauhan/swift-hn/SwiftTUI/.scratch/TUIHarness/.build/arm64-apple-macosx/debug/OpenCombine.build/GENERATED-Publisher+Concurrency.d",
+    "object": "/Users/navan.chauhan/Developer/navanchauhan/swift-hn/SwiftTUI/.scratch/TUIHarness/.build/arm64-apple-macosx/debug/OpenCombine.build/GENERATED-Publisher+Concurrency.swift.o",
+    "swiftmodule": "/Users/navan.chauhan/Developer/navanchauhan/swift-hn/SwiftTUI/.scratch/TUIHarness/.build/arm64-apple-macosx/debug/OpenCombine.build/GENERATED-Publisher+Concurrency~partial.swiftmodule",
+    "swift-dependencies": "/Users/navan.chauhan/Developer/navanchauhan/swift-hn/SwiftTUI/.scratch/TUIHarness/.build/arm64-apple-macosx/debug/OpenCombine.build/GENERATED-Publisher+Concurrency.swiftdeps"
+  },
+  "/Users/navan.chauhan/Developer/navanchauhan/swift-hn/SwiftTUI/.scratch/TUIHarness/.build/checkouts/OpenCombine/Sources/OpenCombine/CurrentValueSubject.swift": {
+    "dependencies": "/Users/navan.chauhan/Developer/navanchauhan/swift-hn/SwiftTUI/.scratch/TUIHarness/.build/arm64-apple-macosx/debug/OpenCombine.build/CurrentValueSubject.d",
+    "object": "/Users/navan.chauhan/Developer/navanchauhan/swift-hn/SwiftTUI/.scratch/TUIHarness/.build/arm64-apple-macosx/debug/OpenCombine.build/CurrentValueSubject.swift.o",
+    "swiftmodule": "/Users/navan.chauhan/Developer/navanchauhan/swift-hn/SwiftTUI/.scratch/TUIHarness/.build/arm64-apple-macosx/debug/OpenCombine.build/CurrentValueSubject~partial.swiftmodule",
+    "swift-dependencies": "/Users/navan.chauhan/Developer/navanchauhan/swift-hn/SwiftTUI/.scratch/TUIHarness/.build/arm64-apple-macosx/debug/OpenCombine.build/CurrentValueSubject.swiftdeps"
+  },
+  "/Users/navan.chauhan/Developer/navanchauhan/swift-hn/SwiftTUI/.scratch/TUIHarness/.build/checkouts/OpenCombine/Sources/OpenCombine/CustomCombineIdentifierConvertible.swift": {
+    "dependencies": "/Users/navan.chauhan/Developer/navanchauhan/swift-hn/SwiftTUI/.scratch/TUIHarness/.build/arm64-apple-macosx/debug/OpenCombine.build/CustomCombineIdentifierConvertible.d",
+    "object": "/Users/navan.chauhan/Developer/navanchauhan/swift-hn/SwiftTUI/.scratch/TUIHarness/.build/arm64-apple-macosx/debug/OpenCombine.build/CustomCombineIdentifierConvertible.swift.o",
+    "swiftmodule": "/Users/navan.chauhan/Developer/navanchauhan/swift-hn/SwiftTUI/.scratch/TUIHarness/.build/arm64-apple-macosx/debug/OpenCombine.build/CustomCombineIdentifierConvertible~partial.swiftmodule",
+    "swift-dependencies": "/Users/navan.chauhan/Developer/navanchauhan/swift-hn/SwiftTUI/.scratch/TUIHarness/.build/arm64-apple-macosx/debug/OpenCombine.build/CustomCombineIdentifierConvertible.swiftdeps"
+  },
+  "/Users/navan.chauhan/Developer/navanchauhan/swift-hn/SwiftTUI/.scratch/TUIHarness/.build/checkouts/OpenCombine/Sources/OpenCombine/Future.swift": {
+    "dependencies": "/Users/navan.chauhan/Developer/navanchauhan/swift-hn/SwiftTUI/.scratch/TUIHarness/.build/arm64-apple-macosx/debug/OpenCombine.build/Future.d",
+    "object": "/Users/navan.chauhan/Developer/navanchauhan/swift-hn/SwiftTUI/.scratch/TUIHarness/.build/arm64-apple-macosx/debug/OpenCombine.build/Future.swift.o",
+    "swiftmodule": "/Users/navan.chauhan/Developer/navanchauhan/swift-hn/SwiftTUI/.scratch/TUIHarness/.build/arm64-apple-macosx/debug/OpenCombine.build/Future~partial.swiftmodule",
+    "swift-dependencies": "/Users/navan.chauhan/Developer/navanchauhan/swift-hn/SwiftTUI/.scratch/TUIHarness/.build/arm64-apple-macosx/debug/OpenCombine.build/Future.swiftdeps"
+  },
+  "/Users/navan.chauhan/Developer/navanchauhan/swift-hn/SwiftTUI/.scratch/TUIHarness/.build/checkouts/OpenCombine/Sources/OpenCombine/GENERATED-RootProtocols.swift": {
+    "dependencies": "/Users/navan.chauhan/Developer/navanchauhan/swift-hn/SwiftTUI/.scratch/TUIHarness/.build/arm64-apple-macosx/debug/OpenCombine.build/GENERATED-RootProtocols.d",
+    "object": "/Users/navan.chauhan/Developer/navanchauhan/swift-hn/SwiftTUI/.scratch/TUIHarness/.build/arm64-apple-macosx/debug/OpenCombine.build/GENERATED-RootProtocols.swift.o",
+    "swiftmodule": "/Users/navan.chauhan/Developer/navanchauhan/swift-hn/SwiftTUI/.scratch/TUIHarness/.build/arm64-apple-macosx/debug/OpenCombine.build/GENERATED-RootProtocols~partial.swiftmodule",
+    "swift-dependencies": "/Users/navan.chauhan/Developer/navanchauhan/swift-hn/SwiftTUI/.scratch/TUIHarness/.build/arm64-apple-macosx/debug/OpenCombine.build/GENERATED-RootProtocols.swiftdeps"
+  },
+  "/Users/navan.chauhan/Developer/navanchauhan/swift-hn/SwiftTUI/.scratch/TUIHarness/.build/checkouts/OpenCombine/Sources/OpenCombine/Helpers/ConduitBase.swift": {
+    "dependencies": "/Users/navan.chauhan/Developer/navanchauhan/swift-hn/SwiftTUI/.scratch/TUIHarness/.build/arm64-apple-macosx/debug/OpenCombine.build/ConduitBase.d",
+    "object": "/Users/navan.chauhan/Developer/navanchauhan/swift-hn/SwiftTUI/.scratch/TUIHarness/.build/arm64-apple-macosx/debug/OpenCombine.build/ConduitBase.swift.o",
+    "swiftmodule": "/Users/navan.chauhan/Developer/navanchauhan/swift-hn/SwiftTUI/.scratch/TUIHarness/.build/arm64-apple-macosx/debug/OpenCombine.build/ConduitBase~partial.swiftmodule",
+    "swift-dependencies": "/Users/navan.chauhan/Developer/navanchauhan/swift-hn/SwiftTUI/.scratch/TUIHarness/.build/arm64-apple-macosx/debug/OpenCombine.build/ConduitBase.swiftdeps"
+  },
+  "/Users/navan.chauhan/Developer/navanchauhan/swift-hn/SwiftTUI/.scratch/TUIHarness/.build/checkouts/OpenCombine/Sources/OpenCombine/Helpers/ConduitList.swift": {
+    "dependencies": "/Users/navan.chauhan/Developer/navanchauhan/swift-hn/SwiftTUI/.scratch/TUIHarness/.build/arm64-apple-macosx/debug/OpenCombine.build/ConduitList.d",
+    "object": "/Users/navan.chauhan/Developer/navanchauhan/swift-hn/SwiftTUI/.scratch/TUIHarness/.build/arm64-apple-macosx/debug/OpenCombine.build/ConduitList.swift.o",
+    "swiftmodule": "/Users/navan.chauhan/Developer/navanchauhan/swift-hn/SwiftTUI/.scratch/TUIHarness/.build/arm64-apple-macosx/debug/OpenCombine.build/ConduitList~partial.swiftmodule",
+    "swift-dependencies": "/Users/navan.chauhan/Developer/navanchauhan/swift-hn/SwiftTUI/.scratch/TUIHarness/.build/arm64-apple-macosx/debug/OpenCombine.build/ConduitList.swiftdeps"
+  },
+  "/Users/navan.chauhan/Developer/navanchauhan/swift-hn/SwiftTUI/.scratch/TUIHarness/.build/checkouts/OpenCombine/Sources/OpenCombine/Helpers/DebugHook.swift": {
+    "dependencies": "/Users/navan.chauhan/Developer/navanchauhan/swift-hn/SwiftTUI/.scratch/TUIHarness/.build/arm64-apple-macosx/debug/OpenCombine.build/DebugHook.d",
+    "object": "/Users/navan.chauhan/Developer/navanchauhan/swift-hn/SwiftTUI/.scratch/TUIHarness/.build/arm64-apple-macosx/debug/OpenCombine.build/DebugHook.swift.o",
+    "swiftmodule": "/Users/navan.chauhan/Developer/navanchauhan/swift-hn/SwiftTUI/.scratch/TUIHarness/.build/arm64-apple-macosx/debug/OpenCombine.build/DebugHook~partial.swiftmodule",
+    "swift-dependencies": "/Users/navan.chauhan/Developer/navanchauhan/swift-hn/SwiftTUI/.scratch/TUIHarness/.build/arm64-apple-macosx/debug/OpenCombine.build/DebugHook.swiftdeps"
+  },
+  "/Users/navan.chauhan/Developer/navanchauhan/swift-hn/SwiftTUI/.scratch/TUIHarness/.build/checkouts/OpenCombine/Sources/OpenCombine/Helpers/FilterProducer.swift": {
+    "dependencies": "/Users/navan.chauhan/Developer/navanchauhan/swift-hn/SwiftTUI/.scratch/TUIHarness/.build/arm64-apple-macosx/debug/OpenCombine.build/FilterProducer.d",
+    "object": "/Users/navan.chauhan/Developer/navanchauhan/swift-hn/SwiftTUI/.scratch/TUIHarness/.build/arm64-apple-macosx/debug/OpenCombine.build/FilterProducer.swift.o",
+    "swiftmodule": "/Users/navan.chauhan/Developer/navanchauhan/swift-hn/SwiftTUI/.scratch/TUIHarness/.build/arm64-apple-macosx/debug/OpenCombine.build/FilterProducer~partial.swiftmodule",
+    "swift-dependencies": "/Users/navan.chauhan/Developer/navanchauhan/swift-hn/SwiftTUI/.scratch/TUIHarness/.build/arm64-apple-macosx/debug/OpenCombine.build/FilterProducer.swiftdeps"
+  },
+  "/Users/navan.chauhan/Developer/navanchauhan/swift-hn/SwiftTUI/.scratch/TUIHarness/.build/checkouts/OpenCombine/Sources/OpenCombine/Helpers/Locking.swift": {
+    "dependencies": "/Users/navan.chauhan/Developer/navanchauhan/swift-hn/SwiftTUI/.scratch/TUIHarness/.build/arm64-apple-macosx/debug/OpenCombine.build/Locking.d",
+    "object": "/Users/navan.chauhan/Developer/navanchauhan/swift-hn/SwiftTUI/.scratch/TUIHarness/.build/arm64-apple-macosx/debug/OpenCombine.build/Locking.swift.o",
+    "swiftmodule": "/Users/navan.chauhan/Developer/navanchauhan/swift-hn/SwiftTUI/.scratch/TUIHarness/.build/arm64-apple-macosx/debug/OpenCombine.build/Locking~partial.swiftmodule",
+    "swift-dependencies": "/Users/navan.chauhan/Developer/navanchauhan/swift-hn/SwiftTUI/.scratch/TUIHarness/.build/arm64-apple-macosx/debug/OpenCombine.build/Locking.swiftdeps"
+  },
+  "/Users/navan.chauhan/Developer/navanchauhan/swift-hn/SwiftTUI/.scratch/TUIHarness/.build/checkouts/OpenCombine/Sources/OpenCombine/Helpers/PartialCompletion.swift": {
+    "dependencies": "/Users/navan.chauhan/Developer/navanchauhan/swift-hn/SwiftTUI/.scratch/TUIHarness/.build/arm64-apple-macosx/debug/OpenCombine.build/PartialCompletion.d",
+    "object": "/Users/navan.chauhan/Developer/navanchauhan/swift-hn/SwiftTUI/.scratch/TUIHarness/.build/arm64-apple-macosx/debug/OpenCombine.build/PartialCompletion.swift.o",
+    "swiftmodule": "/Users/navan.chauhan/Developer/navanchauhan/swift-hn/SwiftTUI/.scratch/TUIHarness/.build/arm64-apple-macosx/debug/OpenCombine.build/PartialCompletion~partial.swiftmodule",
+    "swift-dependencies": "/Users/navan.chauhan/Developer/navanchauhan/swift-hn/SwiftTUI/.scratch/TUIHarness/.build/arm64-apple-macosx/debug/OpenCombine.build/PartialCompletion.swiftdeps"
+  },
+  "/Users/navan.chauhan/Developer/navanchauhan/swift-hn/SwiftTUI/.scratch/TUIHarness/.build/checkouts/OpenCombine/Sources/OpenCombine/Helpers/PublishedSubject.swift": {
+    "dependencies": "/Users/navan.chauhan/Developer/navanchauhan/swift-hn/SwiftTUI/.scratch/TUIHarness/.build/arm64-apple-macosx/debug/OpenCombine.build/PublishedSubject.d",
+    "object": "/Users/navan.chauhan/Developer/navanchauhan/swift-hn/SwiftTUI/.scratch/TUIHarness/.build/arm64-apple-macosx/debug/OpenCombine.build/PublishedSubject.swift.o",
+    "swiftmodule": "/Users/navan.chauhan/Developer/navanchauhan/swift-hn/SwiftTUI/.scratch/TUIHarness/.build/arm64-apple-macosx/debug/OpenCombine.build/PublishedSubject~partial.swiftmodule",
+    "swift-dependencies": "/Users/navan.chauhan/Developer/navanchauhan/swift-hn/SwiftTUI/.scratch/TUIHarness/.build/arm64-apple-macosx/debug/OpenCombine.build/PublishedSubject.swiftdeps"
+  },
+  "/Users/navan.chauhan/Developer/navanchauhan/swift-hn/SwiftTUI/.scratch/TUIHarness/.build/checkouts/OpenCombine/Sources/OpenCombine/Helpers/PublishedSubscriber.swift": {
+    "dependencies": "/Users/navan.chauhan/Developer/navanchauhan/swift-hn/SwiftTUI/.scratch/TUIHarness/.build/arm64-apple-macosx/debug/OpenCombine.build/PublishedSubscriber.d",
+    "object": "/Users/navan.chauhan/Developer/navanchauhan/swift-hn/SwiftTUI/.scratch/TUIHarness/.build/arm64-apple-macosx/debug/OpenCombine.build/PublishedSubscriber.swift.o",
+    "swiftmodule": "/Users/navan.chauhan/Developer/navanchauhan/swift-hn/SwiftTUI/.scratch/TUIHarness/.build/arm64-apple-macosx/debug/OpenCombine.build/PublishedSubscriber~partial.swiftmodule",
+    "swift-dependencies": "/Users/navan.chauhan/Developer/navanchauhan/swift-hn/SwiftTUI/.scratch/TUIHarness/.build/arm64-apple-macosx/debug/OpenCombine.build/PublishedSubscriber.swiftdeps"
+  },
+  "/Users/navan.chauhan/Developer/navanchauhan/swift-hn/SwiftTUI/.scratch/TUIHarness/.build/checkouts/OpenCombine/Sources/OpenCombine/Helpers/ReduceProducer.swift": {
+    "dependencies": "/Users/navan.chauhan/Developer/navanchauhan/swift-hn/SwiftTUI/.scratch/TUIHarness/.build/arm64-apple-macosx/debug/OpenCombine.build/ReduceProducer.d",
+    "object": "/Users/navan.chauhan/Developer/navanchauhan/swift-hn/SwiftTUI/.scratch/TUIHarness/.build/arm64-apple-macosx/debug/OpenCombine.build/ReduceProducer.swift.o",
+    "swiftmodule": "/Users/navan.chauhan/Developer/navanchauhan/swift-hn/SwiftTUI/.scratch/TUIHarness/.build/arm64-apple-macosx/debug/OpenCombine.build/ReduceProducer~partial.swiftmodule",
+    "swift-dependencies": "/Users/navan.chauhan/Developer/navanchauhan/swift-hn/SwiftTUI/.scratch/TUIHarness/.build/arm64-apple-macosx/debug/OpenCombine.build/ReduceProducer.swiftdeps"
+  },
+  "/Users/navan.chauhan/Developer/navanchauhan/swift-hn/SwiftTUI/.scratch/TUIHarness/.build/checkouts/OpenCombine/Sources/OpenCombine/Helpers/SubjectSubscriber.swift": {
+    "dependencies": "/Users/navan.chauhan/Developer/navanchauhan/swift-hn/SwiftTUI/.scratch/TUIHarness/.build/arm64-apple-macosx/debug/OpenCombine.build/SubjectSubscriber.d",
+    "object": "/Users/navan.chauhan/Developer/navanchauhan/swift-hn/SwiftTUI/.scratch/TUIHarness/.build/arm64-apple-macosx/debug/OpenCombine.build/SubjectSubscriber.swift.o",
+    "swiftmodule": "/Users/navan.chauhan/Developer/navanchauhan/swift-hn/SwiftTUI/.scratch/TUIHarness/.build/arm64-apple-macosx/debug/OpenCombine.build/SubjectSubscriber~partial.swiftmodule",
+    "swift-dependencies": "/Users/navan.chauhan/Developer/navanchauhan/swift-hn/SwiftTUI/.scratch/TUIHarness/.build/arm64-apple-macosx/debug/OpenCombine.build/SubjectSubscriber.swiftdeps"
+  },
+  "/Users/navan.chauhan/Developer/navanchauhan/swift-hn/SwiftTUI/.scratch/TUIHarness/.build/checkouts/OpenCombine/Sources/OpenCombine/Helpers/SubscriberTap.swift": {
+    "dependencies": "/Users/navan.chauhan/Developer/navanchauhan/swift-hn/SwiftTUI/.scratch/TUIHarness/.build/arm64-apple-macosx/debug/OpenCombine.build/SubscriberTap.d",
+    "object": "/Users/navan.chauhan/Developer/navanchauhan/swift-hn/SwiftTUI/.scratch/TUIHarness/.build/arm64-apple-macosx/debug/OpenCombine.build/SubscriberTap.swift.o",
+    "swiftmodule": "/Users/navan.chauhan/Developer/navanchauhan/swift-hn/SwiftTUI/.scratch/TUIHarness/.build/arm64-apple-macosx/debug/OpenCombine.build/SubscriberTap~partial.swiftmodule",
+    "swift-dependencies": "/Users/navan.chauhan/Developer/navanchauhan/swift-hn/SwiftTUI/.scratch/TUIHarness/.build/arm64-apple-macosx/debug/OpenCombine.build/SubscriberTap.swiftdeps"
+  },
+  "/Users/navan.chauhan/Developer/navanchauhan/swift-hn/SwiftTUI/.scratch/TUIHarness/.build/checkouts/OpenCombine/Sources/OpenCombine/Helpers/SubscriptionStatus.swift": {
+    "dependencies": "/Users/navan.chauhan/Developer/navanchauhan/swift-hn/SwiftTUI/.scratch/TUIHarness/.build/arm64-apple-macosx/debug/OpenCombine.build/SubscriptionStatus.d",
+    "object": "/Users/navan.chauhan/Developer/navanchauhan/swift-hn/SwiftTUI/.scratch/TUIHarness/.build/arm64-apple-macosx/debug/OpenCombine.build/SubscriptionStatus.swift.o",
+    "swiftmodule": "/Users/navan.chauhan/Developer/navanchauhan/swift-hn/SwiftTUI/.scratch/TUIHarness/.build/arm64-apple-macosx/debug/OpenCombine.build/SubscriptionStatus~partial.swiftmodule",
+    "swift-dependencies": "/Users/navan.chauhan/Developer/navanchauhan/swift-hn/SwiftTUI/.scratch/TUIHarness/.build/arm64-apple-macosx/debug/OpenCombine.build/SubscriptionStatus.swiftdeps"
+  },
+  "/Users/navan.chauhan/Developer/navanchauhan/swift-hn/SwiftTUI/.scratch/TUIHarness/.build/checkouts/OpenCombine/Sources/OpenCombine/Helpers/SubscriptionTap.swift": {
+    "dependencies": "/Users/navan.chauhan/Developer/navanchauhan/swift-hn/SwiftTUI/.scratch/TUIHarness/.build/arm64-apple-macosx/debug/OpenCombine.build/SubscriptionTap.d",
+    "object": "/Users/navan.chauhan/Developer/navanchauhan/swift-hn/SwiftTUI/.scratch/TUIHarness/.build/arm64-apple-macosx/debug/OpenCombine.build/SubscriptionTap.swift.o",
+    "swiftmodule": "/Users/navan.chauhan/Developer/navanchauhan/swift-hn/SwiftTUI/.scratch/TUIHarness/.build/arm64-apple-macosx/debug/OpenCombine.build/SubscriptionTap~partial.swiftmodule",
+    "swift-dependencies": "/Users/navan.chauhan/Developer/navanchauhan/swift-hn/SwiftTUI/.scratch/TUIHarness/.build/arm64-apple-macosx/debug/OpenCombine.build/SubscriptionTap.swiftdeps"
+  },
+  "/Users/navan.chauhan/Developer/navanchauhan/swift-hn/SwiftTUI/.scratch/TUIHarness/.build/checkouts/OpenCombine/Sources/OpenCombine/Helpers/Utils.swift": {
+    "dependencies": "/Users/navan.chauhan/Developer/navanchauhan/swift-hn/SwiftTUI/.scratch/TUIHarness/.build/arm64-apple-macosx/debug/OpenCombine.build/Utils.d",
+    "object": "/Users/navan.chauhan/Developer/navanchauhan/swift-hn/SwiftTUI/.scratch/TUIHarness/.build/arm64-apple-macosx/debug/OpenCombine.build/Utils.swift.o",
+    "swiftmodule": "/Users/navan.chauhan/Developer/navanchauhan/swift-hn/SwiftTUI/.scratch/TUIHarness/.build/arm64-apple-macosx/debug/OpenCombine.build/Utils~partial.swiftmodule",
+    "swift-dependencies": "/Users/navan.chauhan/Developer/navanchauhan/swift-hn/SwiftTUI/.scratch/TUIHarness/.build/arm64-apple-macosx/debug/OpenCombine.build/Utils.swiftdeps"
+  },
+  "/Users/navan.chauhan/Developer/navanchauhan/swift-hn/SwiftTUI/.scratch/TUIHarness/.build/checkouts/OpenCombine/Sources/OpenCombine/Helpers/Violations.swift": {
+    "dependencies": "/Users/navan.chauhan/Developer/navanchauhan/swift-hn/SwiftTUI/.scratch/TUIHarness/.build/arm64-apple-macosx/debug/OpenCombine.build/Violations.d",
+    "object": "/Users/navan.chauhan/Developer/navanchauhan/swift-hn/SwiftTUI/.scratch/TUIHarness/.build/arm64-apple-macosx/debug/OpenCombine.build/Violations.swift.o",
+    "swiftmodule": "/Users/navan.chauhan/Developer/navanchauhan/swift-hn/SwiftTUI/.scratch/TUIHarness/.build/arm64-apple-macosx/debug/OpenCombine.build/Violations~partial.swiftmodule",
+    "swift-dependencies": "/Users/navan.chauhan/Developer/navanchauhan/swift-hn/SwiftTUI/.scratch/TUIHarness/.build/arm64-apple-macosx/debug/OpenCombine.build/Violations.swiftdeps"
+  },
+  "/Users/navan.chauhan/Developer/navanchauhan/swift-hn/SwiftTUI/.scratch/TUIHarness/.build/checkouts/OpenCombine/Sources/OpenCombine/ImmediateScheduler.swift": {
+    "dependencies": "/Users/navan.chauhan/Developer/navanchauhan/swift-hn/SwiftTUI/.scratch/TUIHarness/.build/arm64-apple-macosx/debug/OpenCombine.build/ImmediateScheduler.d",
+    "object": "/Users/navan.chauhan/Developer/navanchauhan/swift-hn/SwiftTUI/.scratch/TUIHarness/.build/arm64-apple-macosx/debug/OpenCombine.build/ImmediateScheduler.swift.o",
+    "swiftmodule": "/Users/navan.chauhan/Developer/navanchauhan/swift-hn/SwiftTUI/.scratch/TUIHarness/.build/arm64-apple-macosx/debug/OpenCombine.build/ImmediateScheduler~partial.swiftmodule",
+    "swift-dependencies": "/Users/navan.chauhan/Developer/navanchauhan/swift-hn/SwiftTUI/.scratch/TUIHarness/.build/arm64-apple-macosx/debug/OpenCombine.build/ImmediateScheduler.swiftdeps"
+  },
+  "/Users/navan.chauhan/Developer/navanchauhan/swift-hn/SwiftTUI/.scratch/TUIHarness/.build/checkouts/OpenCombine/Sources/OpenCombine/ObservableObject.swift": {
+    "dependencies": "/Users/navan.chauhan/Developer/navanchauhan/swift-hn/SwiftTUI/.scratch/TUIHarness/.build/arm64-apple-macosx/debug/OpenCombine.build/ObservableObject.d",
+    "object": "/Users/navan.chauhan/Developer/navanchauhan/swift-hn/SwiftTUI/.scratch/TUIHarness/.build/arm64-apple-macosx/debug/OpenCombine.build/ObservableObject.swift.o",
+    "swiftmodule": "/Users/navan.chauhan/Developer/navanchauhan/swift-hn/SwiftTUI/.scratch/TUIHarness/.build/arm64-apple-macosx/debug/OpenCombine.build/ObservableObject~partial.swiftmodule",
+    "swift-dependencies": "/Users/navan.chauhan/Developer/navanchauhan/swift-hn/SwiftTUI/.scratch/TUIHarness/.build/arm64-apple-macosx/debug/OpenCombine.build/ObservableObject.swiftdeps"
+  },
+  "/Users/navan.chauhan/Developer/navanchauhan/swift-hn/SwiftTUI/.scratch/TUIHarness/.build/checkouts/OpenCombine/Sources/OpenCombine/PassthroughSubject.swift": {
+    "dependencies": "/Users/navan.chauhan/Developer/navanchauhan/swift-hn/SwiftTUI/.scratch/TUIHarness/.build/arm64-apple-macosx/debug/OpenCombine.build/PassthroughSubject.d",
+    "object": "/Users/navan.chauhan/Developer/navanchauhan/swift-hn/SwiftTUI/.scratch/TUIHarness/.build/arm64-apple-macosx/debug/OpenCombine.build/PassthroughSubject.swift.o",
+    "swiftmodule": "/Users/navan.chauhan/Developer/navanchauhan/swift-hn/SwiftTUI/.scratch/TUIHarness/.build/arm64-apple-macosx/debug/OpenCombine.build/PassthroughSubject~partial.swiftmodule",
+    "swift-dependencies": "/Users/navan.chauhan/Developer/navanchauhan/swift-hn/SwiftTUI/.scratch/TUIHarness/.build/arm64-apple-macosx/debug/OpenCombine.build/PassthroughSubject.swiftdeps"
+  },
+  "/Users/navan.chauhan/Developer/navanchauhan/swift-hn/SwiftTUI/.scratch/TUIHarness/.build/checkouts/OpenCombine/Sources/OpenCombine/Published.swift": {
+    "dependencies": "/Users/navan.chauhan/Developer/navanchauhan/swift-hn/SwiftTUI/.scratch/TUIHarness/.build/arm64-apple-macosx/debug/OpenCombine.build/Published.d",
+    "object": "/Users/navan.chauhan/Developer/navanchauhan/swift-hn/SwiftTUI/.scratch/TUIHarness/.build/arm64-apple-macosx/debug/OpenCombine.build/Published.swift.o",
+    "swiftmodule": "/Users/navan.chauhan/Developer/navanchauhan/swift-hn/SwiftTUI/.scratch/TUIHarness/.build/arm64-apple-macosx/debug/OpenCombine.build/Published~partial.swiftmodule",
+    "swift-dependencies": "/Users/navan.chauhan/Developer/navanchauhan/swift-hn/SwiftTUI/.scratch/TUIHarness/.build/arm64-apple-macosx/debug/OpenCombine.build/Published.swiftdeps"
+  },
+  "/Users/navan.chauhan/Developer/navanchauhan/swift-hn/SwiftTUI/.scratch/TUIHarness/.build/checkouts/OpenCombine/Sources/OpenCombine/Publisher+Subscribe.swift": {
+    "dependencies": "/Users/navan.chauhan/Developer/navanchauhan/swift-hn/SwiftTUI/.scratch/TUIHarness/.build/arm64-apple-macosx/debug/OpenCombine.build/Publisher+Subscribe.d",
+    "object": "/Users/navan.chauhan/Developer/navanchauhan/swift-hn/SwiftTUI/.scratch/TUIHarness/.build/arm64-apple-macosx/debug/OpenCombine.build/Publisher+Subscribe.swift.o",
+    "swiftmodule": "/Users/navan.chauhan/Developer/navanchauhan/swift-hn/SwiftTUI/.scratch/TUIHarness/.build/arm64-apple-macosx/debug/OpenCombine.build/Publisher+Subscribe~partial.swiftmodule",
+    "swift-dependencies": "/Users/navan.chauhan/Developer/navanchauhan/swift-hn/SwiftTUI/.scratch/TUIHarness/.build/arm64-apple-macosx/debug/OpenCombine.build/Publisher+Subscribe.swiftdeps"
+  },
+  "/Users/navan.chauhan/Developer/navanchauhan/swift-hn/SwiftTUI/.scratch/TUIHarness/.build/checkouts/OpenCombine/Sources/OpenCombine/Publishers/Deferred.swift": {
+    "dependencies": "/Users/navan.chauhan/Developer/navanchauhan/swift-hn/SwiftTUI/.scratch/TUIHarness/.build/arm64-apple-macosx/debug/OpenCombine.build/Deferred.d",
+    "object": "/Users/navan.chauhan/Developer/navanchauhan/swift-hn/SwiftTUI/.scratch/TUIHarness/.build/arm64-apple-macosx/debug/OpenCombine.build/Deferred.swift.o",
+    "swiftmodule": "/Users/navan.chauhan/Developer/navanchauhan/swift-hn/SwiftTUI/.scratch/TUIHarness/.build/arm64-apple-macosx/debug/OpenCombine.build/Deferred~partial.swiftmodule",
+    "swift-dependencies": "/Users/navan.chauhan/Developer/navanchauhan/swift-hn/SwiftTUI/.scratch/TUIHarness/.build/arm64-apple-macosx/debug/OpenCombine.build/Deferred.swiftdeps"
+  },
+  "/Users/navan.chauhan/Developer/navanchauhan/swift-hn/SwiftTUI/.scratch/TUIHarness/.build/checkouts/OpenCombine/Sources/OpenCombine/Publishers/Empty.swift": {
+    "dependencies": "/Users/navan.chauhan/Developer/navanchauhan/swift-hn/SwiftTUI/.scratch/TUIHarness/.build/arm64-apple-macosx/debug/OpenCombine.build/Empty.d",
+    "object": "/Users/navan.chauhan/Developer/navanchauhan/swift-hn/SwiftTUI/.scratch/TUIHarness/.build/arm64-apple-macosx/debug/OpenCombine.build/Empty.swift.o",
+    "swiftmodule": "/Users/navan.chauhan/Developer/navanchauhan/swift-hn/SwiftTUI/.scratch/TUIHarness/.build/arm64-apple-macosx/debug/OpenCombine.build/Empty~partial.swiftmodule",
+    "swift-dependencies": "/Users/navan.chauhan/Developer/navanchauhan/swift-hn/SwiftTUI/.scratch/TUIHarness/.build/arm64-apple-macosx/debug/OpenCombine.build/Empty.swiftdeps"
+  },
+  "/Users/navan.chauhan/Developer/navanchauhan/swift-hn/SwiftTUI/.scratch/TUIHarness/.build/checkouts/OpenCombine/Sources/OpenCombine/Publishers/Fail.swift": {
+    "dependencies": "/Users/navan.chauhan/Developer/navanchauhan/swift-hn/SwiftTUI/.scratch/TUIHarness/.build/arm64-apple-macosx/debug/OpenCombine.build/Fail.d",
+    "object": "/Users/navan.chauhan/Developer/navanchauhan/swift-hn/SwiftTUI/.scratch/TUIHarness/.build/arm64-apple-macosx/debug/OpenCombine.build/Fail.swift.o",
+    "swiftmodule": "/Users/navan.chauhan/Developer/navanchauhan/swift-hn/SwiftTUI/.scratch/TUIHarness/.build/arm64-apple-macosx/debug/OpenCombine.build/Fail~partial.swiftmodule",
+    "swift-dependencies": "/Users/navan.chauhan/Developer/navanchauhan/swift-hn/SwiftTUI/.scratch/TUIHarness/.build/arm64-apple-macosx/debug/OpenCombine.build/Fail.swiftdeps"
+  },
+  "/Users/navan.chauhan/Developer/navanchauhan/swift-hn/SwiftTUI/.scratch/TUIHarness/.build/checkouts/OpenCombine/Sources/OpenCombine/Publishers/GENERATED-Publishers.Catch.swift": {
+    "dependencies": "/Users/navan.chauhan/Developer/navanchauhan/swift-hn/SwiftTUI/.scratch/TUIHarness/.build/arm64-apple-macosx/debug/OpenCombine.build/GENERATED-Publishers.Catch.d",
+    "object": "/Users/navan.chauhan/Developer/navanchauhan/swift-hn/SwiftTUI/.scratch/TUIHarness/.build/arm64-apple-macosx/debug/OpenCombine.build/GENERATED-Publishers.Catch.swift.o",
+    "swiftmodule": "/Users/navan.chauhan/Developer/navanchauhan/swift-hn/SwiftTUI/.scratch/TUIHarness/.build/arm64-apple-macosx/debug/OpenCombine.build/GENERATED-Publishers.Catch~partial.swiftmodule",
+    "swift-dependencies": "/Users/navan.chauhan/Developer/navanchauhan/swift-hn/SwiftTUI/.scratch/TUIHarness/.build/arm64-apple-macosx/debug/OpenCombine.build/GENERATED-Publishers.Catch.swiftdeps"
+  },
+  "/Users/navan.chauhan/Developer/navanchauhan/swift-hn/SwiftTUI/.scratch/TUIHarness/.build/checkouts/OpenCombine/Sources/OpenCombine/Publishers/GENERATED-Publishers.Encode.swift": {
+    "dependencies": "/Users/navan.chauhan/Developer/navanchauhan/swift-hn/SwiftTUI/.scratch/TUIHarness/.build/arm64-apple-macosx/debug/OpenCombine.build/GENERATED-Publishers.Encode.d",
+    "object": "/Users/navan.chauhan/Developer/navanchauhan/swift-hn/SwiftTUI/.scratch/TUIHarness/.build/arm64-apple-macosx/debug/OpenCombine.build/GENERATED-Publishers.Encode.swift.o",
+    "swiftmodule": "/Users/navan.chauhan/Developer/navanchauhan/swift-hn/SwiftTUI/.scratch/TUIHarness/.build/arm64-apple-macosx/debug/OpenCombine.build/GENERATED-Publishers.Encode~partial.swiftmodule",
+    "swift-dependencies": "/Users/navan.chauhan/Developer/navanchauhan/swift-hn/SwiftTUI/.scratch/TUIHarness/.build/arm64-apple-macosx/debug/OpenCombine.build/GENERATED-Publishers.Encode.swiftdeps"
+  },
+  "/Users/navan.chauhan/Developer/navanchauhan/swift-hn/SwiftTUI/.scratch/TUIHarness/.build/checkouts/OpenCombine/Sources/OpenCombine/Publishers/GENERATED-Publishers.MapKeyPath.swift": {
+    "dependencies": "/Users/navan.chauhan/Developer/navanchauhan/swift-hn/SwiftTUI/.scratch/TUIHarness/.build/arm64-apple-macosx/debug/OpenCombine.build/GENERATED-Publishers.MapKeyPath.d",
+    "object": "/Users/navan.chauhan/Developer/navanchauhan/swift-hn/SwiftTUI/.scratch/TUIHarness/.build/arm64-apple-macosx/debug/OpenCombine.build/GENERATED-Publishers.MapKeyPath.swift.o",
+    "swiftmodule": "/Users/navan.chauhan/Developer/navanchauhan/swift-hn/SwiftTUI/.scratch/TUIHarness/.build/arm64-apple-macosx/debug/OpenCombine.build/GENERATED-Publishers.MapKeyPath~partial.swiftmodule",
+    "swift-dependencies": "/Users/navan.chauhan/Developer/navanchauhan/swift-hn/SwiftTUI/.scratch/TUIHarness/.build/arm64-apple-macosx/debug/OpenCombine.build/GENERATED-Publishers.MapKeyPath.swiftdeps"
+  },
+  "/Users/navan.chauhan/Developer/navanchauhan/swift-hn/SwiftTUI/.scratch/TUIHarness/.build/checkouts/OpenCombine/Sources/OpenCombine/Publishers/Just.swift": {
+    "dependencies": "/Users/navan.chauhan/Developer/navanchauhan/swift-hn/SwiftTUI/.scratch/TUIHarness/.build/arm64-apple-macosx/debug/OpenCombine.build/Just.d",
+    "object": "/Users/navan.chauhan/Developer/navanchauhan/swift-hn/SwiftTUI/.scratch/TUIHarness/.build/arm64-apple-macosx/debug/OpenCombine.build/Just.swift.o",
+    "swiftmodule": "/Users/navan.chauhan/Developer/navanchauhan/swift-hn/SwiftTUI/.scratch/TUIHarness/.build/arm64-apple-macosx/debug/OpenCombine.build/Just~partial.swiftmodule",
+    "swift-dependencies": "/Users/navan.chauhan/Developer/navanchauhan/swift-hn/SwiftTUI/.scratch/TUIHarness/.build/arm64-apple-macosx/debug/OpenCombine.build/Just.swiftdeps"
+  },
+  "/Users/navan.chauhan/Developer/navanchauhan/swift-hn/SwiftTUI/.scratch/TUIHarness/.build/checkouts/OpenCombine/Sources/OpenCombine/Publishers/Optional.Publisher.swift": {
+    "dependencies": "/Users/navan.chauhan/Developer/navanchauhan/swift-hn/SwiftTUI/.scratch/TUIHarness/.build/arm64-apple-macosx/debug/OpenCombine.build/Optional.Publisher.d",
+    "object": "/Users/navan.chauhan/Developer/navanchauhan/swift-hn/SwiftTUI/.scratch/TUIHarness/.build/arm64-apple-macosx/debug/OpenCombine.build/Optional.Publisher.swift.o",
+    "swiftmodule": "/Users/navan.chauhan/Developer/navanchauhan/swift-hn/SwiftTUI/.scratch/TUIHarness/.build/arm64-apple-macosx/debug/OpenCombine.build/Optional.Publisher~partial.swiftmodule",
+    "swift-dependencies": "/Users/navan.chauhan/Developer/navanchauhan/swift-hn/SwiftTUI/.scratch/TUIHarness/.build/arm64-apple-macosx/debug/OpenCombine.build/Optional.Publisher.swiftdeps"
+  },
+  "/Users/navan.chauhan/Developer/navanchauhan/swift-hn/SwiftTUI/.scratch/TUIHarness/.build/checkouts/OpenCombine/Sources/OpenCombine/Publishers/Publishers.AllSatisfy.swift": {
+    "dependencies": "/Users/navan.chauhan/Developer/navanchauhan/swift-hn/SwiftTUI/.scratch/TUIHarness/.build/arm64-apple-macosx/debug/OpenCombine.build/Publishers.AllSatisfy.d",
+    "object": "/Users/navan.chauhan/Developer/navanchauhan/swift-hn/SwiftTUI/.scratch/TUIHarness/.build/arm64-apple-macosx/debug/OpenCombine.build/Publishers.AllSatisfy.swift.o",
+    "swiftmodule": "/Users/navan.chauhan/Developer/navanchauhan/swift-hn/SwiftTUI/.scratch/TUIHarness/.build/arm64-apple-macosx/debug/OpenCombine.build/Publishers.AllSatisfy~partial.swiftmodule",
+    "swift-dependencies": "/Users/navan.chauhan/Developer/navanchauhan/swift-hn/SwiftTUI/.scratch/TUIHarness/.build/arm64-apple-macosx/debug/OpenCombine.build/Publishers.AllSatisfy.swiftdeps"
+  },
+  "/Users/navan.chauhan/Developer/navanchauhan/swift-hn/SwiftTUI/.scratch/TUIHarness/.build/checkouts/OpenCombine/Sources/OpenCombine/Publishers/Publishers.AssertNoFailure.swift": {
+    "dependencies": "/Users/navan.chauhan/Developer/navanchauhan/swift-hn/SwiftTUI/.scratch/TUIHarness/.build/arm64-apple-macosx/debug/OpenCombine.build/Publishers.AssertNoFailure.d",
+    "object": "/Users/navan.chauhan/Developer/navanchauhan/swift-hn/SwiftTUI/.scratch/TUIHarness/.build/arm64-apple-macosx/debug/OpenCombine.build/Publishers.AssertNoFailure.swift.o",
+    "swiftmodule": "/Users/navan.chauhan/Developer/navanchauhan/swift-hn/SwiftTUI/.scratch/TUIHarness/.build/arm64-apple-macosx/debug/OpenCombine.build/Publishers.AssertNoFailure~partial.swiftmodule",
+    "swift-dependencies": "/Users/navan.chauhan/Developer/navanchauhan/swift-hn/SwiftTUI/.scratch/TUIHarness/.build/arm64-apple-macosx/debug/OpenCombine.build/Publishers.AssertNoFailure.swiftdeps"
+  },
+  "/Users/navan.chauhan/Developer/navanchauhan/swift-hn/SwiftTUI/.scratch/TUIHarness/.build/checkouts/OpenCombine/Sources/OpenCombine/Publishers/Publishers.Autoconnect.swift": {
+    "dependencies": "/Users/navan.chauhan/Developer/navanchauhan/swift-hn/SwiftTUI/.scratch/TUIHarness/.build/arm64-apple-macosx/debug/OpenCombine.build/Publishers.Autoconnect.d",
+    "object": "/Users/navan.chauhan/Developer/navanchauhan/swift-hn/SwiftTUI/.scratch/TUIHarness/.build/arm64-apple-macosx/debug/OpenCombine.build/Publishers.Autoconnect.swift.o",
+    "swiftmodule": "/Users/navan.chauhan/Developer/navanchauhan/swift-hn/SwiftTUI/.scratch/TUIHarness/.build/arm64-apple-macosx/debug/OpenCombine.build/Publishers.Autoconnect~partial.swiftmodule",
+    "swift-dependencies": "/Users/navan.chauhan/Developer/navanchauhan/swift-hn/SwiftTUI/.scratch/TUIHarness/.build/arm64-apple-macosx/debug/OpenCombine.build/Publishers.Autoconnect.swiftdeps"
+  },
+  "/Users/navan.chauhan/Developer/navanchauhan/swift-hn/SwiftTUI/.scratch/TUIHarness/.build/checkouts/OpenCombine/Sources/OpenCombine/Publishers/Publishers.Breakpoint.swift": {
+    "dependencies": "/Users/navan.chauhan/Developer/navanchauhan/swift-hn/SwiftTUI/.scratch/TUIHarness/.build/arm64-apple-macosx/debug/OpenCombine.build/Publishers.Breakpoint.d",
+    "object": "/Users/navan.chauhan/Developer/navanchauhan/swift-hn/SwiftTUI/.scratch/TUIHarness/.build/arm64-apple-macosx/debug/OpenCombine.build/Publishers.Breakpoint.swift.o",
+    "swiftmodule": "/Users/navan.chauhan/Developer/navanchauhan/swift-hn/SwiftTUI/.scratch/TUIHarness/.build/arm64-apple-macosx/debug/OpenCombine.build/Publishers.Breakpoint~partial.swiftmodule",
+    "swift-dependencies": "/Users/navan.chauhan/Developer/navanchauhan/swift-hn/SwiftTUI/.scratch/TUIHarness/.build/arm64-apple-macosx/debug/OpenCombine.build/Publishers.Breakpoint.swiftdeps"
+  },
+  "/Users/navan.chauhan/Developer/navanchauhan/swift-hn/SwiftTUI/.scratch/TUIHarness/.build/checkouts/OpenCombine/Sources/OpenCombine/Publishers/Publishers.Buffer.swift": {
+    "dependencies": "/Users/navan.chauhan/Developer/navanchauhan/swift-hn/SwiftTUI/.scratch/TUIHarness/.build/arm64-apple-macosx/debug/OpenCombine.build/Publishers.Buffer.d",
+    "object": "/Users/navan.chauhan/Developer/navanchauhan/swift-hn/SwiftTUI/.scratch/TUIHarness/.build/arm64-apple-macosx/debug/OpenCombine.build/Publishers.Buffer.swift.o",
+    "swiftmodule": "/Users/navan.chauhan/Developer/navanchauhan/swift-hn/SwiftTUI/.scratch/TUIHarness/.build/arm64-apple-macosx/debug/OpenCombine.build/Publishers.Buffer~partial.swiftmodule",
+    "swift-dependencies": "/Users/navan.chauhan/Developer/navanchauhan/swift-hn/SwiftTUI/.scratch/TUIHarness/.build/arm64-apple-macosx/debug/OpenCombine.build/Publishers.Buffer.swiftdeps"
+  },
+  "/Users/navan.chauhan/Developer/navanchauhan/swift-hn/SwiftTUI/.scratch/TUIHarness/.build/checkouts/OpenCombine/Sources/OpenCombine/Publishers/Publishers.Collect.swift": {
+    "dependencies": "/Users/navan.chauhan/Developer/navanchauhan/swift-hn/SwiftTUI/.scratch/TUIHarness/.build/arm64-apple-macosx/debug/OpenCombine.build/Publishers.Collect.d",
+    "object": "/Users/navan.chauhan/Developer/navanchauhan/swift-hn/SwiftTUI/.scratch/TUIHarness/.build/arm64-apple-macosx/debug/OpenCombine.build/Publishers.Collect.swift.o",
+    "swiftmodule": "/Users/navan.chauhan/Developer/navanchauhan/swift-hn/SwiftTUI/.scratch/TUIHarness/.build/arm64-apple-macosx/debug/OpenCombine.build/Publishers.Collect~partial.swiftmodule",
+    "swift-dependencies": "/Users/navan.chauhan/Developer/navanchauhan/swift-hn/SwiftTUI/.scratch/TUIHarness/.build/arm64-apple-macosx/debug/OpenCombine.build/Publishers.Collect.swiftdeps"
+  },
+  "/Users/navan.chauhan/Developer/navanchauhan/swift-hn/SwiftTUI/.scratch/TUIHarness/.build/checkouts/OpenCombine/Sources/OpenCombine/Publishers/Publishers.CollectByCount.swift": {
+    "dependencies": "/Users/navan.chauhan/Developer/navanchauhan/swift-hn/SwiftTUI/.scratch/TUIHarness/.build/arm64-apple-macosx/debug/OpenCombine.build/Publishers.CollectByCount.d",
+    "object": "/Users/navan.chauhan/Developer/navanchauhan/swift-hn/SwiftTUI/.scratch/TUIHarness/.build/arm64-apple-macosx/debug/OpenCombine.build/Publishers.CollectByCount.swift.o",
+    "swiftmodule": "/Users/navan.chauhan/Developer/navanchauhan/swift-hn/SwiftTUI/.scratch/TUIHarness/.build/arm64-apple-macosx/debug/OpenCombine.build/Publishers.CollectByCount~partial.swiftmodule",
+    "swift-dependencies": "/Users/navan.chauhan/Developer/navanchauhan/swift-hn/SwiftTUI/.scratch/TUIHarness/.build/arm64-apple-macosx/debug/OpenCombine.build/Publishers.CollectByCount.swiftdeps"
+  },
+  "/Users/navan.chauhan/Developer/navanchauhan/swift-hn/SwiftTUI/.scratch/TUIHarness/.build/checkouts/OpenCombine/Sources/OpenCombine/Publishers/Publishers.CompactMap.swift": {
+    "dependencies": "/Users/navan.chauhan/Developer/navanchauhan/swift-hn/SwiftTUI/.scratch/TUIHarness/.build/arm64-apple-macosx/debug/OpenCombine.build/Publishers.CompactMap.d",
+    "object": "/Users/navan.chauhan/Developer/navanchauhan/swift-hn/SwiftTUI/.scratch/TUIHarness/.build/arm64-apple-macosx/debug/OpenCombine.build/Publishers.CompactMap.swift.o",
+    "swiftmodule": "/Users/navan.chauhan/Developer/navanchauhan/swift-hn/SwiftTUI/.scratch/TUIHarness/.build/arm64-apple-macosx/debug/OpenCombine.build/Publishers.CompactMap~partial.swiftmodule",
+    "swift-dependencies": "/Users/navan.chauhan/Developer/navanchauhan/swift-hn/SwiftTUI/.scratch/TUIHarness/.build/arm64-apple-macosx/debug/OpenCombine.build/Publishers.CompactMap.swiftdeps"
+  },
+  "/Users/navan.chauhan/Developer/navanchauhan/swift-hn/SwiftTUI/.scratch/TUIHarness/.build/checkouts/OpenCombine/Sources/OpenCombine/Publishers/Publishers.Comparison.swift": {
+    "dependencies": "/Users/navan.chauhan/Developer/navanchauhan/swift-hn/SwiftTUI/.scratch/TUIHarness/.build/arm64-apple-macosx/debug/OpenCombine.build/Publishers.Comparison.d",
+    "object": "/Users/navan.chauhan/Developer/navanchauhan/swift-hn/SwiftTUI/.scratch/TUIHarness/.build/arm64-apple-macosx/debug/OpenCombine.build/Publishers.Comparison.swift.o",
+    "swiftmodule": "/Users/navan.chauhan/Developer/navanchauhan/swift-hn/SwiftTUI/.scratch/TUIHarness/.build/arm64-apple-macosx/debug/OpenCombine.build/Publishers.Comparison~partial.swiftmodule",
+    "swift-dependencies": "/Users/navan.chauhan/Developer/navanchauhan/swift-hn/SwiftTUI/.scratch/TUIHarness/.build/arm64-apple-macosx/debug/OpenCombine.build/Publishers.Comparison.swiftdeps"
+  },
+  "/Users/navan.chauhan/Developer/navanchauhan/swift-hn/SwiftTUI/.scratch/TUIHarness/.build/checkouts/OpenCombine/Sources/OpenCombine/Publishers/Publishers.Concatenate.swift": {
+    "dependencies": "/Users/navan.chauhan/Developer/navanchauhan/swift-hn/SwiftTUI/.scratch/TUIHarness/.build/arm64-apple-macosx/debug/OpenCombine.build/Publishers.Concatenate.d",
+    "object": "/Users/navan.chauhan/Developer/navanchauhan/swift-hn/SwiftTUI/.scratch/TUIHarness/.build/arm64-apple-macosx/debug/OpenCombine.build/Publishers.Concatenate.swift.o",
+    "swiftmodule": "/Users/navan.chauhan/Developer/navanchauhan/swift-hn/SwiftTUI/.scratch/TUIHarness/.build/arm64-apple-macosx/debug/OpenCombine.build/Publishers.Concatenate~partial.swiftmodule",
+    "swift-dependencies": "/Users/navan.chauhan/Developer/navanchauhan/swift-hn/SwiftTUI/.scratch/TUIHarness/.build/arm64-apple-macosx/debug/OpenCombine.build/Publishers.Concatenate.swiftdeps"
+  },
+  "/Users/navan.chauhan/Developer/navanchauhan/swift-hn/SwiftTUI/.scratch/TUIHarness/.build/checkouts/OpenCombine/Sources/OpenCombine/Publishers/Publishers.Contains.swift": {
+    "dependencies": "/Users/navan.chauhan/Developer/navanchauhan/swift-hn/SwiftTUI/.scratch/TUIHarness/.build/arm64-apple-macosx/debug/OpenCombine.build/Publishers.Contains.d",
+    "object": "/Users/navan.chauhan/Developer/navanchauhan/swift-hn/SwiftTUI/.scratch/TUIHarness/.build/arm64-apple-macosx/debug/OpenCombine.build/Publishers.Contains.swift.o",
+    "swiftmodule": "/Users/navan.chauhan/Developer/navanchauhan/swift-hn/SwiftTUI/.scratch/TUIHarness/.build/arm64-apple-macosx/debug/OpenCombine.build/Publishers.Contains~partial.swiftmodule",
+    "swift-dependencies": "/Users/navan.chauhan/Developer/navanchauhan/swift-hn/SwiftTUI/.scratch/TUIHarness/.build/arm64-apple-macosx/debug/OpenCombine.build/Publishers.Contains.swiftdeps"
+  },
+  "/Users/navan.chauhan/Developer/navanchauhan/swift-hn/SwiftTUI/.scratch/TUIHarness/.build/checkouts/OpenCombine/Sources/OpenCombine/Publishers/Publishers.Count.swift": {
+    "dependencies": "/Users/navan.chauhan/Developer/navanchauhan/swift-hn/SwiftTUI/.scratch/TUIHarness/.build/arm64-apple-macosx/debug/OpenCombine.build/Publishers.Count.d",
+    "object": "/Users/navan.chauhan/Developer/navanchauhan/swift-hn/SwiftTUI/.scratch/TUIHarness/.build/arm64-apple-macosx/debug/OpenCombine.build/Publishers.Count.swift.o",
+    "swiftmodule": "/Users/navan.chauhan/Developer/navanchauhan/swift-hn/SwiftTUI/.scratch/TUIHarness/.build/arm64-apple-macosx/debug/OpenCombine.build/Publishers.Count~partial.swiftmodule",
+    "swift-dependencies": "/Users/navan.chauhan/Developer/navanchauhan/swift-hn/SwiftTUI/.scratch/TUIHarness/.build/arm64-apple-macosx/debug/OpenCombine.build/Publishers.Count.swiftdeps"
+  },
+  "/Users/navan.chauhan/Developer/navanchauhan/swift-hn/SwiftTUI/.scratch/TUIHarness/.build/checkouts/OpenCombine/Sources/OpenCombine/Publishers/Publishers.Debounce.swift": {
+    "dependencies": "/Users/navan.chauhan/Developer/navanchauhan/swift-hn/SwiftTUI/.scratch/TUIHarness/.build/arm64-apple-macosx/debug/OpenCombine.build/Publishers.Debounce.d",
+    "object": "/Users/navan.chauhan/Developer/navanchauhan/swift-hn/SwiftTUI/.scratch/TUIHarness/.build/arm64-apple-macosx/debug/OpenCombine.build/Publishers.Debounce.swift.o",
+    "swiftmodule": "/Users/navan.chauhan/Developer/navanchauhan/swift-hn/SwiftTUI/.scratch/TUIHarness/.build/arm64-apple-macosx/debug/OpenCombine.build/Publishers.Debounce~partial.swiftmodule",
+    "swift-dependencies": "/Users/navan.chauhan/Developer/navanchauhan/swift-hn/SwiftTUI/.scratch/TUIHarness/.build/arm64-apple-macosx/debug/OpenCombine.build/Publishers.Debounce.swiftdeps"
+  },
+  "/Users/navan.chauhan/Developer/navanchauhan/swift-hn/SwiftTUI/.scratch/TUIHarness/.build/checkouts/OpenCombine/Sources/OpenCombine/Publishers/Publishers.Delay.swift": {
+    "dependencies": "/Users/navan.chauhan/Developer/navanchauhan/swift-hn/SwiftTUI/.scratch/TUIHarness/.build/arm64-apple-macosx/debug/OpenCombine.build/Publishers.Delay.d",
+    "object": "/Users/navan.chauhan/Developer/navanchauhan/swift-hn/SwiftTUI/.scratch/TUIHarness/.build/arm64-apple-macosx/debug/OpenCombine.build/Publishers.Delay.swift.o",
+    "swiftmodule": "/Users/navan.chauhan/Developer/navanchauhan/swift-hn/SwiftTUI/.scratch/TUIHarness/.build/arm64-apple-macosx/debug/OpenCombine.build/Publishers.Delay~partial.swiftmodule",
+    "swift-dependencies": "/Users/navan.chauhan/Developer/navanchauhan/swift-hn/SwiftTUI/.scratch/TUIHarness/.build/arm64-apple-macosx/debug/OpenCombine.build/Publishers.Delay.swiftdeps"
+  },
+  "/Users/navan.chauhan/Developer/navanchauhan/swift-hn/SwiftTUI/.scratch/TUIHarness/.build/checkouts/OpenCombine/Sources/OpenCombine/Publishers/Publishers.Drop.swift": {
+    "dependencies": "/Users/navan.chauhan/Developer/navanchauhan/swift-hn/SwiftTUI/.scratch/TUIHarness/.build/arm64-apple-macosx/debug/OpenCombine.build/Publishers.Drop.d",
+    "object": "/Users/navan.chauhan/Developer/navanchauhan/swift-hn/SwiftTUI/.scratch/TUIHarness/.build/arm64-apple-macosx/debug/OpenCombine.build/Publishers.Drop.swift.o",
+    "swiftmodule": "/Users/navan.chauhan/Developer/navanchauhan/swift-hn/SwiftTUI/.scratch/TUIHarness/.build/arm64-apple-macosx/debug/OpenCombine.build/Publishers.Drop~partial.swiftmodule",
+    "swift-dependencies": "/Users/navan.chauhan/Developer/navanchauhan/swift-hn/SwiftTUI/.scratch/TUIHarness/.build/arm64-apple-macosx/debug/OpenCombine.build/Publishers.Drop.swiftdeps"
+  },
+  "/Users/navan.chauhan/Developer/navanchauhan/swift-hn/SwiftTUI/.scratch/TUIHarness/.build/checkouts/OpenCombine/Sources/OpenCombine/Publishers/Publishers.DropUntilOutput.swift": {
+    "dependencies": "/Users/navan.chauhan/Developer/navanchauhan/swift-hn/SwiftTUI/.scratch/TUIHarness/.build/arm64-apple-macosx/debug/OpenCombine.build/Publishers.DropUntilOutput.d",
+    "object": "/Users/navan.chauhan/Developer/navanchauhan/swift-hn/SwiftTUI/.scratch/TUIHarness/.build/arm64-apple-macosx/debug/OpenCombine.build/Publishers.DropUntilOutput.swift.o",
+    "swiftmodule": "/Users/navan.chauhan/Developer/navanchauhan/swift-hn/SwiftTUI/.scratch/TUIHarness/.build/arm64-apple-macosx/debug/OpenCombine.build/Publishers.DropUntilOutput~partial.swiftmodule",
+    "swift-dependencies": "/Users/navan.chauhan/Developer/navanchauhan/swift-hn/SwiftTUI/.scratch/TUIHarness/.build/arm64-apple-macosx/debug/OpenCombine.build/Publishers.DropUntilOutput.swiftdeps"
+  },
+  "/Users/navan.chauhan/Developer/navanchauhan/swift-hn/SwiftTUI/.scratch/TUIHarness/.build/checkouts/OpenCombine/Sources/OpenCombine/Publishers/Publishers.DropWhile.swift": {
+    "dependencies": "/Users/navan.chauhan/Developer/navanchauhan/swift-hn/SwiftTUI/.scratch/TUIHarness/.build/arm64-apple-macosx/debug/OpenCombine.build/Publishers.DropWhile.d",
+    "object": "/Users/navan.chauhan/Developer/navanchauhan/swift-hn/SwiftTUI/.scratch/TUIHarness/.build/arm64-apple-macosx/debug/OpenCombine.build/Publishers.DropWhile.swift.o",
+    "swiftmodule": "/Users/navan.chauhan/Developer/navanchauhan/swift-hn/SwiftTUI/.scratch/TUIHarness/.build/arm64-apple-macosx/debug/OpenCombine.build/Publishers.DropWhile~partial.swiftmodule",
+    "swift-dependencies": "/Users/navan.chauhan/Developer/navanchauhan/swift-hn/SwiftTUI/.scratch/TUIHarness/.build/arm64-apple-macosx/debug/OpenCombine.build/Publishers.DropWhile.swiftdeps"
+  },
+  "/Users/navan.chauhan/Developer/navanchauhan/swift-hn/SwiftTUI/.scratch/TUIHarness/.build/checkouts/OpenCombine/Sources/OpenCombine/Publishers/Publishers.Filter.swift": {
+    "dependencies": "/Users/navan.chauhan/Developer/navanchauhan/swift-hn/SwiftTUI/.scratch/TUIHarness/.build/arm64-apple-macosx/debug/OpenCombine.build/Publishers.Filter.d",
+    "object": "/Users/navan.chauhan/Developer/navanchauhan/swift-hn/SwiftTUI/.scratch/TUIHarness/.build/arm64-apple-macosx/debug/OpenCombine.build/Publishers.Filter.swift.o",
+    "swiftmodule": "/Users/navan.chauhan/Developer/navanchauhan/swift-hn/SwiftTUI/.scratch/TUIHarness/.build/arm64-apple-macosx/debug/OpenCombine.build/Publishers.Filter~partial.swiftmodule",
+    "swift-dependencies": "/Users/navan.chauhan/Developer/navanchauhan/swift-hn/SwiftTUI/.scratch/TUIHarness/.build/arm64-apple-macosx/debug/OpenCombine.build/Publishers.Filter.swiftdeps"
+  },
+  "/Users/navan.chauhan/Developer/navanchauhan/swift-hn/SwiftTUI/.scratch/TUIHarness/.build/checkouts/OpenCombine/Sources/OpenCombine/Publishers/Publishers.First.swift": {
+    "dependencies": "/Users/navan.chauhan/Developer/navanchauhan/swift-hn/SwiftTUI/.scratch/TUIHarness/.build/arm64-apple-macosx/debug/OpenCombine.build/Publishers.First.d",
+    "object": "/Users/navan.chauhan/Developer/navanchauhan/swift-hn/SwiftTUI/.scratch/TUIHarness/.build/arm64-apple-macosx/debug/OpenCombine.build/Publishers.First.swift.o",
+    "swiftmodule": "/Users/navan.chauhan/Developer/navanchauhan/swift-hn/SwiftTUI/.scratch/TUIHarness/.build/arm64-apple-macosx/debug/OpenCombine.build/Publishers.First~partial.swiftmodule",
+    "swift-dependencies": "/Users/navan.chauhan/Developer/navanchauhan/swift-hn/SwiftTUI/.scratch/TUIHarness/.build/arm64-apple-macosx/debug/OpenCombine.build/Publishers.First.swiftdeps"
+  },
+  "/Users/navan.chauhan/Developer/navanchauhan/swift-hn/SwiftTUI/.scratch/TUIHarness/.build/checkouts/OpenCombine/Sources/OpenCombine/Publishers/Publishers.FlatMap.swift": {
+    "dependencies": "/Users/navan.chauhan/Developer/navanchauhan/swift-hn/SwiftTUI/.scratch/TUIHarness/.build/arm64-apple-macosx/debug/OpenCombine.build/Publishers.FlatMap.d",
+    "object": "/Users/navan.chauhan/Developer/navanchauhan/swift-hn/SwiftTUI/.scratch/TUIHarness/.build/arm64-apple-macosx/debug/OpenCombine.build/Publishers.FlatMap.swift.o",
+    "swiftmodule": "/Users/navan.chauhan/Developer/navanchauhan/swift-hn/SwiftTUI/.scratch/TUIHarness/.build/arm64-apple-macosx/debug/OpenCombine.build/Publishers.FlatMap~partial.swiftmodule",
+    "swift-dependencies": "/Users/navan.chauhan/Developer/navanchauhan/swift-hn/SwiftTUI/.scratch/TUIHarness/.build/arm64-apple-macosx/debug/OpenCombine.build/Publishers.FlatMap.swiftdeps"
+  },
+  "/Users/navan.chauhan/Developer/navanchauhan/swift-hn/SwiftTUI/.scratch/TUIHarness/.build/checkouts/OpenCombine/Sources/OpenCombine/Publishers/Publishers.HandleEvents.swift": {
+    "dependencies": "/Users/navan.chauhan/Developer/navanchauhan/swift-hn/SwiftTUI/.scratch/TUIHarness/.build/arm64-apple-macosx/debug/OpenCombine.build/Publishers.HandleEvents.d",
+    "object": "/Users/navan.chauhan/Developer/navanchauhan/swift-hn/SwiftTUI/.scratch/TUIHarness/.build/arm64-apple-macosx/debug/OpenCombine.build/Publishers.HandleEvents.swift.o",
+    "swiftmodule": "/Users/navan.chauhan/Developer/navanchauhan/swift-hn/SwiftTUI/.scratch/TUIHarness/.build/arm64-apple-macosx/debug/OpenCombine.build/Publishers.HandleEvents~partial.swiftmodule",
+    "swift-dependencies": "/Users/navan.chauhan/Developer/navanchauhan/swift-hn/SwiftTUI/.scratch/TUIHarness/.build/arm64-apple-macosx/debug/OpenCombine.build/Publishers.HandleEvents.swiftdeps"
+  },
+  "/Users/navan.chauhan/Developer/navanchauhan/swift-hn/SwiftTUI/.scratch/TUIHarness/.build/checkouts/OpenCombine/Sources/OpenCombine/Publishers/Publishers.IgnoreOutput.swift": {
+    "dependencies": "/Users/navan.chauhan/Developer/navanchauhan/swift-hn/SwiftTUI/.scratch/TUIHarness/.build/arm64-apple-macosx/debug/OpenCombine.build/Publishers.IgnoreOutput.d",
+    "object": "/Users/navan.chauhan/Developer/navanchauhan/swift-hn/SwiftTUI/.scratch/TUIHarness/.build/arm64-apple-macosx/debug/OpenCombine.build/Publishers.IgnoreOutput.swift.o",
+    "swiftmodule": "/Users/navan.chauhan/Developer/navanchauhan/swift-hn/SwiftTUI/.scratch/TUIHarness/.build/arm64-apple-macosx/debug/OpenCombine.build/Publishers.IgnoreOutput~partial.swiftmodule",
+    "swift-dependencies": "/Users/navan.chauhan/Developer/navanchauhan/swift-hn/SwiftTUI/.scratch/TUIHarness/.build/arm64-apple-macosx/debug/OpenCombine.build/Publishers.IgnoreOutput.swiftdeps"
+  },
+  "/Users/navan.chauhan/Developer/navanchauhan/swift-hn/SwiftTUI/.scratch/TUIHarness/.build/checkouts/OpenCombine/Sources/OpenCombine/Publishers/Publishers.Last.swift": {
+    "dependencies": "/Users/navan.chauhan/Developer/navanchauhan/swift-hn/SwiftTUI/.scratch/TUIHarness/.build/arm64-apple-macosx/debug/OpenCombine.build/Publishers.Last.d",
+    "object": "/Users/navan.chauhan/Developer/navanchauhan/swift-hn/SwiftTUI/.scratch/TUIHarness/.build/arm64-apple-macosx/debug/OpenCombine.build/Publishers.Last.swift.o",
+    "swiftmodule": "/Users/navan.chauhan/Developer/navanchauhan/swift-hn/SwiftTUI/.scratch/TUIHarness/.build/arm64-apple-macosx/debug/OpenCombine.build/Publishers.Last~partial.swiftmodule",
+    "swift-dependencies": "/Users/navan.chauhan/Developer/navanchauhan/swift-hn/SwiftTUI/.scratch/TUIHarness/.build/arm64-apple-macosx/debug/OpenCombine.build/Publishers.Last.swiftdeps"
+  },
+  "/Users/navan.chauhan/Developer/navanchauhan/swift-hn/SwiftTUI/.scratch/TUIHarness/.build/checkouts/OpenCombine/Sources/OpenCombine/Publishers/Publishers.MakeConnectable.swift": {
+    "dependencies": "/Users/navan.chauhan/Developer/navanchauhan/swift-hn/SwiftTUI/.scratch/TUIHarness/.build/arm64-apple-macosx/debug/OpenCombine.build/Publishers.MakeConnectable.d",
+    "object": "/Users/navan.chauhan/Developer/navanchauhan/swift-hn/SwiftTUI/.scratch/TUIHarness/.build/arm64-apple-macosx/debug/OpenCombine.build/Publishers.MakeConnectable.swift.o",
+    "swiftmodule": "/Users/navan.chauhan/Developer/navanchauhan/swift-hn/SwiftTUI/.scratch/TUIHarness/.build/arm64-apple-macosx/debug/OpenCombine.build/Publishers.MakeConnectable~partial.swiftmodule",
+    "swift-dependencies": "/Users/navan.chauhan/Developer/navanchauhan/swift-hn/SwiftTUI/.scratch/TUIHarness/.build/arm64-apple-macosx/debug/OpenCombine.build/Publishers.MakeConnectable.swiftdeps"
+  },
+  "/Users/navan.chauhan/Developer/navanchauhan/swift-hn/SwiftTUI/.scratch/TUIHarness/.build/checkouts/OpenCombine/Sources/OpenCombine/Publishers/Publishers.Map.swift": {
+    "dependencies": "/Users/navan.chauhan/Developer/navanchauhan/swift-hn/SwiftTUI/.scratch/TUIHarness/.build/arm64-apple-macosx/debug/OpenCombine.build/Publishers.Map.d",
+    "object": "/Users/navan.chauhan/Developer/navanchauhan/swift-hn/SwiftTUI/.scratch/TUIHarness/.build/arm64-apple-macosx/debug/OpenCombine.build/Publishers.Map.swift.o",
+    "swiftmodule": "/Users/navan.chauhan/Developer/navanchauhan/swift-hn/SwiftTUI/.scratch/TUIHarness/.build/arm64-apple-macosx/debug/OpenCombine.build/Publishers.Map~partial.swiftmodule",
+    "swift-dependencies": "/Users/navan.chauhan/Developer/navanchauhan/swift-hn/SwiftTUI/.scratch/TUIHarness/.build/arm64-apple-macosx/debug/OpenCombine.build/Publishers.Map.swiftdeps"
+  },
+  "/Users/navan.chauhan/Developer/navanchauhan/swift-hn/SwiftTUI/.scratch/TUIHarness/.build/checkouts/OpenCombine/Sources/OpenCombine/Publishers/Publishers.MapError.swift": {
+    "dependencies": "/Users/navan.chauhan/Developer/navanchauhan/swift-hn/SwiftTUI/.scratch/TUIHarness/.build/arm64-apple-macosx/debug/OpenCombine.build/Publishers.MapError.d",
+    "object": "/Users/navan.chauhan/Developer/navanchauhan/swift-hn/SwiftTUI/.scratch/TUIHarness/.build/arm64-apple-macosx/debug/OpenCombine.build/Publishers.MapError.swift.o",
+    "swiftmodule": "/Users/navan.chauhan/Developer/navanchauhan/swift-hn/SwiftTUI/.scratch/TUIHarness/.build/arm64-apple-macosx/debug/OpenCombine.build/Publishers.MapError~partial.swiftmodule",
+    "swift-dependencies": "/Users/navan.chauhan/Developer/navanchauhan/swift-hn/SwiftTUI/.scratch/TUIHarness/.build/arm64-apple-macosx/debug/OpenCombine.build/Publishers.MapError.swiftdeps"
+  },
+  "/Users/navan.chauhan/Developer/navanchauhan/swift-hn/SwiftTUI/.scratch/TUIHarness/.build/checkouts/OpenCombine/Sources/OpenCombine/Publishers/Publishers.MeasureInterval.swift": {
+    "dependencies": "/Users/navan.chauhan/Developer/navanchauhan/swift-hn/SwiftTUI/.scratch/TUIHarness/.build/arm64-apple-macosx/debug/OpenCombine.build/Publishers.MeasureInterval.d",
+    "object": "/Users/navan.chauhan/Developer/navanchauhan/swift-hn/SwiftTUI/.scratch/TUIHarness/.build/arm64-apple-macosx/debug/OpenCombine.build/Publishers.MeasureInterval.swift.o",
+    "swiftmodule": "/Users/navan.chauhan/Developer/navanchauhan/swift-hn/SwiftTUI/.scratch/TUIHarness/.build/arm64-apple-macosx/debug/OpenCombine.build/Publishers.MeasureInterval~partial.swiftmodule",
+    "swift-dependencies": "/Users/navan.chauhan/Developer/navanchauhan/swift-hn/SwiftTUI/.scratch/TUIHarness/.build/arm64-apple-macosx/debug/OpenCombine.build/Publishers.MeasureInterval.swiftdeps"
+  },
+  "/Users/navan.chauhan/Developer/navanchauhan/swift-hn/SwiftTUI/.scratch/TUIHarness/.build/checkouts/OpenCombine/Sources/OpenCombine/Publishers/Publishers.Multicast.swift": {
+    "dependencies": "/Users/navan.chauhan/Developer/navanchauhan/swift-hn/SwiftTUI/.scratch/TUIHarness/.build/arm64-apple-macosx/debug/OpenCombine.build/Publishers.Multicast.d",
+    "object": "/Users/navan.chauhan/Developer/navanchauhan/swift-hn/SwiftTUI/.scratch/TUIHarness/.build/arm64-apple-macosx/debug/OpenCombine.build/Publishers.Multicast.swift.o",
+    "swiftmodule": "/Users/navan.chauhan/Developer/navanchauhan/swift-hn/SwiftTUI/.scratch/TUIHarness/.build/arm64-apple-macosx/debug/OpenCombine.build/Publishers.Multicast~partial.swiftmodule",
+    "swift-dependencies": "/Users/navan.chauhan/Developer/navanchauhan/swift-hn/SwiftTUI/.scratch/TUIHarness/.build/arm64-apple-macosx/debug/OpenCombine.build/Publishers.Multicast.swiftdeps"
+  },
+  "/Users/navan.chauhan/Developer/navanchauhan/swift-hn/SwiftTUI/.scratch/TUIHarness/.build/checkouts/OpenCombine/Sources/OpenCombine/Publishers/Publishers.Output.swift": {
+    "dependencies": "/Users/navan.chauhan/Developer/navanchauhan/swift-hn/SwiftTUI/.scratch/TUIHarness/.build/arm64-apple-macosx/debug/OpenCombine.build/Publishers.Output.d",
+    "object": "/Users/navan.chauhan/Developer/navanchauhan/swift-hn/SwiftTUI/.scratch/TUIHarness/.build/arm64-apple-macosx/debug/OpenCombine.build/Publishers.Output.swift.o",
+    "swiftmodule": "/Users/navan.chauhan/Developer/navanchauhan/swift-hn/SwiftTUI/.scratch/TUIHarness/.build/arm64-apple-macosx/debug/OpenCombine.build/Publishers.Output~partial.swiftmodule",
+    "swift-dependencies": "/Users/navan.chauhan/Developer/navanchauhan/swift-hn/SwiftTUI/.scratch/TUIHarness/.build/arm64-apple-macosx/debug/OpenCombine.build/Publishers.Output.swiftdeps"
+  },
+  "/Users/navan.chauhan/Developer/navanchauhan/swift-hn/SwiftTUI/.scratch/TUIHarness/.build/checkouts/OpenCombine/Sources/OpenCombine/Publishers/Publishers.PrefixUntilOutput.swift": {
+    "dependencies": "/Users/navan.chauhan/Developer/navanchauhan/swift-hn/SwiftTUI/.scratch/TUIHarness/.build/arm64-apple-macosx/debug/OpenCombine.build/Publishers.PrefixUntilOutput.d",
+    "object": "/Users/navan.chauhan/Developer/navanchauhan/swift-hn/SwiftTUI/.scratch/TUIHarness/.build/arm64-apple-macosx/debug/OpenCombine.build/Publishers.PrefixUntilOutput.swift.o",
+    "swiftmodule": "/Users/navan.chauhan/Developer/navanchauhan/swift-hn/SwiftTUI/.scratch/TUIHarness/.build/arm64-apple-macosx/debug/OpenCombine.build/Publishers.PrefixUntilOutput~partial.swiftmodule",
+    "swift-dependencies": "/Users/navan.chauhan/Developer/navanchauhan/swift-hn/SwiftTUI/.scratch/TUIHarness/.build/arm64-apple-macosx/debug/OpenCombine.build/Publishers.PrefixUntilOutput.swiftdeps"
+  },
+  "/Users/navan.chauhan/Developer/navanchauhan/swift-hn/SwiftTUI/.scratch/TUIHarness/.build/checkouts/OpenCombine/Sources/OpenCombine/Publishers/Publishers.PrefixWhile.swift": {
+    "dependencies": "/Users/navan.chauhan/Developer/navanchauhan/swift-hn/SwiftTUI/.scratch/TUIHarness/.build/arm64-apple-macosx/debug/OpenCombine.build/Publishers.PrefixWhile.d",
+    "object": "/Users/navan.chauhan/Developer/navanchauhan/swift-hn/SwiftTUI/.scratch/TUIHarness/.build/arm64-apple-macosx/debug/OpenCombine.build/Publishers.PrefixWhile.swift.o",
+    "swiftmodule": "/Users/navan.chauhan/Developer/navanchauhan/swift-hn/SwiftTUI/.scratch/TUIHarness/.build/arm64-apple-macosx/debug/OpenCombine.build/Publishers.PrefixWhile~partial.swiftmodule",
+    "swift-dependencies": "/Users/navan.chauhan/Developer/navanchauhan/swift-hn/SwiftTUI/.scratch/TUIHarness/.build/arm64-apple-macosx/debug/OpenCombine.build/Publishers.PrefixWhile.swiftdeps"
+  },
+  "/Users/navan.chauhan/Developer/navanchauhan/swift-hn/SwiftTUI/.scratch/TUIHarness/.build/checkouts/OpenCombine/Sources/OpenCombine/Publishers/Publishers.Print.swift": {
+    "dependencies": "/Users/navan.chauhan/Developer/navanchauhan/swift-hn/SwiftTUI/.scratch/TUIHarness/.build/arm64-apple-macosx/debug/OpenCombine.build/Publishers.Print.d",
+    "object": "/Users/navan.chauhan/Developer/navanchauhan/swift-hn/SwiftTUI/.scratch/TUIHarness/.build/arm64-apple-macosx/debug/OpenCombine.build/Publishers.Print.swift.o",
+    "swiftmodule": "/Users/navan.chauhan/Developer/navanchauhan/swift-hn/SwiftTUI/.scratch/TUIHarness/.build/arm64-apple-macosx/debug/OpenCombine.build/Publishers.Print~partial.swiftmodule",
+    "swift-dependencies": "/Users/navan.chauhan/Developer/navanchauhan/swift-hn/SwiftTUI/.scratch/TUIHarness/.build/arm64-apple-macosx/debug/OpenCombine.build/Publishers.Print.swiftdeps"
+  },
+  "/Users/navan.chauhan/Developer/navanchauhan/swift-hn/SwiftTUI/.scratch/TUIHarness/.build/checkouts/OpenCombine/Sources/OpenCombine/Publishers/Publishers.ReceiveOn.swift": {
+    "dependencies": "/Users/navan.chauhan/Developer/navanchauhan/swift-hn/SwiftTUI/.scratch/TUIHarness/.build/arm64-apple-macosx/debug/OpenCombine.build/Publishers.ReceiveOn.d",
+    "object": "/Users/navan.chauhan/Developer/navanchauhan/swift-hn/SwiftTUI/.scratch/TUIHarness/.build/arm64-apple-macosx/debug/OpenCombine.build/Publishers.ReceiveOn.swift.o",
+    "swiftmodule": "/Users/navan.chauhan/Developer/navanchauhan/swift-hn/SwiftTUI/.scratch/TUIHarness/.build/arm64-apple-macosx/debug/OpenCombine.build/Publishers.ReceiveOn~partial.swiftmodule",
+    "swift-dependencies": "/Users/navan.chauhan/Developer/navanchauhan/swift-hn/SwiftTUI/.scratch/TUIHarness/.build/arm64-apple-macosx/debug/OpenCombine.build/Publishers.ReceiveOn.swiftdeps"
+  },
+  "/Users/navan.chauhan/Developer/navanchauhan/swift-hn/SwiftTUI/.scratch/TUIHarness/.build/checkouts/OpenCombine/Sources/OpenCombine/Publishers/Publishers.Reduce.swift": {
+    "dependencies": "/Users/navan.chauhan/Developer/navanchauhan/swift-hn/SwiftTUI/.scratch/TUIHarness/.build/arm64-apple-macosx/debug/OpenCombine.build/Publishers.Reduce.d",
+    "object": "/Users/navan.chauhan/Developer/navanchauhan/swift-hn/SwiftTUI/.scratch/TUIHarness/.build/arm64-apple-macosx/debug/OpenCombine.build/Publishers.Reduce.swift.o",
+    "swiftmodule": "/Users/navan.chauhan/Developer/navanchauhan/swift-hn/SwiftTUI/.scratch/TUIHarness/.build/arm64-apple-macosx/debug/OpenCombine.build/Publishers.Reduce~partial.swiftmodule",
+    "swift-dependencies": "/Users/navan.chauhan/Developer/navanchauhan/swift-hn/SwiftTUI/.scratch/TUIHarness/.build/arm64-apple-macosx/debug/OpenCombine.build/Publishers.Reduce.swiftdeps"
+  },
+  "/Users/navan.chauhan/Developer/navanchauhan/swift-hn/SwiftTUI/.scratch/TUIHarness/.build/checkouts/OpenCombine/Sources/OpenCombine/Publishers/Publishers.RemoveDuplicates.swift": {
+    "dependencies": "/Users/navan.chauhan/Developer/navanchauhan/swift-hn/SwiftTUI/.scratch/TUIHarness/.build/arm64-apple-macosx/debug/OpenCombine.build/Publishers.RemoveDuplicates.d",
+    "object": "/Users/navan.chauhan/Developer/navanchauhan/swift-hn/SwiftTUI/.scratch/TUIHarness/.build/arm64-apple-macosx/debug/OpenCombine.build/Publishers.RemoveDuplicates.swift.o",
+    "swiftmodule": "/Users/navan.chauhan/Developer/navanchauhan/swift-hn/SwiftTUI/.scratch/TUIHarness/.build/arm64-apple-macosx/debug/OpenCombine.build/Publishers.RemoveDuplicates~partial.swiftmodule",
+    "swift-dependencies": "/Users/navan.chauhan/Developer/navanchauhan/swift-hn/SwiftTUI/.scratch/TUIHarness/.build/arm64-apple-macosx/debug/OpenCombine.build/Publishers.RemoveDuplicates.swiftdeps"
+  },
+  "/Users/navan.chauhan/Developer/navanchauhan/swift-hn/SwiftTUI/.scratch/TUIHarness/.build/checkouts/OpenCombine/Sources/OpenCombine/Publishers/Publishers.ReplaceEmpty.swift": {
+    "dependencies": "/Users/navan.chauhan/Developer/navanchauhan/swift-hn/SwiftTUI/.scratch/TUIHarness/.build/arm64-apple-macosx/debug/OpenCombine.build/Publishers.ReplaceEmpty.d",
+    "object": "/Users/navan.chauhan/Developer/navanchauhan/swift-hn/SwiftTUI/.scratch/TUIHarness/.build/arm64-apple-macosx/debug/OpenCombine.build/Publishers.ReplaceEmpty.swift.o",
+    "swiftmodule": "/Users/navan.chauhan/Developer/navanchauhan/swift-hn/SwiftTUI/.scratch/TUIHarness/.build/arm64-apple-macosx/debug/OpenCombine.build/Publishers.ReplaceEmpty~partial.swiftmodule",
+    "swift-dependencies": "/Users/navan.chauhan/Developer/navanchauhan/swift-hn/SwiftTUI/.scratch/TUIHarness/.build/arm64-apple-macosx/debug/OpenCombine.build/Publishers.ReplaceEmpty.swiftdeps"
+  },
+  "/Users/navan.chauhan/Developer/navanchauhan/swift-hn/SwiftTUI/.scratch/TUIHarness/.build/checkouts/OpenCombine/Sources/OpenCombine/Publishers/Publishers.ReplaceError.swift": {
+    "dependencies": "/Users/navan.chauhan/Developer/navanchauhan/swift-hn/SwiftTUI/.scratch/TUIHarness/.build/arm64-apple-macosx/debug/OpenCombine.build/Publishers.ReplaceError.d",
+    "object": "/Users/navan.chauhan/Developer/navanchauhan/swift-hn/SwiftTUI/.scratch/TUIHarness/.build/arm64-apple-macosx/debug/OpenCombine.build/Publishers.ReplaceError.swift.o",
+    "swiftmodule": "/Users/navan.chauhan/Developer/navanchauhan/swift-hn/SwiftTUI/.scratch/TUIHarness/.build/arm64-apple-macosx/debug/OpenCombine.build/Publishers.ReplaceError~partial.swiftmodule",
+    "swift-dependencies": "/Users/navan.chauhan/Developer/navanchauhan/swift-hn/SwiftTUI/.scratch/TUIHarness/.build/arm64-apple-macosx/debug/OpenCombine.build/Publishers.ReplaceError.swiftdeps"
+  },
+  "/Users/navan.chauhan/Developer/navanchauhan/swift-hn/SwiftTUI/.scratch/TUIHarness/.build/checkouts/OpenCombine/Sources/OpenCombine/Publishers/Publishers.Retry.swift": {
+    "dependencies": "/Users/navan.chauhan/Developer/navanchauhan/swift-hn/SwiftTUI/.scratch/TUIHarness/.build/arm64-apple-macosx/debug/OpenCombine.build/Publishers.Retry.d",
+    "object": "/Users/navan.chauhan/Developer/navanchauhan/swift-hn/SwiftTUI/.scratch/TUIHarness/.build/arm64-apple-macosx/debug/OpenCombine.build/Publishers.Retry.swift.o",
+    "swiftmodule": "/Users/navan.chauhan/Developer/navanchauhan/swift-hn/SwiftTUI/.scratch/TUIHarness/.build/arm64-apple-macosx/debug/OpenCombine.build/Publishers.Retry~partial.swiftmodule",
+    "swift-dependencies": "/Users/navan.chauhan/Developer/navanchauhan/swift-hn/SwiftTUI/.scratch/TUIHarness/.build/arm64-apple-macosx/debug/OpenCombine.build/Publishers.Retry.swiftdeps"
+  },
+  "/Users/navan.chauhan/Developer/navanchauhan/swift-hn/SwiftTUI/.scratch/TUIHarness/.build/checkouts/OpenCombine/Sources/OpenCombine/Publishers/Publishers.Scan.swift": {
+    "dependencies": "/Users/navan.chauhan/Developer/navanchauhan/swift-hn/SwiftTUI/.scratch/TUIHarness/.build/arm64-apple-macosx/debug/OpenCombine.build/Publishers.Scan.d",
+    "object": "/Users/navan.chauhan/Developer/navanchauhan/swift-hn/SwiftTUI/.scratch/TUIHarness/.build/arm64-apple-macosx/debug/OpenCombine.build/Publishers.Scan.swift.o",
+    "swiftmodule": "/Users/navan.chauhan/Developer/navanchauhan/swift-hn/SwiftTUI/.scratch/TUIHarness/.build/arm64-apple-macosx/debug/OpenCombine.build/Publishers.Scan~partial.swiftmodule",
+    "swift-dependencies": "/Users/navan.chauhan/Developer/navanchauhan/swift-hn/SwiftTUI/.scratch/TUIHarness/.build/arm64-apple-macosx/debug/OpenCombine.build/Publishers.Scan.swiftdeps"
+  },
+  "/Users/navan.chauhan/Developer/navanchauhan/swift-hn/SwiftTUI/.scratch/TUIHarness/.build/checkouts/OpenCombine/Sources/OpenCombine/Publishers/Publishers.Sequence.swift": {
+    "dependencies": "/Users/navan.chauhan/Developer/navanchauhan/swift-hn/SwiftTUI/.scratch/TUIHarness/.build/arm64-apple-macosx/debug/OpenCombine.build/Publishers.Sequence.d",
+    "object": "/Users/navan.chauhan/Developer/navanchauhan/swift-hn/SwiftTUI/.scratch/TUIHarness/.build/arm64-apple-macosx/debug/OpenCombine.build/Publishers.Sequence.swift.o",
+    "swiftmodule": "/Users/navan.chauhan/Developer/navanchauhan/swift-hn/SwiftTUI/.scratch/TUIHarness/.build/arm64-apple-macosx/debug/OpenCombine.build/Publishers.Sequence~partial.swiftmodule",
+    "swift-dependencies": "/Users/navan.chauhan/Developer/navanchauhan/swift-hn/SwiftTUI/.scratch/TUIHarness/.build/arm64-apple-macosx/debug/OpenCombine.build/Publishers.Sequence.swiftdeps"
+  },
+  "/Users/navan.chauhan/Developer/navanchauhan/swift-hn/SwiftTUI/.scratch/TUIHarness/.build/checkouts/OpenCombine/Sources/OpenCombine/Publishers/Publishers.SetFailureType.swift": {
+    "dependencies": "/Users/navan.chauhan/Developer/navanchauhan/swift-hn/SwiftTUI/.scratch/TUIHarness/.build/arm64-apple-macosx/debug/OpenCombine.build/Publishers.SetFailureType.d",
+    "object": "/Users/navan.chauhan/Developer/navanchauhan/swift-hn/SwiftTUI/.scratch/TUIHarness/.build/arm64-apple-macosx/debug/OpenCombine.build/Publishers.SetFailureType.swift.o",
+    "swiftmodule": "/Users/navan.chauhan/Developer/navanchauhan/swift-hn/SwiftTUI/.scratch/TUIHarness/.build/arm64-apple-macosx/debug/OpenCombine.build/Publishers.SetFailureType~partial.swiftmodule",
+    "swift-dependencies": "/Users/navan.chauhan/Developer/navanchauhan/swift-hn/SwiftTUI/.scratch/TUIHarness/.build/arm64-apple-macosx/debug/OpenCombine.build/Publishers.SetFailureType.swiftdeps"
+  },
+  "/Users/navan.chauhan/Developer/navanchauhan/swift-hn/SwiftTUI/.scratch/TUIHarness/.build/checkouts/OpenCombine/Sources/OpenCombine/Publishers/Publishers.Share.swift": {
+    "dependencies": "/Users/navan.chauhan/Developer/navanchauhan/swift-hn/SwiftTUI/.scratch/TUIHarness/.build/arm64-apple-macosx/debug/OpenCombine.build/Publishers.Share.d",
+    "object": "/Users/navan.chauhan/Developer/navanchauhan/swift-hn/SwiftTUI/.scratch/TUIHarness/.build/arm64-apple-macosx/debug/OpenCombine.build/Publishers.Share.swift.o",
+    "swiftmodule": "/Users/navan.chauhan/Developer/navanchauhan/swift-hn/SwiftTUI/.scratch/TUIHarness/.build/arm64-apple-macosx/debug/OpenCombine.build/Publishers.Share~partial.swiftmodule",
+    "swift-dependencies": "/Users/navan.chauhan/Developer/navanchauhan/swift-hn/SwiftTUI/.scratch/TUIHarness/.build/arm64-apple-macosx/debug/OpenCombine.build/Publishers.Share.swiftdeps"
+  },
+  "/Users/navan.chauhan/Developer/navanchauhan/swift-hn/SwiftTUI/.scratch/TUIHarness/.build/checkouts/OpenCombine/Sources/OpenCombine/Publishers/Publishers.SubscribeOn.swift": {
+    "dependencies": "/Users/navan.chauhan/Developer/navanchauhan/swift-hn/SwiftTUI/.scratch/TUIHarness/.build/arm64-apple-macosx/debug/OpenCombine.build/Publishers.SubscribeOn.d",
+    "object": "/Users/navan.chauhan/Developer/navanchauhan/swift-hn/SwiftTUI/.scratch/TUIHarness/.build/arm64-apple-macosx/debug/OpenCombine.build/Publishers.SubscribeOn.swift.o",
+    "swiftmodule": "/Users/navan.chauhan/Developer/navanchauhan/swift-hn/SwiftTUI/.scratch/TUIHarness/.build/arm64-apple-macosx/debug/OpenCombine.build/Publishers.SubscribeOn~partial.swiftmodule",
+    "swift-dependencies": "/Users/navan.chauhan/Developer/navanchauhan/swift-hn/SwiftTUI/.scratch/TUIHarness/.build/arm64-apple-macosx/debug/OpenCombine.build/Publishers.SubscribeOn.swiftdeps"
+  },
+  "/Users/navan.chauhan/Developer/navanchauhan/swift-hn/SwiftTUI/.scratch/TUIHarness/.build/checkouts/OpenCombine/Sources/OpenCombine/Publishers/Publishers.SwitchToLatest.swift": {
+    "dependencies": "/Users/navan.chauhan/Developer/navanchauhan/swift-hn/SwiftTUI/.scratch/TUIHarness/.build/arm64-apple-macosx/debug/OpenCombine.build/Publishers.SwitchToLatest.d",
+    "object": "/Users/navan.chauhan/Developer/navanchauhan/swift-hn/SwiftTUI/.scratch/TUIHarness/.build/arm64-apple-macosx/debug/OpenCombine.build/Publishers.SwitchToLatest.swift.o",
+    "swiftmodule": "/Users/navan.chauhan/Developer/navanchauhan/swift-hn/SwiftTUI/.scratch/TUIHarness/.build/arm64-apple-macosx/debug/OpenCombine.build/Publishers.SwitchToLatest~partial.swiftmodule",
+    "swift-dependencies": "/Users/navan.chauhan/Developer/navanchauhan/swift-hn/SwiftTUI/.scratch/TUIHarness/.build/arm64-apple-macosx/debug/OpenCombine.build/Publishers.SwitchToLatest.swiftdeps"
+  },
+  "/Users/navan.chauhan/Developer/navanchauhan/swift-hn/SwiftTUI/.scratch/TUIHarness/.build/checkouts/OpenCombine/Sources/OpenCombine/Publishers/Publishers.Throttle.swift": {
+    "dependencies": "/Users/navan.chauhan/Developer/navanchauhan/swift-hn/SwiftTUI/.scratch/TUIHarness/.build/arm64-apple-macosx/debug/OpenCombine.build/Publishers.Throttle.d",
+    "object": "/Users/navan.chauhan/Developer/navanchauhan/swift-hn/SwiftTUI/.scratch/TUIHarness/.build/arm64-apple-macosx/debug/OpenCombine.build/Publishers.Throttle.swift.o",
+    "swiftmodule": "/Users/navan.chauhan/Developer/navanchauhan/swift-hn/SwiftTUI/.scratch/TUIHarness/.build/arm64-apple-macosx/debug/OpenCombine.build/Publishers.Throttle~partial.swiftmodule",
+    "swift-dependencies": "/Users/navan.chauhan/Developer/navanchauhan/swift-hn/SwiftTUI/.scratch/TUIHarness/.build/arm64-apple-macosx/debug/OpenCombine.build/Publishers.Throttle.swiftdeps"
+  },
+  "/Users/navan.chauhan/Developer/navanchauhan/swift-hn/SwiftTUI/.scratch/TUIHarness/.build/checkouts/OpenCombine/Sources/OpenCombine/Publishers/Publishers.Timeout.swift": {
+    "dependencies": "/Users/navan.chauhan/Developer/navanchauhan/swift-hn/SwiftTUI/.scratch/TUIHarness/.build/arm64-apple-macosx/debug/OpenCombine.build/Publishers.Timeout.d",
+    "object": "/Users/navan.chauhan/Developer/navanchauhan/swift-hn/SwiftTUI/.scratch/TUIHarness/.build/arm64-apple-macosx/debug/OpenCombine.build/Publishers.Timeout.swift.o",
+    "swiftmodule": "/Users/navan.chauhan/Developer/navanchauhan/swift-hn/SwiftTUI/.scratch/TUIHarness/.build/arm64-apple-macosx/debug/OpenCombine.build/Publishers.Timeout~partial.swiftmodule",
+    "swift-dependencies": "/Users/navan.chauhan/Developer/navanchauhan/swift-hn/SwiftTUI/.scratch/TUIHarness/.build/arm64-apple-macosx/debug/OpenCombine.build/Publishers.Timeout.swiftdeps"
+  },
+  "/Users/navan.chauhan/Developer/navanchauhan/swift-hn/SwiftTUI/.scratch/TUIHarness/.build/checkouts/OpenCombine/Sources/OpenCombine/Publishers/Publishers.Zip.swift": {
+    "dependencies": "/Users/navan.chauhan/Developer/navanchauhan/swift-hn/SwiftTUI/.scratch/TUIHarness/.build/arm64-apple-macosx/debug/OpenCombine.build/Publishers.Zip.d",
+    "object": "/Users/navan.chauhan/Developer/navanchauhan/swift-hn/SwiftTUI/.scratch/TUIHarness/.build/arm64-apple-macosx/debug/OpenCombine.build/Publishers.Zip.swift.o",
+    "swiftmodule": "/Users/navan.chauhan/Developer/navanchauhan/swift-hn/SwiftTUI/.scratch/TUIHarness/.build/arm64-apple-macosx/debug/OpenCombine.build/Publishers.Zip~partial.swiftmodule",
+    "swift-dependencies": "/Users/navan.chauhan/Developer/navanchauhan/swift-hn/SwiftTUI/.scratch/TUIHarness/.build/arm64-apple-macosx/debug/OpenCombine.build/Publishers.Zip.swiftdeps"
+  },
+  "/Users/navan.chauhan/Developer/navanchauhan/swift-hn/SwiftTUI/.scratch/TUIHarness/.build/checkouts/OpenCombine/Sources/OpenCombine/Publishers/Publishers.swift": {
+    "dependencies": "/Users/navan.chauhan/Developer/navanchauhan/swift-hn/SwiftTUI/.scratch/TUIHarness/.build/arm64-apple-macosx/debug/OpenCombine.build/Publishers.d",
+    "object": "/Users/navan.chauhan/Developer/navanchauhan/swift-hn/SwiftTUI/.scratch/TUIHarness/.build/arm64-apple-macosx/debug/OpenCombine.build/Publishers.swift.o",
+    "swiftmodule": "/Users/navan.chauhan/Developer/navanchauhan/swift-hn/SwiftTUI/.scratch/TUIHarness/.build/arm64-apple-macosx/debug/OpenCombine.build/Publishers~partial.swiftmodule",
+    "swift-dependencies": "/Users/navan.chauhan/Developer/navanchauhan/swift-hn/SwiftTUI/.scratch/TUIHarness/.build/arm64-apple-macosx/debug/OpenCombine.build/Publishers.swiftdeps"
+  },
+  "/Users/navan.chauhan/Developer/navanchauhan/swift-hn/SwiftTUI/.scratch/TUIHarness/.build/checkouts/OpenCombine/Sources/OpenCombine/Publishers/Record.swift": {
+    "dependencies": "/Users/navan.chauhan/Developer/navanchauhan/swift-hn/SwiftTUI/.scratch/TUIHarness/.build/arm64-apple-macosx/debug/OpenCombine.build/Record.d",
+    "object": "/Users/navan.chauhan/Developer/navanchauhan/swift-hn/SwiftTUI/.scratch/TUIHarness/.build/arm64-apple-macosx/debug/OpenCombine.build/Record.swift.o",
+    "swiftmodule": "/Users/navan.chauhan/Developer/navanchauhan/swift-hn/SwiftTUI/.scratch/TUIHarness/.build/arm64-apple-macosx/debug/OpenCombine.build/Record~partial.swiftmodule",
+    "swift-dependencies": "/Users/navan.chauhan/Developer/navanchauhan/swift-hn/SwiftTUI/.scratch/TUIHarness/.build/arm64-apple-macosx/debug/OpenCombine.build/Record.swiftdeps"
+  },
+  "/Users/navan.chauhan/Developer/navanchauhan/swift-hn/SwiftTUI/.scratch/TUIHarness/.build/checkouts/OpenCombine/Sources/OpenCombine/Publishers/Result.Publisher.swift": {
+    "dependencies": "/Users/navan.chauhan/Developer/navanchauhan/swift-hn/SwiftTUI/.scratch/TUIHarness/.build/arm64-apple-macosx/debug/OpenCombine.build/Result.Publisher.d",
+    "object": "/Users/navan.chauhan/Developer/navanchauhan/swift-hn/SwiftTUI/.scratch/TUIHarness/.build/arm64-apple-macosx/debug/OpenCombine.build/Result.Publisher.swift.o",
+    "swiftmodule": "/Users/navan.chauhan/Developer/navanchauhan/swift-hn/SwiftTUI/.scratch/TUIHarness/.build/arm64-apple-macosx/debug/OpenCombine.build/Result.Publisher~partial.swiftmodule",
+    "swift-dependencies": "/Users/navan.chauhan/Developer/navanchauhan/swift-hn/SwiftTUI/.scratch/TUIHarness/.build/arm64-apple-macosx/debug/OpenCombine.build/Result.Publisher.swiftdeps"
+  },
+  "/Users/navan.chauhan/Developer/navanchauhan/swift-hn/SwiftTUI/.scratch/TUIHarness/.build/checkouts/OpenCombine/Sources/OpenCombine/Result.swift": {
+    "dependencies": "/Users/navan.chauhan/Developer/navanchauhan/swift-hn/SwiftTUI/.scratch/TUIHarness/.build/arm64-apple-macosx/debug/OpenCombine.build/Result.d",
+    "object": "/Users/navan.chauhan/Developer/navanchauhan/swift-hn/SwiftTUI/.scratch/TUIHarness/.build/arm64-apple-macosx/debug/OpenCombine.build/Result.swift.o",
+    "swiftmodule": "/Users/navan.chauhan/Developer/navanchauhan/swift-hn/SwiftTUI/.scratch/TUIHarness/.build/arm64-apple-macosx/debug/OpenCombine.build/Result~partial.swiftmodule",
+    "swift-dependencies": "/Users/navan.chauhan/Developer/navanchauhan/swift-hn/SwiftTUI/.scratch/TUIHarness/.build/arm64-apple-macosx/debug/OpenCombine.build/Result.swiftdeps"
+  },
+  "/Users/navan.chauhan/Developer/navanchauhan/swift-hn/SwiftTUI/.scratch/TUIHarness/.build/checkouts/OpenCombine/Sources/OpenCombine/Scheduler.swift": {
+    "dependencies": "/Users/navan.chauhan/Developer/navanchauhan/swift-hn/SwiftTUI/.scratch/TUIHarness/.build/arm64-apple-macosx/debug/OpenCombine.build/Scheduler.d",
+    "object": "/Users/navan.chauhan/Developer/navanchauhan/swift-hn/SwiftTUI/.scratch/TUIHarness/.build/arm64-apple-macosx/debug/OpenCombine.build/Scheduler.swift.o",
+    "swiftmodule": "/Users/navan.chauhan/Developer/navanchauhan/swift-hn/SwiftTUI/.scratch/TUIHarness/.build/arm64-apple-macosx/debug/OpenCombine.build/Scheduler~partial.swiftmodule",
+    "swift-dependencies": "/Users/navan.chauhan/Developer/navanchauhan/swift-hn/SwiftTUI/.scratch/TUIHarness/.build/arm64-apple-macosx/debug/OpenCombine.build/Scheduler.swiftdeps"
+  },
+  "/Users/navan.chauhan/Developer/navanchauhan/swift-hn/SwiftTUI/.scratch/TUIHarness/.build/checkouts/OpenCombine/Sources/OpenCombine/Subject+Void.swift": {
+    "dependencies": "/Users/navan.chauhan/Developer/navanchauhan/swift-hn/SwiftTUI/.scratch/TUIHarness/.build/arm64-apple-macosx/debug/OpenCombine.build/Subject+Void.d",
+    "object": "/Users/navan.chauhan/Developer/navanchauhan/swift-hn/SwiftTUI/.scratch/TUIHarness/.build/arm64-apple-macosx/debug/OpenCombine.build/Subject+Void.swift.o",
+    "swiftmodule": "/Users/navan.chauhan/Developer/navanchauhan/swift-hn/SwiftTUI/.scratch/TUIHarness/.build/arm64-apple-macosx/debug/OpenCombine.build/Subject+Void~partial.swiftmodule",
+    "swift-dependencies": "/Users/navan.chauhan/Developer/navanchauhan/swift-hn/SwiftTUI/.scratch/TUIHarness/.build/arm64-apple-macosx/debug/OpenCombine.build/Subject+Void.swiftdeps"
+  },
+  "/Users/navan.chauhan/Developer/navanchauhan/swift-hn/SwiftTUI/.scratch/TUIHarness/.build/checkouts/OpenCombine/Sources/OpenCombine/Subscriber+Void.swift": {
+    "dependencies": "/Users/navan.chauhan/Developer/navanchauhan/swift-hn/SwiftTUI/.scratch/TUIHarness/.build/arm64-apple-macosx/debug/OpenCombine.build/Subscriber+Void.d",
+    "object": "/Users/navan.chauhan/Developer/navanchauhan/swift-hn/SwiftTUI/.scratch/TUIHarness/.build/arm64-apple-macosx/debug/OpenCombine.build/Subscriber+Void.swift.o",
+    "swiftmodule": "/Users/navan.chauhan/Developer/navanchauhan/swift-hn/SwiftTUI/.scratch/TUIHarness/.build/arm64-apple-macosx/debug/OpenCombine.build/Subscriber+Void~partial.swiftmodule",
+    "swift-dependencies": "/Users/navan.chauhan/Developer/navanchauhan/swift-hn/SwiftTUI/.scratch/TUIHarness/.build/arm64-apple-macosx/debug/OpenCombine.build/Subscriber+Void.swiftdeps"
+  },
+  "/Users/navan.chauhan/Developer/navanchauhan/swift-hn/SwiftTUI/.scratch/TUIHarness/.build/checkouts/OpenCombine/Sources/OpenCombine/Subscribers/Subscribers.Assign.swift": {
+    "dependencies": "/Users/navan.chauhan/Developer/navanchauhan/swift-hn/SwiftTUI/.scratch/TUIHarness/.build/arm64-apple-macosx/debug/OpenCombine.build/Subscribers.Assign.d",
+    "object": "/Users/navan.chauhan/Developer/navanchauhan/swift-hn/SwiftTUI/.scratch/TUIHarness/.build/arm64-apple-macosx/debug/OpenCombine.build/Subscribers.Assign.swift.o",
+    "swiftmodule": "/Users/navan.chauhan/Developer/navanchauhan/swift-hn/SwiftTUI/.scratch/TUIHarness/.build/arm64-apple-macosx/debug/OpenCombine.build/Subscribers.Assign~partial.swiftmodule",
+    "swift-dependencies": "/Users/navan.chauhan/Developer/navanchauhan/swift-hn/SwiftTUI/.scratch/TUIHarness/.build/arm64-apple-macosx/debug/OpenCombine.build/Subscribers.Assign.swiftdeps"
+  },
+  "/Users/navan.chauhan/Developer/navanchauhan/swift-hn/SwiftTUI/.scratch/TUIHarness/.build/checkouts/OpenCombine/Sources/OpenCombine/Subscribers/Subscribers.Completion.swift": {
+    "dependencies": "/Users/navan.chauhan/Developer/navanchauhan/swift-hn/SwiftTUI/.scratch/TUIHarness/.build/arm64-apple-macosx/debug/OpenCombine.build/Subscribers.Completion.d",
+    "object": "/Users/navan.chauhan/Developer/navanchauhan/swift-hn/SwiftTUI/.scratch/TUIHarness/.build/arm64-apple-macosx/debug/OpenCombine.build/Subscribers.Completion.swift.o",
+    "swiftmodule": "/Users/navan.chauhan/Developer/navanchauhan/swift-hn/SwiftTUI/.scratch/TUIHarness/.build/arm64-apple-macosx/debug/OpenCombine.build/Subscribers.Completion~partial.swiftmodule",
+    "swift-dependencies": "/Users/navan.chauhan/Developer/navanchauhan/swift-hn/SwiftTUI/.scratch/TUIHarness/.build/arm64-apple-macosx/debug/OpenCombine.build/Subscribers.Completion.swiftdeps"
+  },
+  "/Users/navan.chauhan/Developer/navanchauhan/swift-hn/SwiftTUI/.scratch/TUIHarness/.build/checkouts/OpenCombine/Sources/OpenCombine/Subscribers/Subscribers.Demand.swift": {
+    "dependencies": "/Users/navan.chauhan/Developer/navanchauhan/swift-hn/SwiftTUI/.scratch/TUIHarness/.build/arm64-apple-macosx/debug/OpenCombine.build/Subscribers.Demand.d",
+    "object": "/Users/navan.chauhan/Developer/navanchauhan/swift-hn/SwiftTUI/.scratch/TUIHarness/.build/arm64-apple-macosx/debug/OpenCombine.build/Subscribers.Demand.swift.o",
+    "swiftmodule": "/Users/navan.chauhan/Developer/navanchauhan/swift-hn/SwiftTUI/.scratch/TUIHarness/.build/arm64-apple-macosx/debug/OpenCombine.build/Subscribers.Demand~partial.swiftmodule",
+    "swift-dependencies": "/Users/navan.chauhan/Developer/navanchauhan/swift-hn/SwiftTUI/.scratch/TUIHarness/.build/arm64-apple-macosx/debug/OpenCombine.build/Subscribers.Demand.swiftdeps"
+  },
+  "/Users/navan.chauhan/Developer/navanchauhan/swift-hn/SwiftTUI/.scratch/TUIHarness/.build/checkouts/OpenCombine/Sources/OpenCombine/Subscribers/Subscribers.Sink.swift": {
+    "dependencies": "/Users/navan.chauhan/Developer/navanchauhan/swift-hn/SwiftTUI/.scratch/TUIHarness/.build/arm64-apple-macosx/debug/OpenCombine.build/Subscribers.Sink.d",
+    "object": "/Users/navan.chauhan/Developer/navanchauhan/swift-hn/SwiftTUI/.scratch/TUIHarness/.build/arm64-apple-macosx/debug/OpenCombine.build/Subscribers.Sink.swift.o",
+    "swiftmodule": "/Users/navan.chauhan/Developer/navanchauhan/swift-hn/SwiftTUI/.scratch/TUIHarness/.build/arm64-apple-macosx/debug/OpenCombine.build/Subscribers.Sink~partial.swiftmodule",
+    "swift-dependencies": "/Users/navan.chauhan/Developer/navanchauhan/swift-hn/SwiftTUI/.scratch/TUIHarness/.build/arm64-apple-macosx/debug/OpenCombine.build/Subscribers.Sink.swiftdeps"
+  },
+  "/Users/navan.chauhan/Developer/navanchauhan/swift-hn/SwiftTUI/.scratch/TUIHarness/.build/checkouts/OpenCombine/Sources/OpenCombine/Subscribers/Subscribers.swift": {
+    "dependencies": "/Users/navan.chauhan/Developer/navanchauhan/swift-hn/SwiftTUI/.scratch/TUIHarness/.build/arm64-apple-macosx/debug/OpenCombine.build/Subscribers.d",
+    "object": "/Users/navan.chauhan/Developer/navanchauhan/swift-hn/SwiftTUI/.scratch/TUIHarness/.build/arm64-apple-macosx/debug/OpenCombine.build/Subscribers.swift.o",
+    "swiftmodule": "/Users/navan.chauhan/Developer/navanchauhan/swift-hn/SwiftTUI/.scratch/TUIHarness/.build/arm64-apple-macosx/debug/OpenCombine.build/Subscribers~partial.swiftmodule",
+    "swift-dependencies": "/Users/navan.chauhan/Developer/navanchauhan/swift-hn/SwiftTUI/.scratch/TUIHarness/.build/arm64-apple-macosx/debug/OpenCombine.build/Subscribers.swiftdeps"
+  },
+  "/Users/navan.chauhan/Developer/navanchauhan/swift-hn/SwiftTUI/.scratch/TUIHarness/.build/checkouts/OpenCombine/Sources/OpenCombine/Subscription.swift": {
+    "dependencies": "/Users/navan.chauhan/Developer/navanchauhan/swift-hn/SwiftTUI/.scratch/TUIHarness/.build/arm64-apple-macosx/debug/OpenCombine.build/Subscription.d",
+    "object": "/Users/navan.chauhan/Developer/navanchauhan/swift-hn/SwiftTUI/.scratch/TUIHarness/.build/arm64-apple-macosx/debug/OpenCombine.build/Subscription.swift.o",
+    "swiftmodule": "/Users/navan.chauhan/Developer/navanchauhan/swift-hn/SwiftTUI/.scratch/TUIHarness/.build/arm64-apple-macosx/debug/OpenCombine.build/Subscription~partial.swiftmodule",
+    "swift-dependencies": "/Users/navan.chauhan/Developer/navanchauhan/swift-hn/SwiftTUI/.scratch/TUIHarness/.build/arm64-apple-macosx/debug/OpenCombine.build/Subscription.swiftdeps"
+  },
+  "/Users/navan.chauhan/Developer/navanchauhan/swift-hn/SwiftTUI/.scratch/TUIHarness/.build/checkouts/OpenCombine/Sources/OpenCombine/Subscriptions.swift": {
+    "dependencies": "/Users/navan.chauhan/Developer/navanchauhan/swift-hn/SwiftTUI/.scratch/TUIHarness/.build/arm64-apple-macosx/debug/OpenCombine.build/Subscriptions.d",
+    "object": "/Users/navan.chauhan/Developer/navanchauhan/swift-hn/SwiftTUI/.scratch/TUIHarness/.build/arm64-apple-macosx/debug/OpenCombine.build/Subscriptions.swift.o",
+    "swiftmodule": "/Users/navan.chauhan/Developer/navanchauhan/swift-hn/SwiftTUI/.scratch/TUIHarness/.build/arm64-apple-macosx/debug/OpenCombine.build/Subscriptions~partial.swiftmodule",
+    "swift-dependencies": "/Users/navan.chauhan/Developer/navanchauhan/swift-hn/SwiftTUI/.scratch/TUIHarness/.build/arm64-apple-macosx/debug/OpenCombine.build/Subscriptions.swiftdeps"
+  },
+  "/Users/navan.chauhan/Developer/navanchauhan/swift-hn/SwiftTUI/.scratch/TUIHarness/.build/checkouts/OpenCombine/Sources/OpenCombine/_Introspection.swift": {
+    "dependencies": "/Users/navan.chauhan/Developer/navanchauhan/swift-hn/SwiftTUI/.scratch/TUIHarness/.build/arm64-apple-macosx/debug/OpenCombine.build/_Introspection.d",
+    "object": "/Users/navan.chauhan/Developer/navanchauhan/swift-hn/SwiftTUI/.scratch/TUIHarness/.build/arm64-apple-macosx/debug/OpenCombine.build/_Introspection.swift.o",
+    "swiftmodule": "/Users/navan.chauhan/Developer/navanchauhan/swift-hn/SwiftTUI/.scratch/TUIHarness/.build/arm64-apple-macosx/debug/OpenCombine.build/_Introspection~partial.swiftmodule",
+    "swift-dependencies": "/Users/navan.chauhan/Developer/navanchauhan/swift-hn/SwiftTUI/.scratch/TUIHarness/.build/arm64-apple-macosx/debug/OpenCombine.build/_Introspection.swiftdeps"
+  }
+}

@@ -1,0 +1,4 @@
+module COpenCombineHelpers {
+    umbrella header "/Users/navan.chauhan/Developer/navanchauhan/swift-hn/SwiftTUI/.scratch/TUIHarness/.build/checkouts/OpenCombine/Sources/COpenCombineHelpers/include/COpenCombineHelpers.h"
+    export *
+}
