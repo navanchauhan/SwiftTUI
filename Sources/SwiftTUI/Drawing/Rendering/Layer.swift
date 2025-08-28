@@ -41,7 +41,7 @@ class Layer {
             parent.invalidate(rect: Rect(position: rect.position + frame.position, size: rect.size))
             return
         }
-        Task { @MainActor in
+        DispatchQueue.main.async {
             renderer?.application?.scheduleUpdate()
         }
         guard let invalidated = self.invalidated else {

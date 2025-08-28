@@ -37,7 +37,7 @@ public struct State<T>: AnyState {
                 return
             }
             node.state[label] = newValue
-            Task { @MainActor in
+            DispatchQueue.main.async {
                 node.root.application?.invalidateNode(node)
             }
         }
