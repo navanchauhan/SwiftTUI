@@ -42,7 +42,7 @@ struct KitchenSinkView: View {
            HStack(spacing: 2) {
              Text("Value:")
              Slider(value: Binding(get: { sliderVal }, set: { sliderVal = $0 }), in: 0...10, step: 1)
-             Stepper(value: Binding(get: { stepperVal }, set: { stepperVal = $0 })) { Text("Step: \(stepperVal)") }
+             Stepper(value: Binding(get: { stepperVal }, set: { stepperVal = $0 }), in: -10...10) { Text("Step: \(stepperVal)") }
            }
            Picker("Picker:", selection: Binding(get: { pickerIndex }, set: { pickerIndex = $0 }), options: ["One", "Two", "Three"]) 
            HStack(spacing: 2) {
