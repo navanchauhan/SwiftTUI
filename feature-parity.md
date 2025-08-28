@@ -63,7 +63,7 @@ Environment keys employed:
 ## Differences vs SwiftUI (keep in mind)
 
 - [~] `ScrollView` has no indicators; axis is supported; keeps focused control visible
-- [~] `TextField` fires action on Enter and clears; no live `Binding<String>` editing
+- [~] `TextField`: supports both action-on-Enter (clears) and live `Binding<String>` editing (onCommit does not clear)
 - [~] `Button` exposes `hover` closure on focus changes
 - [~] `.background(_:)` supports both `Color` and view variants; the view variant composes behind content
 - [~] Fonts: `.fontWeight(_:)` and `.font(.system(size:weight:design:))` map weight to bold; size/design currently ignored
@@ -110,8 +110,8 @@ Runtime/IO
 - [x] Use `Glibc` on Linux and `Darwin` elsewhere for termios/ioctl (already in `Application.swift`)
 - [x] Dispatch-based run loop (works with swift-corelibs-libdispatch)
 - [ ] Validate terminal mouse support across common Linux terminals (xterm, gnome-terminal, Alacritty, Kitty)
-- [~] Verify UTF-8 handling when stdin provides invalid sequences on Linux
- - Current behavior: `Application.handleInput` ignores invalid UTF-8 chunks (drops unreadable input). Planned follow-up: switch to lossy decoding and add tests so parsers continue through invalid bytes.
+- [x] Verify UTF-8 handling when stdin provides invalid sequences on Linux
+ - Application decodes stdin lossily (invalid bytes replaced with U+FFFD) so parsers continue through invalid input. Unit tests cover parser behavior in presence of invalid bytes.
 
 Docs/README
 
