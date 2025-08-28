@@ -33,6 +33,7 @@ Legend
 - [x] `.border(_ color?, style:)` (default/rounded/heavy/double)
 - [x] `.foregroundColor(_:)`
 - [x] `.background(_ color:)` and `.background(_ view:)`
+- [x] `.overlay(_ view:, alignment:)`
 - [x] `.bold()`, `.italic()`, `.underline()`, `.strikethrough()`
 - [x] `.onAppear { ... }`
 - [x] `.onFocusChange { isFocused in ... }`
