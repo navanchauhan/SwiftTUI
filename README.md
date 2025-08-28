@@ -47,6 +47,17 @@ swift run
 
 For more, and to see the supported functionality, check out the [documentation](https://navanchauhan.github.io/SwiftTUI/documentation/swifttui/).
 
+### Linux
+
+Prerequisites
+- Swift 6 toolchain (this package uses swift-tools-version 6.0)
+- A terminal with ANSI color support; tested with iTerm2, Terminal.app, xterm, Alacritty, and Kitty
+- libdispatch (swift-corelibs-libdispatch) available on your distro (used by the default run loop)
+
+Notes
+- `Application.RunLoopType.cocoa` is macOS-only; use the default `.dispatch` on Linux
+- `@ObservedObject` is supported on macOS via Combine and on Linux via OpenCombine (bundled as a dependency)
+
 ### Examples
 
 These example projects are included in the repository.

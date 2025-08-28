@@ -9,11 +9,11 @@ Legend
 ## Views (TODO)
 
 - [x] `Text` (string, and `AttributedString` with availability)
-  - [x] Styling via `.foregroundColor`, `.bold`, `.italic`, `.underline`, `.strikethrough`
+ - [x] Styling via `.foregroundColor`, `.bold`, `.italic`, `.underline`, `.strikethrough`
 - [x] `Button` (action + label)
-  - [~] Focus “hover” callback (not pointer hover)
+ - [~] Focus “hover” callback (not pointer hover)
 - [x] `TextField` (single line, action on Enter)
-  - [~] Placeholder + `Environment(\.placeholderColor)`; no live `Binding<String>` editing
+ - [~] Placeholder + `Environment(\.placeholderColor)`; no live `Binding<String>` editing
 - [x] `Divider` (uses stack orientation); `.style(...)`
 - [x] `Spacer` (expands on parent axis)
 - [x] `Color` as a view (ANSI/xterm/true color)
@@ -47,7 +47,7 @@ Environment keys employed:
 - [x] `@State`
 - [x] `@Binding`
 - [x] `@Environment`
-- [~] `@ObservedObject` (macOS only via Combine)
+- [x] `@ObservedObject` (Combine/OpenCombine)
 - [ ] `@StateObject`
 - [ ] `@EnvironmentObject`
 - [ ] `@FocusState`
@@ -69,33 +69,33 @@ Environment keys employed:
 ## Missing, Common SwiftUI APIs (TODO)
 
 - Layout/containers
-  - [ ] `List`
-  - [ ] `LazyVStack`/`LazyHStack`
-  - [ ] `NavigationView`/`NavigationStack`
-  - [ ] `TabView`
+ - [ ] `List`
+ - [ ] `LazyVStack`/`LazyHStack`
+ - [ ] `NavigationView`/`NavigationStack`
+ - [ ] `TabView`
 - Controls
-  - [ ] `Toggle`  
-  - [ ] `Slider`
-  - [ ] `Picker`
-  - [ ] `Stepper`
-  - [ ] `DatePicker`
-  - [ ] `ProgressView`
-  - [ ] `SecureField`
+ - [x] `Toggle`  
+ - [ ] `Slider`
+ - [ ] `Picker`
+ - [ ] `Stepper`
+ - [ ] `DatePicker`
+ - [x] `ProgressView`
+ - [x] `SecureField`
 - Rendering
-  - [ ] `Image`
-  - [ ] Shapes, clipping, masking
+ - [ ] `Image`
+ - [ ] Shapes, clipping, masking
 - Interaction/other
-  - [ ] Animations, transitions, gestures
-  - [ ] Accessibility hooks
+ - [ ] Animations, transitions, gestures
+ - [ ] Accessibility hooks
 
 ## Linux Compatibility TODO
 
 APIs and conditionals
 
-- [ ] Provide `@ObservedObject` support on Linux
-  - Options: integrate OpenCombine or add a minimal cross-platform observable publisher; keep Combine on macOS
+- [x] Provide `@ObservedObject` support on Linux
+ - Implemented via OpenCombine fallback with cross-platform typealiases
 - [ ] Audit availability for `AttributedString`
-  - Ensure availability attributes don’t block Linux (or gate usages behind `#if canImport(Foundation)` and Swift version checks)
+ - Ensure availability attributes don’t block Linux (or gate usages behind `#if canImport(Foundation)` and Swift version checks)
 
 Runtime/IO
 
@@ -107,6 +107,6 @@ Runtime/IO
 Docs/README
 
 - [ ] Document Linux prerequisites (Swift version, terminals tested)
-- [ ] Note macOS-only features (`RunLoopType.cocoa`, current `@ObservedObject`)
+- [x] Note macOS-only features (`RunLoopType.cocoa`)
 
 If you add or change APIs in `Sources/SwiftTUI`, please update the relevant TODO items above.
