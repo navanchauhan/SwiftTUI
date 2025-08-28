@@ -1,6 +1,6 @@
 import Foundation
 
-struct Cell: Equatable {
+struct Cell: Equatable, Sendable {
     var char: Character
     var foregroundColor: Color
 

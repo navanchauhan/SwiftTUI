@@ -1,6 +1,6 @@
 import Foundation
 
-struct Rect: Equatable {
+struct Rect: Equatable, Sendable {
     var position: Position
     var size: Size
 

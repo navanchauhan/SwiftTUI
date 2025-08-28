@@ -1,6 +1,6 @@
 import Foundation
 
-struct Position: Equatable {
+struct Position: Equatable, Sendable {
     var column: Extended
     var line: Extended
 
