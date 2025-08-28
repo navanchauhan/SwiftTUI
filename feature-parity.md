@@ -88,7 +88,8 @@ Environment keys employed:
 - [x] `Image` (ASCII and Color-matrix; no external asset decoding)
 - [~] Shapes, clipping, masking (Rectangle, RoundedRectangle with fill/stroke; clipShape for these)
 - Interaction/other
-- [ ] Animations, transitions, gestures
+- [~] Gestures: `onTapGesture` (Enter/Space/mouse release)
+- [ ] Animations, transitions
 - [ ] Accessibility hooks
 
 ## Linux Compatibility TODO
