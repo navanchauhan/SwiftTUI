@@ -64,4 +64,49 @@ final class ControlsTests: XCTestCase {
        // middle should be 'x' for true
        XCTAssertEqual(control.cell(at: Position(column: 1, line: 0))?.char, "x")
    }
+
+
+   func test_Picker_RendersFieldAndSelection() throws {
+       var idx = 1
+       let picker = Picker(selection: Binding(get: { idx }, set: { idx = $0 }), options: ["Red", "Green", "Blue"]) as Picker<EmptyView>
+
+       let node = Node(view: VStack(content: picker).view)
+       node.build()
+       let stack = try XCTUnwrap(node.control)
+       let control = try XCTUnwrap(stack.children.first)
+
+       // Layout with computed minimal size
+       let needed = control.size(proposedSize: Size(width: 0, height: 1))
+       control.layout(size: needed)
+
+       // Expect "< Green >" (idx = 1)
+       XCTAssertEqual(control.cell(at: Position(column: 0, line: 0))?.char, "<")
+       XCTAssertEqual(control.cell(at: Position(column: 1, line: 0))?.char, " ")
+       XCTAssertEqual(control.cell(at: Position(column: 2, line: 0))?.char, "G")
+       let lastCol = needed.width.intValue - 1
+       XCTAssertEqual(control.cell(at: Position(column: Extended(lastCol), line: 0))?.char, ">")
+   }
+
+   func test_Picker_ChangesSelectionWithHL() throws {
+       var idx = 0
+       let picker = Picker(selection: Binding(get: { idx }, set: { idx = $0 }), options: ["One", "Two"]) as Picker<EmptyView>
+
+       let node = Node(view: VStack(content: picker).view)
+       node.build()
+       let stack = try XCTUnwrap(node.control)
+       let control = try XCTUnwrap(stack.children.first)
+       let needed = control.size(proposedSize: Size(width: 0, height: 1))
+       control.layout(size: needed)
+
+       // Initially "< One >"
+       XCTAssertEqual(control.cell(at: Position(column: 2, line: 0))?.char, "O")
+
+       // Press 'l' to move to "Two"
+       control.handleEvent("l")
+       XCTAssertEqual(control.cell(at: Position(column: 2, line: 0))?.char, "T")
+
+       // Press 'h' to move back to "One"
+       control.handleEvent("h")
+       XCTAssertEqual(control.cell(at: Position(column: 2, line: 0))?.char, "O")
+   }
 }

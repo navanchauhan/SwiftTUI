@@ -66,6 +66,7 @@ Environment keys employed:
 - [~] `.background(_:)` supports `Color` only (no view backgrounds)
 - [ ] No font/size APIs yet
 
+- [~] `Picker` simplified: string options with h/l to cycle; optional label; no custom content/tags yet
 ## Missing, Common SwiftUI APIs (TODO)
 
 - Layout/containers
@@ -76,7 +77,7 @@ Environment keys employed:
 - Controls
  - [x] `Toggle`  
  - [x] `Slider`
- - [ ] `Picker`
+ - [x] `Picker`
  - [ ] `Stepper`
  - [ ] `DatePicker`
  - [x] `ProgressView`
