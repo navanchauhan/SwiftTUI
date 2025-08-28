@@ -224,12 +224,17 @@ public class Application {
   private func update() {
       updateScheduled = false
 
+      let hadInvalidations = !invalidatedNodes.isEmpty
       for node in invalidatedNodes {
           node.update(using: node.view)
       }
       invalidatedNodes = []
 
       control.layout(size: window.layer.frame.size)
+      // In rare cases structural updates may not mark a region invalid; ensure a flush.
+      if hadInvalidations && window.layer.invalidated == nil {
+          window.layer.invalidate()
+      }
       renderer.update()
   }
 
