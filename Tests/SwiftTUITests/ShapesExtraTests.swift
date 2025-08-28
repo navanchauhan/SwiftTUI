@@ -46,4 +46,31 @@ final class ShapesExtraTests: XCTestCase {
       let cell = try XCTUnwrap(control.cell(at: Position(column: 2, line: 2)))
       XCTAssertEqual(cell.backgroundColor, .red)
   }
+
+  func test_Ellipse_Fill_SetsBackgroundAtCenter() throws {
+      let view = Ellipse().fill(.red)
+      let node = Node(view: VStack(content: view).view)
+      node.build()
+      let stack = try XCTUnwrap(node.control)
+      let control = try XCTUnwrap(stack.children.first)
+      control.layout(size: Size(width: 7, height: 5))
+      let cell = try XCTUnwrap(control.cell(at: Position(column: 3, line: 2)))
+      XCTAssertEqual(cell.backgroundColor, .red)
+  }
+
+  func test_Ellipse_ClipShape_CutsCorners() throws {
+      let view = Rectangle().fill(.green).clipShape(Ellipse())
+      let node = Node(view: VStack(content: view).view)
+      node.build()
+      let stack = try XCTUnwrap(node.control)
+      let control = try XCTUnwrap(stack.children.first)
+
+      control.layout(size: Size(width: 6, height: 4))
+      XCTAssertNil(control.cell(at: Position(column: 0, line: 0)))
+      XCTAssertNil(control.cell(at: Position(column: 5, line: 0)))
+      XCTAssertNil(control.cell(at: Position(column: 0, line: 3)))
+      XCTAssertNil(control.cell(at: Position(column: 5, line: 3)))
+      XCTAssertNotNil(control.cell(at: Position(column: 3, line: 2)))
+  }
+
 }

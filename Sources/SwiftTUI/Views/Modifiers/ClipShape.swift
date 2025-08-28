@@ -2,124 +2,134 @@ import Foundation
 
 // Internal protocol to let shapes provide a containment test for clipping.
 protocol _MaskShape {
-   func _contains(_ pos: Position, size: Size) -> Bool
+  func _contains(_ pos: Position, size: Size) -> Bool
 }
 
 extension Rectangle: _MaskShape {
-   func _contains(_ pos: Position, size: Size) -> Bool {
-       return pos.column >= 0 && pos.line >= 0 && pos.column < size.width && pos.line < size.height
-   }
+  func _contains(_ pos: Position, size: Size) -> Bool {
+      return pos.column >= 0 && pos.line >= 0 && pos.column < size.width && pos.line < size.height
+  }
 }
 
 extension RoundedRectangle: _MaskShape {
-   func _contains(_ pos: Position, size: Size) -> Bool {
-       // Reuse control logic for inclusion test
-       let ctrl = RoundedRectangle.RoundedRectangleControl(cornerRadius: cornerRadius, mode: nil)
-       return ctrl._contains(pos, size: size)
-   }
+  func _contains(_ pos: Position, size: Size) -> Bool {
+      // Reuse control logic for inclusion test
+      let ctrl = RoundedRectangle.RoundedRectangleControl(cornerRadius: cornerRadius, mode: nil)
+      return ctrl._contains(pos, size: size)
+  }
 }
 
 extension Circle: _MaskShape {
-   func _contains(_ pos: Position, size: Size) -> Bool {
-       return Circle.CircleControl.containsCircle(pos, size: size)
-   }
+  func _contains(_ pos: Position, size: Size) -> Bool {
+      return Circle.CircleControl.containsCircle(pos, size: size)
+  }
 }
 
 extension Capsule: _MaskShape {
-   func _contains(_ pos: Position, size: Size) -> Bool {
-       return Capsule.CapsuleControl.containsCapsule(pos, size: size)
-   }
+  func _contains(_ pos: Position, size: Size) -> Bool {
+      return Capsule.CapsuleControl.containsCapsule(pos, size: size)
+  }
+}
+
+extension Ellipse: _MaskShape {
+  func _contains(_ pos: Position, size: Size) -> Bool {
+      return Ellipse.EllipseControl.containsEllipse(pos, size: size)
+  }
 }
 
 public extension View {
-   func clipShape(_ shape: Rectangle) -> some View {
-       ClipShapeView(content: self, shape: shape)
-   }
+  func clipShape(_ shape: Rectangle) -> some View {
+      ClipShapeView(content: self, shape: shape)
+  }
 
-   func clipShape(_ shape: RoundedRectangle) -> some View {
-       ClipShapeView(content: self, shape: shape)
-   }
+  func clipShape(_ shape: RoundedRectangle) -> some View {
+      ClipShapeView(content: self, shape: shape)
+  }
 
-   func clipShape(_ shape: Circle) -> some View {
-       ClipShapeView(content: self, shape: shape)
-   }
+  func clipShape(_ shape: Circle) -> some View {
+      ClipShapeView(content: self, shape: shape)
+  }
 
-   func clipShape(_ shape: Capsule) -> some View {
-       ClipShapeView(content: self, shape: shape)
-   }
+  func clipShape(_ shape: Capsule) -> some View {
+      ClipShapeView(content: self, shape: shape)
+  }
+
+  func clipShape(_ shape: Ellipse) -> some View {
+      ClipShapeView(content: self, shape: shape)
+  }
 
 }
 
 private struct ClipShapeView<Content: View, ShapeType: _MaskShape>: View, PrimitiveView, ModifierView {
-   let content: Content
-   let shape: ShapeType
+  let content: Content
+  let shape: ShapeType
 
-   static var size: Int? { Content.size }
+  static var size: Int? { Content.size }
 
-   func buildNode(_ node: Node) {
-       node.controls = WeakSet<Control>()
-       node.addNode(at: 0, Node(view: content.view))
-   }
+  func buildNode(_ node: Node) {
+      node.controls = WeakSet<Control>()
+      node.addNode(at: 0, Node(view: content.view))
+  }
 
-   func updateNode(_ node: Node) {
-       node.view = self
-       node.children[0].update(using: content.view)
-       for c in node.controls?.values ?? [] {
-           if let cc = c as? ClippingControl<ShapeType> {
-               cc.shape = shape
-               cc.layer.invalidate()
-           }
-       }
-   }
+  func updateNode(_ node: Node) {
+      node.view = self
+      node.children[0].update(using: content.view)
+      for c in node.controls?.values ?? [] {
+          if let cc = c as? ClippingControl<ShapeType> {
+              cc.shape = shape
+              cc.layer.invalidate()
+          }
+      }
+  }
 
-   func passControl(_ control: Control, node: Node) -> Control {
-       if let existing = control.parent as? ClippingControl<ShapeType> { return existing }
-       let clip = ClippingControl(shape: shape)
-       clip.addSubview(control, at: 0)
-       node.controls?.add(clip)
-       return clip
-   }
+  func passControl(_ control: Control, node: Node) -> Control {
+      if let existing = control.parent as? ClippingControl<ShapeType> { return existing }
+      let clip = ClippingControl(shape: shape)
+      clip.addSubview(control, at: 0)
+      node.controls?.add(clip)
+      return clip
+  }
 
-   private class ClippingControl<S: _MaskShape>: Control {
-       var shape: S
-       weak var clipLayer: ClippingLayer?
+  private class ClippingControl<S: _MaskShape>: Control {
+      var shape: S
+      weak var clipLayer: ClippingLayer?
 
-       init(shape: S) { self.shape = shape }
+      init(shape: S) { self.shape = shape }
 
-       override func size(proposedSize: Size) -> Size { children[0].size(proposedSize: proposedSize) }
+      override func size(proposedSize: Size) -> Size { children[0].size(proposedSize: proposedSize) }
 
-       override func layout(size: Size) {
-           super.layout(size: size)
-           children[0].layout(size: size)
-           children[0].layer.frame.position = .zero
-           layer.frame.size = size
-       }
+      override func layout(size: Size) {
+          super.layout(size: size)
+          children[0].layout(size: size)
+          children[0].layer.frame.position = .zero
+          layer.frame.size = size
+      }
 
-       override func makeLayer() -> Layer {
-           let l = ClippingLayer()
-           l.allow = { [weak self] pos, size in
-               guard let self else { return true }
-               return self.shape._contains(pos, size: size)
-           }
-           self.clipLayer = l
-           return l
-       }
+      override func makeLayer() -> Layer {
+          let l = ClippingLayer()
+          l.allow = { [weak self] pos, size in
+              guard let self else { return true }
+              return self.shape._contains(pos, size: size)
+          }
+          self.clipLayer = l
+          return l
+      }
 
-       override func cell(at position: Position) -> Cell? {
-           // Delegate to the clipping layer so queries on the control
-           // return the composited, clipped result.
-           return layer.cell(at: position)
-       }
-   }
+      override func cell(at position: Position) -> Cell? {
+          // Delegate to the clipping layer so queries on the control
+          // return the composited, clipped result.
+          return layer.cell(at: position)
+      }
+  }
 
-   private class ClippingLayer: Layer {
-       var allow: ((Position, Size) -> Bool)?
+  private class ClippingLayer: Layer {
+      var allow: ((Position, Size) -> Bool)?
 
-       override func cell(at position: Position) -> Cell? {
-           let base = super.cell(at: position)
-           guard let base else { return nil }
-           if let allow, !allow(position, frame.size) { return nil }
-           return base
-       }
-   }
+      override func cell(at position: Position) -> Cell? {
+          let base = super.cell(at: position)
+          guard let base else { return nil }
+          if let allow, !allow(position, frame.size) { return nil }
+          return base
+      }
+  }
 }
