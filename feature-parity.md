@@ -11,7 +11,7 @@ Legend
 - [x] `Text` (string, and `AttributedString` with availability)
 - [x] Styling via `.foregroundColor`, `.bold`, `.italic`, `.underline`, `.strikethrough`
 - [x] `Button` (action + label)
-- [~] Focus “hover” callback (not pointer hover)
+- [x] Focus-based `onHover` callback (alias to `onFocusChange`, not pointer hover)
 - [x] `TextField` (single line, action on Enter)
 - [x] Placeholder + `Environment(\.placeholderColor)`; live `Binding<String>` editing supported (action-based submit also available)
 - [x] `Divider` (uses stack orientation); `.style(...)`
@@ -73,12 +73,13 @@ Environment keys employed:
 - [~] `onFocusChange` fires when focus enters or leaves the subtree; moves within the subtree may trigger an exit+enter pair in quick succession (terminal simplification)
 
 - [~] `Picker` simplified: string options with h/l to cycle; optional label; no custom content/tags yet
-- [~] `List` simplified: vertical only, implemented as `ScrollView` + `VStack`; no row separators or styles yet
+- [~] `List` simplified: vertical only, implemented as `ScrollView` + `VStack`; row separators available via `.listSeparators(style:)`
 - [~] `Image` is terminal-oriented: ASCII and Color-matrix initializers; no file/asset decoding
 ## Missing, Common SwiftUI APIs (TODO)
 
 - Layout/containers
 - [x] `List`
+- [~] Row separators: Available via `.listSeparators(style:color:)` with styles (plain/heavy/double/none) and optional color. Still basic (no per-row customization).
 - [~] `LazyVStack`/`LazyHStack` (implemented as plain stacks; not lazy)
 - [~] `NavigationView`/`NavigationStack` (minimal push/pop via NavigationStack + NavigationLink; `NavigationLink(isActive:)` supported for programmatic navigation; `NavigationView` is a thin wrapper around `NavigationStack`)
 - [~] `TabView` (titles + selection; simplified tab bar)

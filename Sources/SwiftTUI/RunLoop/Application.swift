@@ -1,4 +1,7 @@
 import Foundation
+// Explicitly import Dispatch for portability across macOS and Linux toolchains.
+// Some environments do not re-export Dispatch from Foundation.
+import Dispatch
 #if os(macOS)
 import AppKit
 #endif
