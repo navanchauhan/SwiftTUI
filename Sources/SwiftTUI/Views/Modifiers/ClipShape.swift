@@ -104,6 +104,12 @@ private struct ClipShapeView<Content: View, ShapeType: _MaskShape>: View, Primit
            self.clipLayer = l
            return l
        }
+
+       override func cell(at position: Position) -> Cell? {
+           // Delegate to the clipping layer so queries on the control
+           // return the composited, clipped result.
+           return layer.cell(at: position)
+       }
    }
 
    private class ClippingLayer: Layer {
