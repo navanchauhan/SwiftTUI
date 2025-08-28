@@ -67,10 +67,11 @@ Environment keys employed:
 - [ ] No font/size APIs yet
 
 - [~] `Picker` simplified: string options with h/l to cycle; optional label; no custom content/tags yet
+- [~] `List` simplified: vertical only, implemented as `ScrollView` + `VStack`; no row separators or styles yet
 ## Missing, Common SwiftUI APIs (TODO)
 
 - Layout/containers
- - [ ] `List`
+ - [x] `List`
  - [ ] `LazyVStack`/`LazyHStack`
  - [ ] `NavigationView`/`NavigationStack`
  - [ ] `TabView`
