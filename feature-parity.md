@@ -84,7 +84,7 @@ Environment keys employed:
 - Controls
 - [x] `Toggle`  
 - [x] `Slider`
-- [x] `Picker`
+- [x] `Picker` (now supports tag-based selection via `(title, tag)` options)
 - [x] `Stepper`
 - [~] `DatePicker` (date and hour/minute; Y/M/D and H/M with h/l +/- and j/k)
 - [x] `ProgressView`
