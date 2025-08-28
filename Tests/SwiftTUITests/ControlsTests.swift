@@ -137,4 +137,32 @@ final class ControlsTests: XCTestCase {
         XCTAssertEqual(control.cell(at: Position(column: 5, line: 0))?.char, "0")
    }
 
+
+   func test_Picker_TagSelection_RendersAndChanges() throws {
+       enum Flavor: Equatable { case vanilla, chocolate, strawberry }
+       var sel: Flavor = .chocolate
+       let opts: [(String, Flavor)] = [("Vanilla", .vanilla), ("Chocolate", .chocolate), ("Strawberry", .strawberry)]
+       let picker = Picker(selection: Binding(get: { sel }, set: { sel = $0 }), options: opts) as Picker<EmptyView>
+
+       let node = Node(view: VStack(content: picker).view)
+       node.build()
+       let stack = try XCTUnwrap(node.control)
+       let control = try XCTUnwrap(stack.children.first)
+       let needed = control.size(proposedSize: Size(width: 0, height: 1))
+       control.layout(size: needed)
+
+       // Initially "< Chocolate >"
+       XCTAssertEqual(control.cell(at: Position(column: 2, line: 0))?.char, "C")
+
+       // Cycle forward to Strawberry
+       control.handleEvent("l")
+       XCTAssertEqual(sel, .strawberry)
+       XCTAssertEqual(control.cell(at: Position(column: 2, line: 0))?.char, "S")
+
+       // Cycle forward to wrap to Vanilla
+       control.handleEvent("l")
+       XCTAssertEqual(sel, .vanilla)
+       XCTAssertEqual(control.cell(at: Position(column: 2, line: 0))?.char, "V")
+   }
+
 }

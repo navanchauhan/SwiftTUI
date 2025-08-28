@@ -30,6 +30,67 @@ public struct Picker<Label: View>: View, PrimitiveView {
        self.label = nil
    }
 
+
+   // MARK: - Tag-based selection (Binding<T>) convenience
+
+   /// Picker with a custom label view and tag-based selection mapping.
+   /// Provide options as an array of (title, tag) pairs; selection binds to the tag type.
+   public init<T: Equatable>(selection: Binding<T>, options: [(String, T)], @ViewBuilder label: () -> Label) {
+       let titles = options.map { $0.0 }
+       let tags = options.map { $0.1 }
+       let indexBinding = Binding<Int>(
+           get: {
+               if let idx = tags.firstIndex(where: { $0 == selection.wrappedValue }) { return idx }
+               return 0
+           },
+           set: { newIndex in
+               let idx = max(0, min(newIndex, tags.count - 1))
+               selection.wrappedValue = tags[idx]
+           }
+       )
+       self.selection = indexBinding
+       self.options = titles
+       self.label = VStack(content: label())
+   }
+
+   /// Picker with a text label and tag-based selection mapping.
+   public init<T: Equatable>(_ title: String, selection: Binding<T>, options: [(String, T)]) where Label == Text {
+       let titles = options.map { $0.0 }
+       let tags = options.map { $0.1 }
+       let indexBinding = Binding<Int>(
+           get: {
+               if let idx = tags.firstIndex(where: { $0 == selection.wrappedValue }) { return idx }
+               return 0
+           },
+           set: { newIndex in
+               let idx = max(0, min(newIndex, tags.count - 1))
+               selection.wrappedValue = tags[idx]
+           }
+       )
+       self.selection = indexBinding
+       self.options = titles
+       self.label = VStack(content: Text(title))
+   }
+
+   /// Picker without a label and tag-based selection mapping.
+   public init<T: Equatable>(selection: Binding<T>, options: [(String, T)]) where Label == EmptyView {
+       let titles = options.map { $0.0 }
+       let tags = options.map { $0.1 }
+       let indexBinding = Binding<Int>(
+           get: {
+               if let idx = tags.firstIndex(where: { $0 == selection.wrappedValue }) { return idx }
+               return 0
+           },
+           set: { newIndex in
+               let idx = max(0, min(newIndex, tags.count - 1))
+               selection.wrappedValue = tags[idx]
+           }
+       )
+       self.selection = indexBinding
+       self.options = titles
+       self.label = nil
+   }
+
    static var size: Int? { 1 }
 
    func buildNode(_ node: Node) {
