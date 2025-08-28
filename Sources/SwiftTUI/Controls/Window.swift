@@ -1,6 +1,5 @@
 import Foundation
 
-@MainActor
 class Window: LayerDrawing {
     private(set) lazy var layer: Layer = makeLayer()
 

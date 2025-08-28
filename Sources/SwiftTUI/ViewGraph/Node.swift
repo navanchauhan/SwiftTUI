@@ -16,7 +16,6 @@ import OpenCombine
 ///
 /// Note that the control tree more closely resembles the layout hierarchy,
 /// because structural views (ForEach, etc.) have their own node.
-@MainActor
 final class Node {
    var view: GenericView
 

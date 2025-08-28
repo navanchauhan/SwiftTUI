@@ -1,6 +1,5 @@
 import Foundation
 
-@MainActor
 class Renderer {
     var layer: Layer
 

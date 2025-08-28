@@ -1,6 +1,5 @@
 import Foundation
 
-@MainActor
 class Layer {
     private(set) var children: [Layer] = []
     private(set) var parent: Layer?
