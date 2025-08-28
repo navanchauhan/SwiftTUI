@@ -36,7 +36,7 @@ private struct FlexibleFrame<Content: View>: View, PrimitiveView, ModifierView {
             let control = control as! FlexibleFrameControl
             control.minWidth = minWidth
             control.maxWidth = maxWidth
-            control.minWidth = minHeight
+            control.minHeight = minHeight
             control.maxHeight = maxHeight
             control.alignment = alignment
         }
