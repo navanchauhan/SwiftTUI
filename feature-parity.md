@@ -32,7 +32,7 @@ Legend
 - [x] `.frame(minWidth:maxWidth:minHeight:maxHeight:alignment:)` (flexible; `Extended.infinity`)
 - [x] `.border(_ color?, style:)` (default/rounded/heavy/double)
 - [x] `.foregroundColor(_:)`
-- [x] `.background(_ color:)` (note: Color only)
+- [x] `.background(_ color:)` and `.background(_ view:)`
 - [x] `.bold()`, `.italic()`, `.underline()`, `.strikethrough()`
 - [x] `.onAppear { ... }`
 - [x] `.onFocusChange { isFocused in ... }`
@@ -61,10 +61,10 @@ Environment keys employed:
 
 ## Differences vs SwiftUI (keep in mind)
 
-- [~] `ScrollView` has no explicit axis/indicators; keeps focused control visible
+- [~] `ScrollView` has no indicators; axis is supported; keeps focused control visible
 - [~] `TextField` fires action on Enter and clears; no live `Binding<String>` editing
 - [~] `Button` exposes `hover` closure on focus changes
-- [~] `.background(_:)` supports `Color` only (no view backgrounds)
+- [~] `.background(_:)` supports both `Color` and view variants; the view variant composes behind content
 - [~] Fonts: `.fontWeight(_:)` and `.font(.system(size:weight:design:))` map weight to bold; size/design currently ignored
 
 - [~] `onFocusChange` fires when focus enters or leaves the subtree; moves within the subtree may trigger an exit+enter pair in quick succession (terminal simplification)
@@ -77,7 +77,7 @@ Environment keys employed:
 - Layout/containers
 - [x] `List`
 - [~] `LazyVStack`/`LazyHStack` (implemented as plain stacks; not lazy)
-- [~] `NavigationView`/`NavigationStack` (minimal push/pop via NavigationStack + NavigationLink)
+- [~] `NavigationView`/`NavigationStack` (minimal push/pop via NavigationStack + NavigationLink; NavigationView is a thin wrapper around NavigationStack)
 - [~] `TabView` (titles + selection; simplified tab bar)
 - Controls
 - [x] `Toggle`  
@@ -92,8 +92,8 @@ Environment keys employed:
 - [~] Shapes, clipping, masking (Rectangle, RoundedRectangle with fill/stroke; clipShape for these)
 - Interaction/other
 - [~] Gestures: `onTapGesture` (Enter/Space/mouse release)
-- [ ] Animations, transitions
-- [ ] Accessibility hooks
+- [~] Animations, transitions (API stubs; immediate updates, no visual tweening yet)
+- [~] Accessibility hooks (label, hint via Environment; not rendered yet)
 
 ## Linux Compatibility TODO
 
@@ -109,7 +109,8 @@ Runtime/IO
 - [x] Use `Glibc` on Linux and `Darwin` elsewhere for termios/ioctl (already in `Application.swift`)
 - [x] Dispatch-based run loop (works with swift-corelibs-libdispatch)
 - [ ] Validate terminal mouse support across common Linux terminals (xterm, gnome-terminal, Alacritty, Kitty)
-- [ ] Verify UTF-8 handling when stdin provides invalid sequences on Linux
+- [~] Verify UTF-8 handling when stdin provides invalid sequences on Linux
+ - Current behavior: `Application.handleInput` ignores invalid UTF-8 chunks (drops unreadable input). Planned follow-up: switch to lossy decoding and add tests so parsers continue through invalid bytes.
 
 Docs/README
 
