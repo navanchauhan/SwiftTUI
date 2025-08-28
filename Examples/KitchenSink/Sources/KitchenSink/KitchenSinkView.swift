@@ -73,7 +73,7 @@ struct KitchenSinkView: View {
            Text("Horizontal ScrollView:")
            ScrollView(.horizontal) {
              HStack(spacing: 1) {
-               ForEach(0..<10) { i in
+               ForEach(0..<10, id: \.self) { i in
                  Text("[\(i)]").padding(1).border(.rounded)
                }
              }
