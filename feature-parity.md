@@ -50,7 +50,7 @@ Environment keys employed:
 - [x] `@ObservedObject` (Combine/OpenCombine)
 - [x] `@StateObject`
 - [x] `@EnvironmentObject`
-- [ ] `@FocusState`
+- [x] `@FocusState`
 
 ## Input, Focus, Scrolling (TODO)
 
