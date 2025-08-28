@@ -8,55 +8,87 @@ import Foundation
 /// - Content should provide the same number of child views as there are titles.
 /// - Keyboard: use left/right (h/l) when the tab bar is focused to change selection.
 /// - Mouse: click a tab title, then release to select it.
-public struct TabView<Content: View>: View, PrimitiveView {
-   let titles: [String]
-   var selection: Binding<Int>
-   let content: VStack<Content>
+public struct TabView<Content: View>: View, PrimitiveView, LayoutRootView {
+  let titles: [String]
+  var selection: Binding<Int>
+  let content: VStack<Content>
 
-   /// Create a TabView with titles and a selection binding.
-   /// - Parameters:
-   ///   - titles: Display titles for the tabs.
-   ///   - selection: Index of the currently selected tab.
-   ///   - content: Provide a view containing one child per tab (e.g., a tuple or ForEach in a VStack).
-   public init(titles: [String], selection: Binding<Int>, @ViewBuilder content: () -> Content) {
-       self.titles = titles
-       self.selection = selection
-       self.content = VStack(content: content())
-   }
+  /// Create a TabView with titles and a selection binding.
+  /// - Parameters:
+  ///   - titles: Display titles for the tabs.
+  ///   - selection: Index of the currently selected tab.
+  ///   - content: Provide a view containing one child per tab (e.g., a tuple or ForEach in a VStack).
+  public init(titles: [String], selection: Binding<Int>, @ViewBuilder content: () -> Content) {
+      self.titles = titles
+      self.selection = selection
+      self.content = VStack(content: content())
+  }
 
-   static var size: Int? { 1 }
+  static var size: Int? { 1 }
 
-   func buildNode(_ node: Node) {
-       node.addNode(at: 0, Node(view: content.view))
-       let control = TabViewControl(titles: titles, selection: selection)
-       // Capture controls for all provided content children
-       var all: [Control] = []
-       for i in 0 ..< node.children[0].size { all.append(node.children[0].control(at: i)) }
-       control.allContentControls = all
-       control.rebuildTabBar()
-       control.installSelectedContent()
-       node.control = control
-   }
+  func buildNode(_ node: Node) {
+      // Build the underlying content subtree (wrapped in a VStack by the API)
+      node.addNode(at: 0, Node(view: content.view))
+      // Container draws tab bar and selected page only
+      node.control = TabViewControl(titles: titles, selection: selection)
+  }
 
-   func updateNode(_ node: Node) {
-       node.view = self
-       node.children[0].update(using: content.view)
+  func updateNode(_ node: Node) {
+      node.view = self
+      node.children[0].update(using: content.view)
 
-       guard let control = node.control as? TabViewControl else { return }
-       control.titles = titles
-       control.selection = selection
-       // Refresh refs to child content controls as the subtree may have changed
-       var all: [Control] = []
-       for i in 0 ..< node.children[0].size { all.append(node.children[0].control(at: i)) }
-       control.allContentControls = all
-       control.rebuildTabBar()
-       control.installSelectedContent()
-       control.layer.invalidate()
-   }
+      guard let control = node.control as? TabViewControl else { return }
+      control.titles = titles
+      control.selection = selection
+      refreshPages(node: node, control: control)
+      control.layer.invalidate()
+  }
 
-   private class TabViewControl: Control {
-       var titles: [String]
-       var selection: Binding<Int>
+  // MARK: - LayoutRootView hooks
+
+  func loadData(node: Node) {
+      if let control = node.control as? TabViewControl {
+          refreshPages(node: node, control: control)
+      }
+  }
+
+  func insertControl(at index: Int, node: Node) {
+      if let control = node.control as? TabViewControl {
+          refreshPages(node: node, control: control)
+      }
+  }
+
+  func removeControl(at index: Int, node: Node) {
+      if let control = node.control as? TabViewControl {
+          refreshPages(node: node, control: control)
+      }
+  }
+
+  // Recompute the list of page controls from the underlying content subtree and
+  // ensure only the selected page is attached to our container.
+  private func refreshPages(node: Node, control: TabViewControl) {
+      guard !node.children.isEmpty else {
+          control.allContentControls = []
+          control.rebuildTabBar()
+          control.installSelectedContent()
+          return
+      }
+      let vStackNode = node.children[0]
+      vStackNode.build()
+      var pageControls: [Control] = []
+      if let builderNode = vStackNode.children.first {
+          for i in 0 ..< builderNode.size {
+              pageControls.append(builderNode.control(at: i))
+          }
+      }
+      control.allContentControls = pageControls
+      control.rebuildTabBar()
+      control.installSelectedContent()
+  }
+
+  private class TabViewControl: Control {
+      var titles: [String]
+      var selection: Binding<Int>
 
        // Child controls
        var allContentControls: [Control] = []
@@ -176,84 +208,83 @@ public struct TabView<Content: View>: View, PrimitiveView {
            }
            currentContent?.handleEvent(char)
        }
-   }
+  }
 
-   private class TabButton: Control {
-       let title: String
-       var isSelected: Bool = false
-       private let onSelect: () -> Void
-       private var highlighted: Bool = false
+  private class TabButton: Control {
+      let title: String
+      var isSelected: Bool = false
+      private let onSelect: () -> Void
+      private var highlighted: Bool = false
 
-       init(title: String, onSelect: @escaping () -> Void) {
-           self.title = title
-           self.onSelect = onSelect
-       }
+      init(title: String, onSelect: @escaping () -> Void) {
+          self.title = title
+          self.onSelect = onSelect
+      }
 
-       override func size(proposedSize: Size) -> Size {
-           // One space padding on each side
-           return Size(width: Extended(title.count + 2), height: 1)
-       }
+      override func size(proposedSize: Size) -> Size {
+          // One space padding on each side
+          return Size(width: Extended(title.count + 2), height: 1)
+      }
 
-       override func layout(size: Size) { super.layout(size: size) }
+      override func layout(size: Size) { super.layout(size: size) }
 
-       override var selectable: Bool { true }
+      override var selectable: Bool { true }
 
-       override func becomeFirstResponder() {
-           super.becomeFirstResponder()
-           highlighted = true
-           layer.invalidate()
-       }
+      override func becomeFirstResponder() {
+          super.becomeFirstResponder()
+          highlighted = true
+          layer.invalidate()
+      }
 
-       override func resignFirstResponder() {
-           super.resignFirstResponder()
-           highlighted = false
-           layer.invalidate()
-       }
+      override func resignFirstResponder() {
+          super.resignFirstResponder()
+          highlighted = false
+          layer.invalidate()
+      }
 
-       override func handleEvent(_ char: Character) {
-           if char == "\n" || char == "\r" || char == " " { onSelect(); return }
-           // While a tab button is focused, allow 'h'/'l' to change selection
-           if char == "h" {
-               if let tv = parent as? TabViewControl {
-                   if tv.selection.wrappedValue > 0 { tv.selection.wrappedValue -= 1 }
-                   tv.installSelectedContent()
-                   tv.layer.invalidate()
-               }
-               return
-           }
-           if char == "l" {
-               if let tv = parent as? TabViewControl {
-                   if tv.selection.wrappedValue < max(0, tv.titles.count - 1) { tv.selection.wrappedValue += 1 }
-                   tv.installSelectedContent()
-                   tv.layer.invalidate()
-               }
-               return
-           }
-       }
+      override func handleEvent(_ char: Character) {
+          if char == "\n" || char == "\r" || char == " " { onSelect(); return }
+          // While a tab button is focused, allow 'h'/'l' to change selection
+          if char == "h" {
+              if let tv = parent as? TabViewControl {
+                  if tv.selection.wrappedValue > 0 { tv.selection.wrappedValue -= 1 }
+                  tv.installSelectedContent()
+                  tv.layer.invalidate()
+              }
+              return
+          }
+          if char == "l" {
+              if let tv = parent as? TabViewControl {
+                  if tv.selection.wrappedValue < max(0, tv.titles.count - 1) { tv.selection.wrappedValue += 1 }
+                  tv.installSelectedContent()
+                  tv.layer.invalidate()
+              }
+              return
+          }
+      }
 
+      override func cell(at position: Position) -> Cell? {
+          guard position.line == 0 else { return nil }
+          let w = layer.frame.size.width.intValue
+          guard w > 0 else { return nil }
 
-       override func cell(at position: Position) -> Cell? {
-           guard position.line == 0 else { return nil }
-           let w = layer.frame.size.width.intValue
-           guard w > 0 else { return nil }
+          // Left padding
+          if position.column.intValue == 0 { return cellWithAttributes(" ") }
+          if position.column.intValue == w - 1 { return cellWithAttributes(" ") }
 
-           // Left padding
-           if position.column.intValue == 0 { return cellWithAttributes(" ") }
-           if position.column.intValue == w - 1 { return cellWithAttributes(" ") }
+          let idx = position.column.intValue - 1
+          if idx < title.count {
+              let cidx = title.index(title.startIndex, offsetBy: idx)
+              return cellWithAttributes(String(title[cidx]))
+          }
+          return cellWithAttributes(" ")
+      }
 
-           let idx = position.column.intValue - 1
-           if idx < title.count {
-               let cidx = title.index(title.startIndex, offsetBy: idx)
-               return cellWithAttributes(String(title[cidx]))
-           }
-           return cellWithAttributes(" ")
-       }
-
-       private func cellWithAttributes(_ s: String) -> Cell {
-           var cell = Cell(char: s.first ?? " ")
-           if isSelected { cell.attributes.inverted = true }
-           if highlighted { cell.attributes.bold = true }
-           return cell
-       }
-   }
+      private func cellWithAttributes(_ s: String) -> Cell {
+          var cell = Cell(char: s.first ?? " ")
+          if isSelected { cell.attributes.inverted = true }
+          if highlighted { cell.attributes.bold = true }
+          return cell
+      }
+  }
 }

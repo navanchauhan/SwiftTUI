@@ -83,7 +83,7 @@ Environment keys employed:
 - [x] `List`
 - [x] Row separators: Available via `.listSeparators(style:color:)` (global) and per-row via `.listRowSeparator(style:color:)`. Styles supported: plain/heavy/double/none (use `.none` to hide a row’s separator). Still basic overall (no per-section customization).
 - [~] `LazyVStack`/`LazyHStack` (implemented as plain stacks; not lazy)
-- [~] `NavigationView`/`NavigationStack` (minimal push/pop via NavigationStack + NavigationLink; `NavigationLink(isActive:)` supported for programmatic navigation; `NavigationView` is a thin wrapper around `NavigationStack`)
+- [~] `NavigationView`/`NavigationStack` (minimal push/pop via NavigationStack + NavigationLink; `NavigationLink(isActive:)` supported for programmatic navigation; `NavigationView` is a thin wrapper around `NavigationStack`). Programmatic pop exposed via `EnvironmentValues.navigationPop`. Backspace pops when focus is not in a text input.
 - [~] `TabView` (titles + selection; simplified tab bar; when a tab button is focused, h/l change selection; Enter/Space activates the focused tab)
 - Controls
 - [x] `Toggle`  

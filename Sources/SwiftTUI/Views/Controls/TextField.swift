@@ -131,6 +131,7 @@ public struct TextField: View, PrimitiveView {
       }
 
       override var selectable: Bool { true }
+      override var isTextInput: Bool { true }
 
       override func becomeFirstResponder() {
           super.becomeFirstResponder()

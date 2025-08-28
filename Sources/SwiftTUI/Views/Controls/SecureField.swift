@@ -129,6 +129,7 @@ public struct SecureField: View, PrimitiveView {
       }
 
       override var selectable: Bool { true }
+      override var isTextInput: Bool { true }
 
       override func becomeFirstResponder() {
           super.becomeFirstResponder()
