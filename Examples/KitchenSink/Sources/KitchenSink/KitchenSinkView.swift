@@ -51,10 +51,12 @@ struct KitchenSinkView: View {
            }
 
            // Text input: binding + onSubmit
-           TextField(placeholder: "Your name", text: Binding(get: { text }, set: { text = $0 }), onCommit: { /* no-op */ })
-             .focused($focusedField, equals: "name")
-             .onSubmit { /* exercise onSubmit path */ }
-           SecureField(placeholder: "Password", text: Binding(get: { password }, set: { password = $0 }))
+           Group {
+             TextField(placeholder: "Your name", text: Binding(get: { text }, set: { text = $0 }), onCommit: { /* no-op */ })
+               .focused($focusedField, equals: "name")
+               .onSubmit { /* exercise onSubmit path */ }
+             SecureField(placeholder: "Password", text: Binding(get: { password }, set: { password = $0 }))
+           }
 
            HStack(spacing: 2) {
              Button("Focus Name") { focusedField = "name" }
@@ -62,8 +64,10 @@ struct KitchenSinkView: View {
            }
 
            // onHover: focus-based; visibly indicate when focused
-           Button(action: { /* tap */ }, hover: { hovered.toggle() }) { Text("Hover me (focus)") }
-           if hovered { Text("Hover: true").foregroundColor(.green) } else { Text("Hover: false").foregroundColor(.red) }
+           Group {
+             Button(action: { /* tap */ }, hover: { hovered.toggle() }) { Text("Hover me (focus)") }
+             if hovered { Text("Hover: true").foregroundColor(.green) } else { Text("Hover: false").foregroundColor(.red) }
+           }
 
            // onTapGesture count:2
            Text(doubleTapped ? "Double tapped!" : "Double-tap me")
