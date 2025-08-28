@@ -1,0 +1,2 @@
+# Ignore transient logs written by the runner
+logs/

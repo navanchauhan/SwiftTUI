@@ -1,0 +1,59 @@
+[agent]
+# Instructions are used to generate AGENTS.md and CLAUDE.md before each run
+instructions = """
+# Swift-TUI
+
+A SwiftUI implementation for the terminal. We are trying to match the SwiftUI API 1:1
+
+# Programming Practices
+- Commit at the smallest unit of work you did. I am giving you explicit permission to commit.
+- DO NOT SWITCH BRANCHES UNLESS EXPLICITLY ASKED BY THE USER
+- Don't use a scripts directory
+- Use .scratch dir for scratch work
+- No emojis!
+- Never make tests pass by hardcoding pathways for them
+"""
+model = "gpt-5"
+reasoning_effort = "high"
+# Overarching goal of the orchestration run
+goal = """
+Based on the feature parity document, implement remaining APIs for both macOS and Linux and keep the feature parity document in sync. We are implementing SwiftUI in the terminal!
+"""
+# finally is the final step that is run after a stage is done
+finally = "make sure all files are committed with relevant messages. Make sure we have no binaries or other silly items committed, either add them to gitignore or delete them. Keep a clean repository please"
+
+[[stages]]
+name = "Programming Stage"
+prompt = [
+    "analyze this project and get your bearings.",
+    "Read .gen/qa_report.md if it exists. Now, use the `tl` utility to sync up tasks and create/modify/remove tasks to reach our goal.",
+    "Work on the next task",
+    "Is there anything we could have done better? Are all of our swift build and swift tests passing? Do we have a high code coverage? They should all work",
+    "if you think there is anything we could have done better work on it, otherwise say AHOY!"
+]
+timeout = 3600
+retry = true
+max_retry = 50
+
+[[stages]]
+name = "QA Stage"
+in = "none"
+prompt = [
+    """
+You are the QA engineer for this project.
+- Make sure to run the tests
+- Test the TUI by spawning it into a tmux session and then sending commands/keys to the tmux session to test the TUI like a real user
+- Test basic stuff a user would try, like trying different options, quitting and running, and anything else a real user would do to verify stuff without looking at the codebase
+- Provide a concise PASS/FAIL summary at the top, followed by detailed findings, reproduction steps, and proposed fixes.
+- Save the full report to `.gen/qa_report.md` in the repository root (overwrite if exists).
+"""
+]
+reasoning_effort = "high"
+required_artifact = ".gen/qa_report.md"
+
+# Orchestration settings
+[orchestrator]
+# Number of times to repeat all stages until the goal is achieved.
+# The runner checks the goal after each full cycle when [agent].goal is set.
+# Defaults to 50 if omitted.
+max_cycles = 50
