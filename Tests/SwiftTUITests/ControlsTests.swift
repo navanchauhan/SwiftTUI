@@ -109,4 +109,32 @@ final class ControlsTests: XCTestCase {
        control.handleEvent("h")
        XCTAssertEqual(control.cell(at: Position(column: 2, line: 0))?.char, "O")
    }
+
+
+   func test_Stepper_RendersAndChanges() throws {
+       var v = 10
+       let stepper = Stepper(value: Binding(get: { v }, set: { v = $0 }), in: 0...100, step: 5) as Stepper<EmptyView>
+
+        let node = Node(view: VStack(content: stepper).view)
+        node.build()
+        let stack = try XCTUnwrap(node.control)
+        let control = try XCTUnwrap(stack.children.first)
+        let needed = control.size(proposedSize: Size(width: 0, height: 1))
+        control.layout(size: needed)
+
+        // Expect "[-] 10 [+]"
+        XCTAssertEqual(control.cell(at: Position(column: 0, line: 0))?.char, "[")
+        XCTAssertEqual(control.cell(at: Position(column: 1, line: 0))?.char, "-")
+        XCTAssertEqual(control.cell(at: Position(column: 2, line: 0))?.char, "]")
+        XCTAssertEqual(control.cell(at: Position(column: 4, line: 0))?.char, "1")
+        XCTAssertEqual(control.cell(at: Position(column: 5, line: 0))?.char, "0")
+        // increment to 15
+        control.handleEvent("+")
+        XCTAssertEqual(control.cell(at: Position(column: 4, line: 0))?.char, "1")
+        XCTAssertEqual(control.cell(at: Position(column: 5, line: 0))?.char, "5")
+        // decrement back to 10
+        control.handleEvent("-")
+        XCTAssertEqual(control.cell(at: Position(column: 5, line: 0))?.char, "0")
+   }
+
 }
