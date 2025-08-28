@@ -1,6 +1,5 @@
 # SwiftTUI
 
-![swift 5.6](https://user-images.githubusercontent.com/13484323/184016525-cb42a72c-1e2e-4d8d-8777-e7481386377c.svg)
 ![platform macos](https://user-images.githubusercontent.com/13484323/184016156-817e14dc-24b5-4b46-a4d4-0de9391a37a4.svg)
 ![platform linux](https://user-images.githubusercontent.com/13484323/184016263-afa5dd0c-8d9a-4fba-91fe-23e892d64cca.svg)
 
@@ -46,7 +45,7 @@ To run your app, change to your package's directory and run it from the terminal
 swift run
 ```
 
-For more, and to see the supported functionality, check out the [documentation](https://rensbreur.github.io/SwiftTUI/documentation/swifttui/).
+For more, and to see the supported functionality, check out the [documentation](https://navanchauhan.github.io/SwiftTUI/documentation/swifttui/).
 
 ### Examples
 
@@ -64,16 +63,6 @@ This is a very simple to-do list application. Use the arrow keys to move around.
 
 This is a flag editor, which you will agree to if you come from a country which has a simple flag consisting of colors stacked horizontally or vertically. Select one of the colors of the flag to change it. Use the options on the right to change the number of colors or the flag orientation.
 
-### Showcase
-
-Are you working on a project that's using SwiftTUI? Get in touch with me if you'd like to have it featured here.
-
-#### soundcld
-
-![](https://github.com/rensbreur/SwiftTUI/assets/13484323/b585708c-3606-495e-a96e-3eba92f39916)
-
-This is a TUI application for SoundCloud. It's not (yet) available publicly.
-
 ### More
 
 See a screen recording of SwiftTUI [in action](https://www.reddit.com/r/SwiftUI/comments/wlabyn/im_making_a_version_of_swiftui_for_terminal/) on Reddit.
@@ -82,7 +71,7 @@ Learn how [the diffing works](https://rensbr.eu/blog/swiftui-diffing/) on my blo
 
 ### Documentation
 
-You can find generated documentation [here](https://rensbreur.github.io/SwiftTUI/documentation/swifttui/).
+You can find generated documentation [here](https://navanchauhan.github.io/SwiftTUI/documentation/swifttui/).
 
 ### Contributing
 
