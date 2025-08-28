@@ -87,7 +87,7 @@ struct KitchenSinkView: View {
          VStack(alignment: .leading, spacing: 1) {
            Text("List with separators:")
            List(rowSpacing: 1) {
-             ForEach(1...5) { i in
+             ForEach(1...5, id: \.self) { i in
                Text("Row \(i)")
              }
            }
