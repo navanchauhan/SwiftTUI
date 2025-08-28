@@ -35,6 +35,7 @@ Legend
 - [x] `.background(_ color:)` (note: Color only)
 - [x] `.bold()`, `.italic()`, `.underline()`, `.strikethrough()`
 - [x] `.onAppear { ... }`
+- [x] `.onFocusChange { isFocused in ... }`
 
 Environment keys employed:
 
@@ -65,6 +66,8 @@ Environment keys employed:
 - [~] `Button` exposes `hover` closure on focus changes
 - [~] `.background(_:)` supports `Color` only (no view backgrounds)
 - [~] Fonts: `.fontWeight(_:)` and `.font(.system(size:weight:design:))` map weight to bold; size/design currently ignored
+
+- [~] `onFocusChange` fires when focus enters or leaves the subtree; moves within the subtree may trigger an exit+enter pair in quick succession (terminal simplification)
 
 - [~] `Picker` simplified: string options with h/l to cycle; optional label; no custom content/tags yet
 - [~] `List` simplified: vertical only, implemented as `ScrollView` + `VStack`; no row separators or styles yet
