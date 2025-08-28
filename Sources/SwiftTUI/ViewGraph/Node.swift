@@ -148,3 +148,6 @@ private extension Node {
    // Helper to satisfy key path in .map without capturing protocol type issues
    var _size: Int { self.size }
 }
+
+
+extension Node: @unchecked Sendable {}
