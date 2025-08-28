@@ -48,6 +48,8 @@ public class Application {
   }
 
   var stdInSource: DispatchSourceRead?
+  var sigWinChSource: DispatchSourceSignal?
+  var sigIntSource: DispatchSourceSignal?
 
   public enum RunLoopType {
       /// The default option, using Dispatch for the main run loop.
@@ -89,6 +91,7 @@ public class Application {
           Task { @MainActor in self?.handleWindowSizeChange() }
       }
       sigWinChSource.resume()
+      self.sigWinChSource = sigWinChSource
 
       signal(SIGINT, SIG_IGN)
       let sigIntSource = DispatchSource.makeSignalSource(signal: SIGINT, queue: .main)
@@ -96,6 +99,7 @@ public class Application {
           Task { @MainActor in self?.stop() }
       }
       sigIntSource.resume()
+      self.sigIntSource = sigIntSource
 
       switch runLoopType {
       case .dispatch:

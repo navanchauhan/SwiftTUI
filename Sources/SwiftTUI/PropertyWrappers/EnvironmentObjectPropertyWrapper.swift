@@ -20,7 +20,7 @@ public struct EnvironmentObject<T: SwiftTUIObservableObject>: AnyObservedObject,
            guard let node = valueReference.node else {
                fatalError("Attempting to access @EnvironmentObject before view is instantiated")
            }
-           var env = makeEnvironment(node: node)
+           let env = makeEnvironment(node: node)
            if let obj = env._environmentObjects[ObjectIdentifier(T.self)] as? T {
                return obj
            }
