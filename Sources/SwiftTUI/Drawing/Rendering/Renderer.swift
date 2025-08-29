@@ -56,6 +56,7 @@ class Renderer {
    }
 
    /// Draw a specific area, or the entire layer if the area is nil.
+   @MainActor
    func draw(rect: Rect? = nil) {
        if rect == nil { layer.invalidated = nil }
        let rect = rect ?? Rect(position: .zero, size: layer.frame.size)
@@ -79,6 +80,7 @@ class Renderer {
        }
    }
 
+   @MainActor
    private func drawPixel(_ cell: Cell, at position: Position) {
        guard position.column >= 0, position.line >= 0, position.column < layer.frame.size.width, position.line < layer.frame.size.height else {
            return
