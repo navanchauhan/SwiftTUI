@@ -43,6 +43,7 @@ Legend
 - [x] `.onDisappear { ... }`
 - [x] `.onFocusChange { isFocused in ... }`
 - [x] `.onSubmit { ... }` (for TextField/SecureField binding mode)
+- [x] `.onChange(of:perform:)` (fires on subsequent value changes; initial appearance does not fire)
 - [x] `.disabled(_:)` (disables interaction for view subtree; disabled controls are non-selectable and ignore input; visual dimming via terminal faint where applicable)
 
 Environment keys employed:
