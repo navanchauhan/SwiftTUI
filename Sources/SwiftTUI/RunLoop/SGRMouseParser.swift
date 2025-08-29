@@ -5,7 +5,7 @@ import Foundation
 // Where M = press/drag, m = release; x,y are 1-based columns/lines.
 struct SGRMouseParser {
    struct Event {
-       enum Kind {
+       enum Kind: Equatable {
            case press
            case release
            // Mouse wheel scroll (SGR 1006): delivers a delta in columns/lines.
@@ -13,7 +13,7 @@ struct SGRMouseParser {
            // dx: positive = scroll right; negative = scroll left
            case wheel(dx: Int, dy: Int)
        }
-       enum Button { case left, middle, right, other }
+       enum Button: Equatable { case left, middle, right, other }
        let kind: Kind
        let button: Button
        let column: Int // 0-based

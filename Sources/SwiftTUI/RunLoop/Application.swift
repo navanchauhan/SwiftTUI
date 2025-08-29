@@ -417,11 +417,9 @@ extension Application {
       case .release:
           // Only activate on left button release
           if event.button == .left {
-              window.firstResponder?.handleEvent("
-")
+              window.firstResponder?.handleEvent("\n")
           }
       }
-  }
   }
 
   fileprivate func writeOut(_ str: String) {
