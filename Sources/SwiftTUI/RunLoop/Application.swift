@@ -194,9 +194,12 @@ public class Application {
                       }
                   }()
                   if !scrolled {
-                      // Avoid remap for text inputs
                       if window.firstResponder?.isTextInput == true {
-                          // Skip remap for text inputs
+                          switch key {
+                          case .left: window.firstResponder?.handleEvent(ASCII.CTRL_B)
+                          case .right: window.firstResponder?.handleEvent(ASCII.CTRL_F)
+                          case .up, .down: break
+                          }
                       } else {
                           switch key {
                           case .left: window.firstResponder?.handleEvent("h")
