@@ -207,6 +207,18 @@ public struct TabView<Content: View>: View, PrimitiveView, LayoutRootView {
       override func handleEvent(_ char: Character) {
           // Forward events to current content unless the tab bar is focused
           // Allow cycling with h/l when focus is on the container itself
+          if char == "[" {
+              if selection.wrappedValue > 0 { selection.wrappedValue -= 1 }
+              installSelectedContent()
+              layer.invalidate()
+              return
+          }
+          if char == "]" {
+              if selection.wrappedValue < max(0, titles.count - 1) { selection.wrappedValue += 1 }
+              installSelectedContent()
+              layer.invalidate()
+              return
+          }
           if char == "h" {
               if selection.wrappedValue > 0 { selection.wrappedValue -= 1 }
               installSelectedContent()
@@ -219,6 +231,24 @@ public struct TabView<Content: View>: View, PrimitiveView, LayoutRootView {
               return
           }
           currentContent?.handleEvent(char)
+      }
+
+      override func tabSelectNext() -> Bool {
+          if selection.wrappedValue < max(0, titles.count - 1) {
+              selection.wrappedValue += 1
+              installSelectedContent()
+              layer.invalidate()
+          }
+          return true
+      }
+
+      override func tabSelectPrev() -> Bool {
+          if selection.wrappedValue > 0 {
+              selection.wrappedValue -= 1
+              installSelectedContent()
+              layer.invalidate()
+          }
+          return true
       }
  }
 

@@ -222,6 +222,20 @@ public class Application {
 
           if arrowConsumed || mouseConsumed { continue }
 
+
+          // Global TabView shortcuts: [ prev tab, ] next tab when not in a text input
+          if char == "[" || char == "]" {
+              if window.firstResponder?.isTextInput != true {
+                  var cur = window.firstResponder
+                  var handled = false
+                  while let c = cur, !handled {
+                      if char == "[" { handled = c.tabSelectPrev() }
+                      else { handled = c.tabSelectNext() }
+                      cur = c.parent
+                  }
+                  if handled { continue }
+              }
+          }
           // Backspace: handle both DEL (0x7F) and BS (^H, 0x08). When not in a text input, try to pop navigation.
           if char == ASCII.DEL || char == ASCII.BS {
               if window.firstResponder?.isTextInput == true {

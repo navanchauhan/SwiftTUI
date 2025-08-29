@@ -145,4 +145,16 @@ class Control: LayerDrawing {
       parent?.descendantResignedFirstResponder(control)
   }
 
+
+  // MARK: - Ancestor command hooks
+
+  // Tab navigation hooks intended for ancestors like TabView containers.
+  // Default implementations return false; ancestors may override to handle
+  // and return true. Application can traverse parents calling these.
+  @discardableResult
+  func tabSelectNext() -> Bool { return false }
+
+  @discardableResult
+  func tabSelectPrev() -> Bool { return false }
+
 }
