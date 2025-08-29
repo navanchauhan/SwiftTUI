@@ -25,6 +25,9 @@ public struct NavigationStack<Content: View>: View, PrimitiveView, LayoutRootVie
           env._navigationPush = { [weak node] view in
               guard let node else { return }
               node.addNode(at: node.children.count, Node(view: view))
+              DispatchQueue.main.async {
+                  node.root.application?.invalidateNode(node)
+              }
           }
           let popClosure: () -> Void = { [weak node] in
               guard let node, node.children.count > 1 else { return }
@@ -68,6 +71,18 @@ public struct NavigationStack<Content: View>: View, PrimitiveView, LayoutRootVie
       for i in 0 ..< top.size {
           container.addSubview(top.control(at: i), at: i)
       }
+      // Ensure focus resides within the container after a push/pop.
+      if let win = container.root.window {
+          if win.firstResponder == nil || !(win.firstResponder?.isDescendant(of: container) ?? false) {
+              if let target = container.firstSelectableElement {
+                  win.firstResponder?.resignFirstResponder()
+                  win.firstResponder = target
+                  target.becomeFirstResponder()
+              }
+          }
+      }
+      // Invalidate the container to guarantee rendering flush after structural changes
+      container.layer.invalidate()
   }
 
   private class NavigationContainerControl: Control {
