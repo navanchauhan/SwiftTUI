@@ -30,4 +30,29 @@ final class ScrollManualTests: XCTestCase {
        // Now the top cell should be 'B'
        XCTAssertEqual(scroll.layer.cell(at: Position(column: 0, line: 0))?.char, "B")
    }
+    
+    func test_ScrollView_Horizontal_ManualScroll_RightOneColumn_ShowsNextChar() throws {
+        // Build a horizontal ScrollView with three columns and a 2x2 viewport
+        let view = ScrollView(.horizontal) {
+            Text("ABC")
+        }
+        let node = Node(view: VStack(content: view).view)
+        node.build()
+        let root = try XCTUnwrap(node.control)
+        let scroll = try XCTUnwrap(root.children.first)
+
+        // Layout to 2x2 so the bottom indicator row (if any) doesn't cover content
+        let size = Size(width: 2, height: 2)
+        scroll.layout(size: size)
+
+        // Initially leftmost cell should be 'A'
+        XCTAssertEqual(scroll.layer.cell(at: Position(column: 0, line: 0))?.char, "A")
+
+        // Scroll right by one column and re-layout
+        _ = scroll.scrollBy(lines: 0, columns: 1)
+        scroll.layout(size: size)
+
+        // Now the leftmost cell should be 'B'
+        XCTAssertEqual(scroll.layer.cell(at: Position(column: 0, line: 0))?.char, "B")
+    }
 }
