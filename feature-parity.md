@@ -47,6 +47,7 @@ Environment keys employed:
 - [x] `foregroundColor`, `bold`, `italic`, `underline`, `strikethrough`
 - [x] `dividerStyle`, `placeholderColor`
 - [x] `stackOrientation` (internal for stacks/spacer/divider)
+- [x] `accentColor` (used by selected TabView tabs, ProgressView fill, and ScrollView indicators)
 
 ## State & Data Flow (TODO)
 
@@ -81,6 +82,7 @@ Environment keys employed:
 - [~] Arrow keys vs focus: Arrow keys primarily move focus across controls. When a focus move isn’t possible, arrow keys are forwarded to the focused control using vim-key equivalents (← h, → l, ↑ k, ↓ j) so single-focus controls (e.g. `Picker`) can react.
 - [~] `List` simplified: vertical only, implemented as `ScrollView` + `VStack`; row separators available via `.listSeparators(style:)`
 - [~] `Image` is terminal-oriented: ASCII and Color-matrix initializers; no file/asset decoding
+- [~] Accent color: `.accentColor(_:)` influences common highlights (e.g., TabView selected tab, ProgressView fill, ScrollView indicators). Rendering uses terminal foreground color together with inversion where appropriate.
 ## Missing, Common SwiftUI APIs (TODO)
 
 - Layout/containers
