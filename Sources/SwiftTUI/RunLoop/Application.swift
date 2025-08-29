@@ -280,6 +280,12 @@ public class Application {
       if window.layer.invalidated != nil || !invalidatedNodes.isEmpty {
           update()
       }
+      // Schedule a follow-up coalesced update on the next tick to capture any
+      // async @State/@EnvironmentObject invalidations triggered by control
+      // actions (e.g. TextField action-mode submit).
+      DispatchQueue.main.async { [weak self] in
+          self?.scheduleUpdate()
+      }
   }
 
   func invalidateNode(_ node: Node) {
