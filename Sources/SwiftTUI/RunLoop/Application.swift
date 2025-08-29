@@ -267,6 +267,10 @@ public class Application {
                window.firstResponder?.handleEvent(char)
            }
        }
+       // Flush any pending invalidations immediately to avoid perceived lag in redraws.
+       if window.layer.invalidated != nil || !invalidatedNodes.isEmpty {
+           update()
+       }
    }
 
    func invalidateNode(_ node: Node) {
