@@ -44,6 +44,7 @@ class Renderer {
    }
 
    /// Draw only the invalidated part of the layer.
+   @MainActor
    func update() {
        if let invalidated = layer.invalidated {
            draw(rect: invalidated)
