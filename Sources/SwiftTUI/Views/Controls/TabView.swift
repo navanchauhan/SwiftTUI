@@ -13,6 +13,7 @@ public struct TabView<Content: View>: View, PrimitiveView, LayoutRootView {
  var selection: Binding<Int>
  let content: VStack<Content>
  @Environment(\.isEnabled) private var isEnabled: Bool
+  @Environment(\.accentColor) private var accentColor: Color
 
  /// Create a TabView with titles and a selection binding.
  /// - Parameters:
@@ -34,7 +35,7 @@ public struct TabView<Content: View>: View, PrimitiveView, LayoutRootView {
      // Container draws tab bar and selected page only
      let c = TabViewControl(titles: titles, selection: selection)
      c.isEnabled = isEnabled
-     c.accentColor = TabView.readEnvironment(\.accentColor, from: node)
+     c.accentColor = accentColor
      node.control = c
  }
 
@@ -46,7 +47,7 @@ public struct TabView<Content: View>: View, PrimitiveView, LayoutRootView {
      control.titles = titles
      control.selection = selection
      control.isEnabled = isEnabled
-     control.accentColor = TabView.readEnvironment(\.accentColor, from: node)
+     control.accentColor = accentColor
      refreshPages(node: node, control: control)
      control.layer.invalidate()
  }

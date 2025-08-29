@@ -6,6 +6,7 @@ public struct ScrollView<Content: View>: View, PrimitiveView {
  let axis: Axis
  let content: Content
  @Environment(\.scrollIndicatorVisibility) private var indicatorVisibility: ScrollIndicatorVisibility
+  @Environment(\.accentColor) private var accentColor: Color
 
  public init(_ axis: Axis = .vertical, @ViewBuilder _ content: () -> Content) {
      self.axis = axis
@@ -24,7 +25,7 @@ public struct ScrollView<Content: View>: View, PrimitiveView {
      control.contentControl = node.children[0].control(at: 0)
      control.addSubview(control.contentControl, at: 0)
      control.indicatorVisibility = indicatorVisibility
-     control.accentColor = ScrollView.readEnvironment(\.accentColor, from: node)
+     control.accentColor = accentColor
      // Overlay for drawing indicators above content
      let overlay = ScrollIndicatorOverlay(owner: control)
      control.addSubview(overlay, at: 1)
@@ -41,7 +42,7 @@ public struct ScrollView<Content: View>: View, PrimitiveView {
      if let sc = node.control as? ScrollControl {
          sc.axis = axis
          sc.indicatorVisibility = indicatorVisibility
-         sc.accentColor = ScrollView.readEnvironment(\.accentColor, from: node)
+         sc.accentColor = accentColor
          sc.layer.invalidate()
      }
  }
@@ -210,14 +211,4 @@ public struct ScrollView<Content: View>: View, PrimitiveView {
      }
  }
 
- // Helper to read environment values from the node chain.
- private static func readEnvironment<T>(_ keyPath: KeyPath<EnvironmentValues, T>, from node: Node) -> T {
-     var chain: [Node] = []
-     var cur: Node? = node
-     while let c = cur { chain.append(c); cur = c.parent }
-     chain.reverse()
-     var env = EnvironmentValues()
-     for n in chain { n.environment?(&env) }
-     return env[keyPath: keyPath]
  }
-}
