@@ -3,6 +3,7 @@ import Foundation
 public struct Toggle<Label: View>: View, PrimitiveView {
    let label: VStack<Label>
    let isOn: Binding<Bool>
+   @Environment(\.isEnabled) private var isEnabled: Bool
 
    public init(isOn: Binding<Bool>, @ViewBuilder label: () -> Label) {
        self.isOn = isOn
@@ -17,8 +18,10 @@ public struct Toggle<Label: View>: View, PrimitiveView {
    static var size: Int? { 1 }
 
    func buildNode(_ node: Node) {
+       setupEnvironmentProperties(node: node)
        node.addNode(at: 0, Node(view: label.view))
        let control = ToggleControl(isOn: isOn)
+       control.isEnabled = isEnabled
        control.label = node.children[0].control(at: 0)
        control.addSubview(control.label, at: 0)
        node.control = control
@@ -27,13 +30,18 @@ public struct Toggle<Label: View>: View, PrimitiveView {
    func updateNode(_ node: Node) {
        node.view = self
        node.children[0].update(using: label.view)
-       (node.control as? ToggleControl)?.isOn = isOn
+       if let c = node.control as? ToggleControl {
+           c.isOn = isOn
+           c.isEnabled = isEnabled
+           c.layer.invalidate()
+       }
    }
 
    private class ToggleControl: Control {
        var label: Control!
        var isOn: Binding<Bool>
        weak var toggleLayer: ToggleLayer?
+       var isEnabled: Bool = true
 
        init(isOn: Binding<Bool>) {
            self.isOn = isOn
@@ -55,17 +63,18 @@ public struct Toggle<Label: View>: View, PrimitiveView {
        }
 
        override func handleEvent(_ char: Character) {
+           guard isEnabled else { return }
            if char == "\n" || char == " " {
                isOn.wrappedValue.toggle()
                layer.invalidate()
            }
        }
 
-       override var selectable: Bool { true }
+       override var selectable: Bool { isEnabled }
 
        override func becomeFirstResponder() {
            super.becomeFirstResponder()
-           toggleLayer?.highlighted = true
+           if isEnabled { toggleLayer?.highlighted = true }
            layer.invalidate()
        }
 
@@ -98,6 +107,7 @@ public struct Toggle<Label: View>: View, PrimitiveView {
        override func cell(at position: Position) -> Cell? {
            var cell = super.cell(at: position)
            if highlighted { cell?.attributes.inverted.toggle() }
+           if let parent = self.content as? ToggleControl, !parent.isEnabled { cell?.attributes.faint = true }
            return cell
        }
    }

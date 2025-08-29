@@ -9,6 +9,7 @@ public struct Stepper<Label: View>: View, PrimitiveView {
    let range: ClosedRange<Int>
    let step: Int
    let label: VStack<Label>?
+   @Environment(\.isEnabled) private var isEnabled: Bool
 
    public init(value: Binding<Int>, in range: ClosedRange<Int>, step: Int = 1, @ViewBuilder label: () -> Label) {
        self.value = value
@@ -34,8 +35,10 @@ public struct Stepper<Label: View>: View, PrimitiveView {
    static var size: Int? { 1 }
 
    func buildNode(_ node: Node) {
+      setupEnvironmentProperties(node: node)
        if let label { node.addNode(at: 0, Node(view: label.view)) }
        let control = StepperControl(value: value, range: range, step: step)
+       control.isEnabled = isEnabled
        if let labelNode = node.children.first {
            control.label = labelNode.control(at: 0)
            control.addSubview(control.label!, at: 0)
@@ -63,6 +66,7 @@ public struct Stepper<Label: View>: View, PrimitiveView {
            control.value = value
            control.range = range
            control.step = step
+           control.isEnabled = isEnabled
            control.layer.invalidate()
        }
    }
@@ -73,6 +77,7 @@ public struct Stepper<Label: View>: View, PrimitiveView {
        var step: Int
        var label: Control? = nil
        private var highlighted = false
+       var isEnabled: Bool = true
 
        init(value: Binding<Int>, range: ClosedRange<Int>, step: Int) {
            self.value = value
@@ -98,7 +103,7 @@ public struct Stepper<Label: View>: View, PrimitiveView {
            }
        }
 
-       override var selectable: Bool { true }
+       override var selectable: Bool { isEnabled }
 
        override func becomeFirstResponder() {
            super.becomeFirstResponder()
@@ -113,6 +118,7 @@ public struct Stepper<Label: View>: View, PrimitiveView {
        }
 
        override func handleEvent(_ char: Character) {
+           guard isEnabled else { return }
            switch char {
            case "+", "l": increment()
            case "-", "h": decrement()
@@ -164,6 +170,7 @@ public struct Stepper<Label: View>: View, PrimitiveView {
 
            var cell = Cell(char: ch)
            if highlighted { cell.attributes.inverted = true }
+           if !isEnabled { cell.attributes.faint = true }
            return cell
        }
 

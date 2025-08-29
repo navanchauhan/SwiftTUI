@@ -8,6 +8,7 @@ public struct Picker<Label: View>: View, PrimitiveView {
    let options: [String]
    let selection: Binding<Int>
    let label: VStack<Label>?
+   @Environment(\.isEnabled) private var isEnabled: Bool
 
    /// Picker with a custom label view
    public init(selection: Binding<Int>, options: [String], @ViewBuilder label: () -> Label) {
@@ -94,10 +95,12 @@ public struct Picker<Label: View>: View, PrimitiveView {
    static var size: Int? { 1 }
 
    func buildNode(_ node: Node) {
+      setupEnvironmentProperties(node: node)
        if let label {
            node.addNode(at: 0, Node(view: label.view))
        }
        let control = PickerControl(selection: selection, options: options)
+       control.isEnabled = isEnabled
        if let labelNode = node.children.first {
            control.label = labelNode.control(at: 0)
            control.addSubview(control.label!, at: 0)
@@ -124,6 +127,7 @@ public struct Picker<Label: View>: View, PrimitiveView {
        if let control = node.control as? PickerControl {
            control.selection = selection
            control.options = options
+           control.isEnabled = isEnabled
            control.layer.invalidate()
        }
    }
@@ -133,6 +137,7 @@ public struct Picker<Label: View>: View, PrimitiveView {
        var selection: Binding<Int>
        var label: Control? = nil
        private var highlighted = false
+       var isEnabled: Bool = true
 
        init(selection: Binding<Int>, options: [String]) {
            self.selection = selection
@@ -159,7 +164,7 @@ public struct Picker<Label: View>: View, PrimitiveView {
        }
 
        // MARK: - Selection
-       override var selectable: Bool { true }
+       override var selectable: Bool { isEnabled }
 
        override func becomeFirstResponder() {
            super.becomeFirstResponder()
@@ -175,6 +180,7 @@ public struct Picker<Label: View>: View, PrimitiveView {
 
        // MARK: - Events
        override func handleEvent(_ char: Character) {
+           guard isEnabled else { return }
            guard !options.isEmpty else { return }
            if char == "h" || char == "\u{1b}" { /* esc prefix for arrows ignored here */ }
            switch char {
@@ -233,6 +239,7 @@ public struct Picker<Label: View>: View, PrimitiveView {
 
            var cell = Cell(char: ch)
            if highlighted { cell.attributes.inverted = true }
+           if !isEnabled { cell.attributes.faint = true }
            return cell
        }
 

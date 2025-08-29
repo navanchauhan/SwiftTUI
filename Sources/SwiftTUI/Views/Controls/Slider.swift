@@ -4,6 +4,7 @@ public struct Slider: View, PrimitiveView {
    let range: ClosedRange<Double>
    let step: Double
    let value: Binding<Double>
+   @Environment(\.isEnabled) private var isEnabled: Bool
 
    public init(value: Binding<Double>, in range: ClosedRange<Double>, step: Double = 1.0) {
        self.value = value
@@ -14,7 +15,10 @@ public struct Slider: View, PrimitiveView {
    static var size: Int? { 1 }
 
    func buildNode(_ node: Node) {
-       node.control = SliderControl(value: value, range: range, step: step)
+       setupEnvironmentProperties(node: node)
+       let c = SliderControl(value: value, range: range, step: step)
+       c.isEnabled = isEnabled
+       node.control = c
    }
 
    func updateNode(_ node: Node) {
@@ -23,6 +27,7 @@ public struct Slider: View, PrimitiveView {
            control.value = value
            control.range = range
            control.step = step
+           control.isEnabled = isEnabled
            control.layer.invalidate()
        }
    }
@@ -32,6 +37,7 @@ public struct Slider: View, PrimitiveView {
        var range: ClosedRange<Double>
        var step: Double
        private var highlighted = false
+       var isEnabled: Bool = true
 
        init(value: Binding<Double>, range: ClosedRange<Double>, step: Double) {
            self.value = value
@@ -46,6 +52,7 @@ public struct Slider: View, PrimitiveView {
        }
 
        override func handleEvent(_ char: Character) {
+           guard isEnabled else { return }
            if char == "h" || char == "-" { decrement() }
            else if char == "l" || char == "+" { increment() }
        }
@@ -62,7 +69,7 @@ public struct Slider: View, PrimitiveView {
            layer.invalidate()
        }
 
-       override var selectable: Bool { true }
+       override var selectable: Bool { isEnabled }
 
        override func cell(at position: Position) -> Cell? {
            guard position.line == 0 else { return nil }
@@ -75,18 +82,21 @@ public struct Slider: View, PrimitiveView {
            let ratio = (range.upperBound - range.lowerBound) > 0 ? (clamped - range.lowerBound) / (range.upperBound - range.lowerBound) : 0
            let knob = min(interior - 1, max(0, Int(Double(interior - 1) * ratio)))
 
-           if position.column.intValue == 0 { return Cell(char: "[") }
-           if position.column.intValue == w - 1 { return Cell(char: "]") }
+           var cell: Cell?
+           if position.column.intValue == 0 { cell = Cell(char: "[") }
+           else if position.column.intValue == w - 1 { cell = Cell(char: "]") }
            let i = position.column.intValue - 1
            if i == knob {
                var c = Cell(char: highlighted ? "◉" : "●")
                if highlighted { c.attributes.inverted = true }
-               return c
+               cell = c
            }
            let fill = i < knob ? "─" : " "
-           var c = Cell(char: Character(fill))
-           if highlighted { c.attributes.inverted = true }
-           return c
+           var c2 = Cell(char: Character(fill))
+           if highlighted { c2.attributes.inverted = true }
+           if cell == nil { cell = c2 }
+           if !isEnabled { cell?.attributes.faint = true }
+           return cell
        }
 
        private func increment() {

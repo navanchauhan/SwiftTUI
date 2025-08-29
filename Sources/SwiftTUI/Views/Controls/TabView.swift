@@ -12,6 +12,7 @@ public struct TabView<Content: View>: View, PrimitiveView, LayoutRootView {
   let titles: [String]
   var selection: Binding<Int>
   let content: VStack<Content>
+  @Environment(\.isEnabled) private var isEnabled: Bool
 
   /// Create a TabView with titles and a selection binding.
   /// - Parameters:
@@ -27,10 +28,13 @@ public struct TabView<Content: View>: View, PrimitiveView, LayoutRootView {
   static var size: Int? { 1 }
 
   func buildNode(_ node: Node) {
+      setupEnvironmentProperties(node: node)
       // Build the underlying content subtree (wrapped in a VStack by the API)
       node.addNode(at: 0, Node(view: content.view))
       // Container draws tab bar and selected page only
-      node.control = TabViewControl(titles: titles, selection: selection)
+      let c = TabViewControl(titles: titles, selection: selection)
+      c.isEnabled = isEnabled
+      node.control = c
   }
 
   func updateNode(_ node: Node) {
@@ -40,6 +44,7 @@ public struct TabView<Content: View>: View, PrimitiveView, LayoutRootView {
       guard let control = node.control as? TabViewControl else { return }
       control.titles = titles
       control.selection = selection
+      control.isEnabled = isEnabled
       refreshPages(node: node, control: control)
       control.layer.invalidate()
   }
@@ -89,6 +94,7 @@ public struct TabView<Content: View>: View, PrimitiveView, LayoutRootView {
   private class TabViewControl: Control {
       var titles: [String]
       var selection: Binding<Int>
+      var isEnabled: Bool = true
 
        // Child controls
        var allContentControls: [Control] = []
@@ -180,6 +186,7 @@ public struct TabView<Content: View>: View, PrimitiveView, LayoutRootView {
                        self.layer.invalidate()
                    }
                }
+               btn.isEnabled = isEnabled
                btn.isSelected = (idx == normalizedSelection())
                tabButtons.append(btn)
                addSubview(btn, at: children.count)
@@ -215,6 +222,7 @@ public struct TabView<Content: View>: View, PrimitiveView, LayoutRootView {
       var isSelected: Bool = false
       private let onSelect: () -> Void
       private var highlighted: Bool = false
+      var isEnabled: Bool = true
 
       init(title: String, onSelect: @escaping () -> Void) {
           self.title = title
@@ -228,7 +236,7 @@ public struct TabView<Content: View>: View, PrimitiveView, LayoutRootView {
 
       override func layout(size: Size) { super.layout(size: size) }
 
-      override var selectable: Bool { true }
+      override var selectable: Bool { isEnabled }
 
       override func becomeFirstResponder() {
           super.becomeFirstResponder()
@@ -243,6 +251,7 @@ public struct TabView<Content: View>: View, PrimitiveView, LayoutRootView {
       }
 
       override func handleEvent(_ char: Character) {
+          guard isEnabled else { return }
           if char == "\n" || char == "\r" || char == " " { onSelect(); return }
           // While a tab button is focused, allow 'h'/'l' to change selection
           if char == "h" {
@@ -284,6 +293,7 @@ public struct TabView<Content: View>: View, PrimitiveView, LayoutRootView {
           var cell = Cell(char: s.first ?? " ")
           if isSelected { cell.attributes.inverted = true }
           if highlighted { cell.attributes.bold = true }
+          if !isEnabled { cell.attributes.faint = true }
           return cell
       }
   }

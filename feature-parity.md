@@ -40,6 +40,7 @@ Legend
 - [x] `.onDisappear { ... }`
 - [x] `.onFocusChange { isFocused in ... }`
 - [x] `.onSubmit { ... }` (for TextField/SecureField binding mode)
+- [x] `.disabled(_:)` (disables interaction for view subtree; disabled controls are non-selectable and ignore input; visual dimming via terminal faint where applicable)
 
 Environment keys employed:
 
@@ -70,6 +71,8 @@ Environment keys employed:
 - [~] `Button` exposes `hover` closure on focus changes
 - [~] `.background(_:)` supports both `Color` and view variants; the view variant composes behind content
 - [~] Fonts: `.fontWeight(_:)` and `.font(.system(size:weight:design:))` map weight to bold; size/design currently ignored
+
+- [~] Disabled visuals: Disabled controls use terminal low intensity (faint, SGR 2) when available; not all terminals render faint distinctly. The primary contract is non-interactiveness.
 
 - [~] `onFocusChange` fires when focus enters or leaves the subtree; moves within the subtree may trigger an exit+enter pair in quick succession (terminal simplification)
 

@@ -7,6 +7,7 @@ enum Mode {
     case binding(text: Binding<String>, onCommit: () -> Void)
 }
 let mode: Mode
+@Environment(\.isEnabled) private var isEnabled: Bool
 
 @Environment(\.placeholderColor) private var placeholderColor: Color
 @Environment(\.onSubmit) private var onSubmitAction: (() -> Void)?
@@ -27,7 +28,9 @@ static var size: Int? { 1 }
 
 func buildNode(_ node: Node) {
     setupEnvironmentProperties(node: node)
-    node.control = SecureFieldControl(placeholder: placeholder ?? "", placeholderColor: placeholderColor, mode: mode, onSubmit: onSubmitAction)
+    let c = SecureFieldControl(placeholder: placeholder ?? "", placeholderColor: placeholderColor, mode: mode, onSubmit: onSubmitAction)
+    c.isEnabled = isEnabled
+    node.control = c
 }
 
 func updateNode(_ node: Node) {
@@ -38,6 +41,7 @@ func updateNode(_ node: Node) {
         c.placeholderColor = placeholderColor
         c.mode = mode
         c.onSubmit = onSubmitAction
+        c.isEnabled = isEnabled
         c.layer.invalidate()
     }
 }
@@ -47,6 +51,7 @@ private class SecureFieldControl: Control {
     var placeholderColor: Color
     var mode: Mode
     var onSubmit: (() -> Void)?
+    var isEnabled: Bool = true
 
     // Internal buffer used only in action-mode
     private var internalText: String = ""
@@ -82,6 +87,7 @@ private class SecureFieldControl: Control {
     }
 
      override func handleEvent(_ char: Character) {
+         guard isEnabled else { return }
          if char == "\n" || char == "\r" {
              switch mode {
              case .action(let submit):
@@ -114,21 +120,23 @@ private class SecureFieldControl: Control {
              if position.column.intValue < placeholder.count {
                  let showUnderline = (position.column.intValue == 0) && isFirstResponder
                  let char = placeholder[placeholder.index(placeholder.startIndex, offsetBy: position.column.intValue)]
-                 return Cell(
+                 var cell = Cell(
                      char: char,
                      foregroundColor: placeholderColor,
                      attributes: CellAttributes(underline: showUnderline)
                  )
+                 if !isEnabled { cell.attributes.faint = true }
+                 return cell
              }
              return .init(char: " ")
          }
          // Mask actual characters with bullets
-         if position.column.intValue == text.count, isFirstResponder { return Cell(char: " ", attributes: CellAttributes(underline: true)) }
+         if position.column.intValue == text.count, isFirstResponder { var c = Cell(char: " ", attributes: CellAttributes(underline: true)); if !isEnabled { c.attributes.faint = true }; return c }
          guard position.column.intValue < text.count else { return .init(char: " ") }
-         return Cell(char: "•")
+         var c = Cell(char: "•"); if !isEnabled { c.attributes.faint = true }; return c
      }
 
-     override var selectable: Bool { true }
+     override var selectable: Bool { isEnabled }
      override var isTextInput: Bool { true }
 
      override func becomeFirstResponder() {
