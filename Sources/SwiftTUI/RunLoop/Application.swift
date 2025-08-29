@@ -141,6 +141,14 @@ public class Application {
        let string = String(decoding: data, as: UTF8.self)
 
        for char in string {
+           // Normalize Enter (CR/LF) early and deliver to the focused control first,
+           // before any global focus mapping or handlers.
+           if char == "\r" || char == "\n" {
+               window.firstResponder?.handleEvent("\n")
+               globalKeyHandler?("\n")
+               continue
+           }
+
            let arrowConsumed = arrowKeyParser.parse(character: char)
            if let key = arrowKeyParser.arrowKey {
                arrowKeyParser.arrowKey = nil
@@ -247,12 +255,6 @@ public class Application {
                    window.firstResponder?.becomeFirstResponder()
                }
            } else {
-               if char == "\r" {
-                   // Normalize CR to LF for Enter keys from some terminals
-                   globalKeyHandler?("\n")
-                   window.firstResponder?.handleEvent("\n")
-                   continue
-               }
                // Let the app intercept arbitrary keys first (e.g., 'r', 'g', 'G')
                globalKeyHandler?(char)
                window.firstResponder?.handleEvent(char)
