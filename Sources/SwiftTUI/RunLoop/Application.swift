@@ -395,19 +395,33 @@ public class Application {
 // MARK: - Mouse handling helpers
 extension Application {
   fileprivate func handleMouse(_ event: SGRMouseParser.Event) {
-      // Only act on left button clicks
-      guard event.button == .left else { return }
       let pos = Position(column: Extended(event.column), line: Extended(event.line))
       switch event.kind {
+      case .wheel(let dx, let dy):
+          // Prefer scrolling the ScrollView under the mouse position; fall back to first responder's ancestor ScrollView.
+          var handled = false
+          if let target = control.hitTest(screenPosition: pos) {
+              handled = target.scrollBy(lines: dy, columns: dx)
+          }
+          if !handled {
+              _ = window.firstResponder?.scrollBy(lines: dy, columns: dx)
+          }
       case .press:
+          // Only act on left button clicks for focus changes
+          guard event.button == .left else { return }
           if let target = control.hitTest(screenPosition: pos) {
               window.firstResponder?.resignFirstResponder()
               window.firstResponder = target
               window.firstResponder?.becomeFirstResponder()
           }
       case .release:
-          window.firstResponder?.handleEvent("\n")
+          // Only activate on left button release
+          if event.button == .left {
+              window.firstResponder?.handleEvent("
+")
+          }
       }
+  }
   }
 
   fileprivate func writeOut(_ str: String) {
