@@ -63,6 +63,11 @@ public struct ScrollView<Content: View>: View, PrimitiveView {
                contentControl.layer.frame.position.column = -contentOffset
                contentControl.layer.frame.position.line = 0
            }
+           // Layout overlay (and any other children) to match our viewport
+           for child in children where child !== contentControl {
+               child.layout(size: size)
+               child.layer.frame.position = .zero
+           }
        }
 
        override func scroll(to position: Position) {
@@ -99,7 +104,8 @@ public struct ScrollView<Content: View>: View, PrimitiveView {
            let visibility = sc.indicatorVisibility
            // Determine overflow based on axis
            let viewport = sc.layer.frame.size
-           let contentSize = sc.children.first?.size(proposedSize: .zero) ?? .zero
+           // Use laid-out content size for accurate overflow calculation
+           let contentSize = sc.contentControl.layer.frame.size
 
            switch sc.axis {
            case .vertical:

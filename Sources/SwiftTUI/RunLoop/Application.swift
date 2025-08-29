@@ -210,8 +210,8 @@ public class Application {
 
            if arrowConsumed || mouseConsumed { continue }
 
-           // Backspace (DEL): when not in a text input, try to pop navigation.
-           if char == ASCII.DEL {
+           // Backspace: handle both DEL (0x7F) and BS (^H, 0x08). When not in a text input, try to pop navigation.
+           if char == ASCII.DEL || char == ASCII.BS {
                if window.firstResponder?.isTextInput == true {
                    window.firstResponder?.handleEvent(char)
                } else if tryNavigationPopFromFirstResponder() {
