@@ -68,6 +68,7 @@ Environment keys employed:
 - [x] Keyboard activation for `Button` (Enter/Space)
 - [x] Focus movement with arrow keys (and vim keys h/j/k/l)
 - [x] `ScrollView` auto-focus scrolling and manual keyboard scroll fallback (arrows): when focus can’t move, arrow keys scroll the nearest enclosing ScrollView by one line/column; axis parameter supported
+- [x] Mouse wheel scrolling (SGR 1006): when mouse reporting is enabled (default), vertical and horizontal wheel events scroll the `ScrollView` under the pointer (falls back to first responder’s nearest `ScrollView`).
 
 ## Differences vs SwiftUI (keep in mind)
 
