@@ -222,6 +222,13 @@ public class Application {
 
            if char == ASCII.EOT {
                stop()
+           } else if char == "q" {
+               // Conventional TUI quit key when not in a text input
+               if window.firstResponder?.isTextInput == true {
+                   window.firstResponder?.handleEvent(char)
+               } else {
+                   stop()
+               }
            } else if char == "j" {
                if window.firstResponder?.isTextInput == true {
                    window.firstResponder?.handleEvent(char)

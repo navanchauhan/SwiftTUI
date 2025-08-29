@@ -72,13 +72,12 @@ public struct NavigationStack<Content: View>: View, PrimitiveView, LayoutRootVie
           container.addSubview(top.control(at: i), at: i)
       }
       // Ensure focus resides within the container after a push/pop.
-      if let win = container.root.window {
-          if win.firstResponder == nil || !(win.firstResponder?.isDescendant(of: container) ?? false) {
-              if let target = container.firstSelectableElement {
-                  win.firstResponder?.resignFirstResponder()
-                  win.firstResponder = target
-                  target.becomeFirstResponder()
-              }
+      // Always focus the first selectable element of the new top page for a predictable UX.
+      if let win = container.root.window, let target = container.firstSelectableElement {
+          if win.firstResponder !== target {
+              win.firstResponder?.resignFirstResponder()
+              win.firstResponder = target
+              target.becomeFirstResponder()
           }
       }
       // Invalidate the container to guarantee rendering flush after structural changes
