@@ -100,6 +100,26 @@ var body: some View {
            }
            .scrollIndicators(.hidden)
          }
+
+           Text("Vertical ScrollView (visible indicators):")
+           ScrollView(.vertical) {
+             VStack(alignment: .leading, spacing: 0) {
+               ForEach(0..<20, id: \.self) { i in
+                 Text("Row \((i+1))").padding(1)
+               }
+             }
+           }
+           .scrollIndicators(.visible)
+
+           Text("Vertical ScrollView (automatic indicators):")
+           ScrollView(.vertical) {
+             VStack(alignment: .leading, spacing: 0) {
+               ForEach(0..<5, id: \(.self)) { i in
+                 Text("Short \((i+1))").padding(1)
+               }
+             }
+           }
+           .scrollIndicators(.automatic)
        }
        .tabItem(title: "Controls")
        // Lists & Shapes tab
@@ -147,6 +167,7 @@ var body: some View {
      .border(.rounded)
    }
    .padding(1)
+   .navigationTitle("Kitchen Sink")
  }
 }
 }
