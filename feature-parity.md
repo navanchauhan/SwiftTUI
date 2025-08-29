@@ -15,7 +15,7 @@ Legend
 - [x] `TextField` (single line, action on Enter)
 - [x] Placeholder + `Environment(\.placeholderColor)`; live `Binding<String>` editing supported (action-based submit also available)
 - [x] `Divider` (uses stack orientation); `.style(...)`
-- [x] `Spacer` (expands on parent axis)
+- [x] `Spacer` (expands on parent axis; supports `minLength`)
 - [x] `Color` as a view (ANSI/xterm/true color)
 - [x] `ScrollView` (auto-scroll to focused control)
 - [x] `GeometryReader`
@@ -101,7 +101,7 @@ Environment keys employed:
 - [x] Row separators: Available via `.listSeparators(style:color:)` (global) and per-row via `.listRowSeparator(style:color:)`. Styles supported: plain/heavy/double/none (use `.none` to hide a row’s separator). Still basic overall (no per-section customization).
 - [~] `LazyVStack`/`LazyHStack` (implemented as plain stacks; not lazy)
 - [~] `NavigationView`/`NavigationStack` (minimal push/pop via NavigationStack + NavigationLink; `NavigationLink(isActive:)` supported for programmatic navigation; `NavigationView` is a thin wrapper around `NavigationStack`). Programmatic pop exposed via `EnvironmentValues.navigationPop`. Backspace pops when focus is not in a text input.
-- [~] `TabView` (titles + selection; simplified tab bar; when a tab button is focused, h/l change selection; Enter/Space activates the focused tab; global shortcuts [ and ] switch tabs when focus is inside TabView content, excluding text inputs)
+- [~] `TabView` (supports `titles + selection` or child `.tabItem(title:)` to derive titles; simplified tab bar; when a tab button is focused, h/l change selection; Enter/Space activates the focused tab; global shortcuts [ and ] switch tabs when focus is inside TabView content, excluding text inputs)
 - Controls
 - [x] `Toggle`  
 - [x] `Slider`

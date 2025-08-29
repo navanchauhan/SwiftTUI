@@ -233,7 +233,10 @@ public class Application {
                       else { handled = c.tabSelectNext() }
                       cur = c.parent
                   }
-                  if handled { continue }
+                      if handled {
+                          update()
+                          continue
+                      }
               }
           }
           // Backspace: handle both DEL (0x7F) and BS (^H, 0x08). When not in a text input, try to pop navigation.
@@ -334,6 +337,13 @@ public class Application {
           window.layer.invalidate()
       }
       renderer.update()
+  }
+
+  /// Force a synchronous update/redraw cycle immediately on the main actor.
+  /// This bypasses normal coalescing so actions like Navigation push/pop can
+  /// flush visual changes without delay (e.g., under tmux).
+  public func forceUpdateNow() {
+      update()
   }
 
   private func handleWindowSizeChange() {
