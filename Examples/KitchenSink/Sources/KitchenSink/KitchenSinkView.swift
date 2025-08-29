@@ -16,159 +16,159 @@ struct KitchenSinkView: View {
 @State var pushActive: Bool = false
 
 var body: some View {
- NavigationStack {
-   VStack(alignment: .leading, spacing: 1) {
-     Text("SwiftTUI KitchenSink")
-       .bold()
-       .padding(1)
-       .border()
+NavigationStack {
+  VStack(alignment: .leading, spacing: 1) {
+    Text("SwiftTUI KitchenSink")
+      .bold()
+      .padding(1)
+      .border()
 
-     // Basic Navigation
-     HStack(spacing: 2) {
-       NavigationLink(destination: DetailsView(title: "ASCII Image")) {
-         Text("Push ASCII Image")
-       }
-       NavigationLink(isActive: Binding(get: { pushActive }, set: { pushActive = $0 }), destination: DetailsView(title: "Programmatic Push")) {
-         Text("Programmatic Push")
-       }
-       Button("Trigger Push") { pushActive = true }
-     }
-     .padding(1)
+    // Basic Navigation
+    HStack(spacing: 2) {
+      NavigationLink(destination: DetailsView(title: "ASCII Image")) {
+        Text("Push ASCII Image")
+      }
+      NavigationLink(isActive: Binding(get: { pushActive }, set: { pushActive = $0 }), destination: DetailsView(title: "Programmatic Push")) {
+        Text("Programmatic Push")
+      }
+      Button("Trigger Push") { pushActive = true }
+    }
+    .padding(1)
 
-     TabView(selection: Binding(get: { selectedTab }, set: { selectedTab = $0 })) {
-       // Controls tab
-       VStack(alignment: .leading, spacing: 1) {
-         Toggle("Enable feature", isOn: Binding(get: { toggleOn }, set: { toggleOn = $0 }))
-         HStack(spacing: 2) {
-           Text("Value:")
-           Slider(value: Binding(get: { sliderVal }, set: { sliderVal = $0 }), in: 0...10, step: 1)
-           Stepper(value: Binding(get: { stepperVal }, set: { stepperVal = $0 }), in: -10...10) { Text("Step: \(stepperVal)") }
-         }
-         Picker("Picker:", selection: Binding(get: { pickerIndex }, set: { pickerIndex = $0 }), options: ["One", "Two", "Three"]) 
-         Group {
-           Text("DatePicker (date):")
-           DatePicker("", selection: Binding(get: { date }, set: { date = $0 }), displayedComponents: [.date])
-           Text("DatePicker (date & time):")
-           DatePicker("", selection: Binding(get: { date }, set: { date = $0 }), displayedComponents: [.date, .hourAndMinute])
-         }
-         HStack(spacing: 2) {
-           Text("Progress:")
-           ProgressView(value: Binding(get: { sliderVal }, set: { sliderVal = $0 }), total: 10)
-         }
+    TabView(selection: Binding(get: { selectedTab }, set: { selectedTab = $0 })) {
+      // Controls tab
+      VStack(alignment: .leading, spacing: 1) {
+        Toggle("Enable feature", isOn: Binding(get: { toggleOn }, set: { toggleOn = $0 }))
+        HStack(spacing: 2) {
+          Text("Value:")
+          Slider(value: Binding(get: { sliderVal }, set: { sliderVal = $0 }), in: 0...10, step: 1)
+          Stepper(value: Binding(get: { stepperVal }, set: { stepperVal = $0 }), in: -10...10) { Text("Step: \(stepperVal)") }
+        }
+        Picker("Picker:", selection: Binding(get: { pickerIndex }, set: { pickerIndex = $0 }), options: ["One", "Two", "Three"]) 
+        Group {
+          Text("DatePicker (date):")
+          DatePicker("", selection: Binding(get: { date }, set: { date = $0 }), displayedComponents: [.date])
+          Text("DatePicker (date & time):")
+          DatePicker("", selection: Binding(get: { date }, set: { date = $0 }), displayedComponents: [.date, .hourAndMinute])
+        }
+        HStack(spacing: 2) {
+          Text("Progress:")
+          ProgressView(value: Binding(get: { sliderVal }, set: { sliderVal = $0 }), total: 10)
+        }
 
-         // Text input: binding + onSubmit
-         Group {
-           TextField(placeholder: "Your name", text: Binding(get: { text }, set: { text = $0 }), onCommit: { /* no-op */ })
-             .focused($focusedField, equals: "name")
-             .onSubmit { /* exercise onSubmit path */ }
-           SecureField(placeholder: "Password", text: Binding(get: { password }, set: { password = $0 }))
-         }
+        // Text input: binding + onSubmit
+        Group {
+          TextField(placeholder: "Your name", text: Binding(get: { text }, set: { text = $0 }), onCommit: { /* no-op */ })
+            .focused($focusedField, equals: "name")
+            .onSubmit { /* exercise onSubmit path */ }
+          SecureField(placeholder: "Password", text: Binding(get: { password }, set: { password = $0 }))
+        }
 
-         HStack(spacing: 2) {
-           Button("Focus Name") { focusedField = "name" }
-           Button("Clear Focus") { focusedField = nil }
-         }
+        HStack(spacing: 2) {
+          Button("Focus Name") { focusedField = "name" }
+          Button("Clear Focus") { focusedField = nil }
+        }
 
-         // onHover: focus-based; visibly indicate when focused
-         Group {
-           Button(action: { /* tap */ }, hover: { hovered.toggle() }) { Text("Hover me (focus)") }
-           if hovered { Text("Hover: true").foregroundColor(.green) } else { Text("Hover: false").foregroundColor(.red) }
-         }
+        // onHover: focus-based; visibly indicate when focused
+        Group {
+          Button(action: { /* tap */ }, hover: { hovered.toggle() }) { Text("Hover me (focus)") }
+          if hovered { Text("Hover: true").foregroundColor(.green) } else { Text("Hover: false").foregroundColor(.red) }
+        }
 
-         // onTapGesture count:2
-         Text(doubleTapped ? "Double tapped!" : "Double-tap me")
-           .onTapGesture(count: 2) { doubleTapped.toggle() }
+        // onTapGesture count:2
+        Text(doubleTapped ? "Double tapped!" : "Double-tap me")
+          .onTapGesture(count: 2) { doubleTapped.toggle() }
 
-         // ScrollView demos grouped to keep child count within ViewBuilder limit
-         Group {
-           Text("Horizontal ScrollView:")
-           ScrollView(.horizontal) {
-             HStack(spacing: 1) {
-               ForEach(0..<10, id: \.self) { i in
-                 Text("[\(i)]").padding(1).border(.rounded)
-               }
-             }
-           }
+        // ScrollView demos grouped to keep child count within ViewBuilder limit
+        Group {
+          Text("Horizontal ScrollView:")
+          ScrollView(.horizontal) {
+            HStack(spacing: 1) {
+              ForEach(0..<10, id: \.self) { i in
+                Text("[\(i)]").padding(1).border(.rounded)
+              }
+            }
+          }
 
-           Text("Vertical ScrollView (no indicators):")
-           ScrollView(.vertical) {
-             VStack(alignment: .leading, spacing: 0) {
-               ForEach(0..<20, id: \.self) { i in
-                 Text("Row \((i+1))").padding(1)
-               }
-             }
-           }
-           .scrollIndicators(.hidden)
-         }
+          Text("Vertical ScrollView (no indicators):")
+          ScrollView(.vertical) {
+            VStack(alignment: .leading, spacing: 0) {
+              ForEach(0..<20, id: \.self) { i in
+                Text("Row \((i+1))").padding(1)
+              }
+            }
+          }
+          .scrollIndicators(.hidden)
 
-           Text("Vertical ScrollView (visible indicators):")
-           ScrollView(.vertical) {
-             VStack(alignment: .leading, spacing: 0) {
-               ForEach(0..<20, id: \.self) { i in
-                 Text("Row \((i+1))").padding(1)
-               }
-             }
-           }
-           .scrollIndicators(.visible)
+          Text("Vertical ScrollView (visible indicators):")
+          ScrollView(.vertical) {
+            VStack(alignment: .leading, spacing: 0) {
+              ForEach(0..<20, id: \.self) { i in
+                Text("Row \((i+1))").padding(1)
+              }
+            }
+          }
+          .scrollIndicators(.visible)
 
-           Text("Vertical ScrollView (automatic indicators):")
-           ScrollView(.vertical) {
-             VStack(alignment: .leading, spacing: 0) {
-               ForEach(0..<5, id: \(.self)) { i in
-                 Text("Short \((i+1))").padding(1)
-               }
-             }
-           }
-           .scrollIndicators(.automatic)
-       }
-       .tabItem(title: "Controls")
-       // Lists & Shapes tab
-       VStack(alignment: .leading, spacing: 1) {
-         Text("List with separators:")
-         List(rowSpacing: 1) {
-           ForEach(1...5, id: \.self) { i in
-             Text("Row \(i)")
-           }
-         }
-         .listSeparators(style: .heavy, color: .brightBlue)
-         .border()
+          Text("Vertical ScrollView (automatic indicators):")
+          ScrollView(.vertical) {
+            VStack(alignment: .leading, spacing: 0) {
+              ForEach(0..<5, id: \.self) { i in
+                Text("Short \((i+1))").padding(1)
+              }
+            }
+          }
+          .scrollIndicators(.automatic)
+        }
+      }
+      .tabItem(title: "Controls")
+      // Lists & Shapes tab
+      VStack(alignment: .leading, spacing: 1) {
+        Text("List with separators:")
+        List(rowSpacing: 1) {
+          ForEach(1...5, id: \.self) { i in
+            Text("Row \(i)")
+          }
+        }
+        .listSeparators(style: .heavy, color: .brightBlue)
+        .border()
 
-         Divider().padding(1)
+        Divider().padding(1)
 
-         Text("Shapes and clipping:")
-         HStack(spacing: 2) {
-           Rectangle().stroke(.magenta).frame(width: 10, height: 4)
-           RoundedRectangle(cornerRadius: 2).fill(.cyan).frame(width: 10, height: 4)
-           Color.red.frame(width: 6, height: 3).clipShape(Circle())
-           Color.green.frame(width: 10, height: 3).cornerRadius(2)
-         }
+        Text("Shapes and clipping:")
+        HStack(spacing: 2) {
+          Rectangle().stroke(.magenta).frame(width: 10, height: 4)
+          RoundedRectangle(cornerRadius: 2).fill(.cyan).frame(width: 10, height: 4)
+          Color.red.frame(width: 6, height: 3).clipShape(Circle())
+          Color.green.frame(width: 10, height: 3).cornerRadius(2)
+        }
 
-         Divider().padding(1)
+        Divider().padding(1)
 
-         Group {
-           Text("Overlay: text on top of color")
-           Color.blue.frame(width: 16, height: 3)
-             .overlay { Text("Overlay").bold().foregroundColor(.yellow) }
-         }
+        Group {
+          Text("Overlay: text on top of color")
+          Color.blue.frame(width: 16, height: 3)
+            .overlay { Text("Overlay").bold().foregroundColor(.yellow) }
+        }
 
-         Divider().padding(1)
+        Divider().padding(1)
 
-         Text("ASCII Image:")
-         Image("""
-         /\\/\\
-         \\//\\
-         /\\/\\
-         """)
-           .foregroundColor(.yellow)
-       }
-       .tabItem(title: "Lists & Shapes")
-     }
-     .padding(1)
-     .border(.rounded)
-   }
-   .padding(1)
-   .navigationTitle("Kitchen Sink")
- }
+        Text("ASCII Image:")
+        Image("""
+        /\\/\\
+        \\//\\
+        /\\/\\
+        """)
+          .foregroundColor(.yellow)
+      }
+      .tabItem(title: "Lists & Shapes")
+    }
+    .padding(1)
+    .border(.rounded)
+  }
+  .padding(1)
+  .navigationTitle("Kitchen Sink")
+}
 }
 }
 
@@ -176,16 +176,16 @@ private struct DetailsView: View {
 let title: String
 @Environment(\.navigationPop) var navigationPop
 var body: some View {
- VStack(alignment: .leading, spacing: 1) {
-   Text(title).bold()
-   Image(lines: [
-     "  ^  ",
-     " /\\ ",
-     "/__\\",
-   ]).foregroundColor(.green)
-   Button("Back", action: { navigationPop?() })
- }
- .padding(1)
- .border()
+VStack(alignment: .leading, spacing: 1) {
+  Text(title).bold()
+  Image(lines: [
+    "  ^  ",
+    " /\\ ",
+    "/__\\",
+  ]).foregroundColor(.green)
+  Button("Back", action: { navigationPop?() })
+}
+.padding(1)
+.border()
 }
 }
