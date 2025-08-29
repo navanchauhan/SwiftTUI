@@ -68,7 +68,7 @@ final class ControlsTests: XCTestCase {
 
    func test_Picker_RendersFieldAndSelection() throws {
        var idx = 1
-       let picker = Picker(selection: Binding(get: { idx }, set: { idx = $0 }), options: ["Red", "Green", "Blue"]) as Picker<EmptyView>
+       let picker = Picker(selection: Binding(get: { idx }, set: { idx = $0 }), options: ["Red", "Green", "Blue"]) as Picker<EmptyView, EmptyView>
 
        let node = Node(view: VStack(content: picker).view)
        node.build()
@@ -89,7 +89,7 @@ final class ControlsTests: XCTestCase {
 
    func test_Picker_ChangesSelectionWithHL() throws {
        var idx = 0
-       let picker = Picker(selection: Binding(get: { idx }, set: { idx = $0 }), options: ["One", "Two"]) as Picker<EmptyView>
+       let picker = Picker(selection: Binding(get: { idx }, set: { idx = $0 }), options: ["One", "Two"]) as Picker<EmptyView, EmptyView>
 
        let node = Node(view: VStack(content: picker).view)
        node.build()
@@ -142,7 +142,7 @@ final class ControlsTests: XCTestCase {
        enum Flavor: Equatable { case vanilla, chocolate, strawberry }
        var sel: Flavor = .chocolate
        let opts: [(String, Flavor)] = [("Vanilla", .vanilla), ("Chocolate", .chocolate), ("Strawberry", .strawberry)]
-       let picker = Picker(selection: Binding(get: { sel }, set: { sel = $0 }), options: opts) as Picker<EmptyView>
+       let picker = Picker(selection: Binding(get: { sel }, set: { sel = $0 }), options: opts) as Picker<EmptyView, EmptyView>
 
        let node = Node(view: VStack(content: picker).view)
        node.build()

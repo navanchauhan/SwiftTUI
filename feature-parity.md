@@ -80,7 +80,7 @@ Environment keys employed:
 
 - [~] `onFocusChange` fires when focus enters or leaves the subtree; moves within the subtree may trigger an exit+enter pair in quick succession (terminal simplification)
 
-- [~] `Picker` simplified: string options with h/l to cycle; optional label; supports tag-based selection via `(title, tag)` options; no custom content builder yet
+- [~] `Picker` simplified: supports string options and builder-provided options (renders the selected option's view between brackets on a single line). Optional label; tag-based selection via `(title, tag)` is supported for string options. Cycling with h/l. Custom row interaction is not provided (only the selected option is rendered).
 
 - [~] Arrow keys vs focus: Arrow keys primarily move focus across controls. When a focus move isn’t possible, arrow keys are forwarded to the focused control using vim-key equivalents (← h, → l, ↑ k, ↓ j) so single-focus controls (e.g. `Picker`) can react.
 - [~] `List` simplified: vertical only, implemented as `ScrollView` + `VStack`; row separators available via `.listSeparators(style:)`
@@ -93,11 +93,11 @@ Environment keys employed:
 - [x] Row separators: Available via `.listSeparators(style:color:)` (global) and per-row via `.listRowSeparator(style:color:)`. Styles supported: plain/heavy/double/none (use `.none` to hide a row’s separator). Still basic overall (no per-section customization).
 - [~] `LazyVStack`/`LazyHStack` (implemented as plain stacks; not lazy)
 - [~] `NavigationView`/`NavigationStack` (minimal push/pop via NavigationStack + NavigationLink; `NavigationLink(isActive:)` supported for programmatic navigation; `NavigationView` is a thin wrapper around `NavigationStack`). Programmatic pop exposed via `EnvironmentValues.navigationPop`. Backspace pops when focus is not in a text input.
-- [~] `TabView` (titles + selection; simplified tab bar; when a tab button is focused, h/l change selection; Enter/Space activates the focused tab)
+- [~] `TabView` (titles + selection; simplified tab bar; when a tab button is focused, h/l change selection; Enter/Space activates the focused tab; global shortcuts [ and ] switch tabs when focus is inside TabView content, excluding text inputs)
 - Controls
 - [x] `Toggle`  
 - [x] `Slider`
-- [x] `Picker` (now supports tag-based selection via `(title, tag)` options)
+- [x] `Picker` (tag-based selection via `(title, tag)` options, and builder-based options with index selection)
 - [x] `Stepper`
 - [~] `DatePicker` (date and hour/minute; Y/M/D and H/M with h/l +/- and j/k)
 - [x] `ProgressView`
