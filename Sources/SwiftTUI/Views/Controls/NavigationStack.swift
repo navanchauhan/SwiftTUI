@@ -71,6 +71,7 @@ public struct NavigationStack<Content: View>: View, PrimitiveView, LayoutRootVie
       for i in 0 ..< top.size {
           container.addSubview(top.control(at: i), at: i)
       }
+      container.title = NavigationStack.readEnvironment(\.navigationTitle, from: top)
       // Ensure focus resides within the container after a push/pop.
       // Always focus the first selectable element of the new top page for a predictable UX.
       if let win = container.root.window, let target = container.firstSelectableElement {
@@ -86,6 +87,7 @@ public struct NavigationStack<Content: View>: View, PrimitiveView, LayoutRootVie
 
   private class NavigationContainerControl: Control {
       var onPop: (() -> Void)? = nil
+      var title: String? = nil
 
       override func size(proposedSize: Size) -> Size {
           // Fill proposed area; content lays out inside
@@ -94,9 +96,11 @@ public struct NavigationStack<Content: View>: View, PrimitiveView, LayoutRootVie
 
       override func layout(size: Size) {
           super.layout(size: size)
+          let titleOffset = (title?.isEmpty == false) ? Extended(1) : Extended(0)
+          let contentSize = Size(width: size.width, height: max(0, size.height - titleOffset))
           for child in children {
-              child.layout(size: size)
-              child.layer.frame.position = .zero
+              child.layout(size: contentSize)
+              child.layer.frame.position = Position(column: 0, line: titleOffset)
           }
       }
 
@@ -105,5 +109,35 @@ public struct NavigationStack<Content: View>: View, PrimitiveView, LayoutRootVie
           onPop()
           return true
       }
+
+      override func cell(at position: Position) -> Cell? {
+          guard let title, !title.isEmpty else { return nil }
+          if position.line == 0 {
+              let width = layer.frame.size.width.intValue
+              let text = title
+              let textLen = min(text.count, max(0, width))
+              let start = max(0, (width - textLen) / 2)
+              let c = position.column.intValue
+              var attrs = CellAttributes()
+              attrs.inverted = true
+              if c >= start && c < start + textLen {
+                  let idx = text.index(text.startIndex, offsetBy: c - start)
+                  return Cell(char: text[idx], attributes: attrs)
+              } else {
+                  return Cell(char: " ", attributes: attrs)
+              }
+          }
+          return nil
+      }
+  }
+
+  private static func readEnvironment<T>(_ keyPath: KeyPath<EnvironmentValues, T>, from node: Node) -> T {
+      var chain: [Node] = []
+      var cur: Node? = node
+      while let c = cur { chain.append(c); cur = c.parent }
+      chain.reverse()
+      var env = EnvironmentValues()
+      for n in chain { n.environment?(&env) }
+      return env[keyPath: keyPath]
   }
 }
