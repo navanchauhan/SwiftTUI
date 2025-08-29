@@ -25,6 +25,7 @@ class Renderer {
    // - SWIFTTUI_ASCII_SNAPSHOT=1 -> render background-only cells as block characters
    private let noAlternateBuffer: Bool
    private let asciiSnapshot: Bool
+   private let focusHighlightEnabled: Bool
 
    private var didSetup = false /* will set true after setup */
 
@@ -33,6 +34,7 @@ class Renderer {
        let env = ProcessInfo.processInfo.environment
        self.noAlternateBuffer = (env["SWIFTTUI_NO_ALT"] == "1")
        self.asciiSnapshot = (env["SWIFTTUI_ASCII_SNAPSHOT"] == "1")
+       self.focusHighlightEnabled = (env["SWIFTTUI_FOCUS_HIGHLIGHT"] == "1")
        setCache()
    }
 
@@ -82,6 +84,28 @@ class Renderer {
            return
        }
        var outCell = cell
+       // Optional focus highlight overlay around first responder (opt-in via SWIFTTUI_FOCUS_HIGHLIGHT=1)
+       if focusHighlightEnabled, let app = application, let fr = app.window.firstResponder?.layer.frame {
+           let minC = fr.minColumn
+           let maxC = fr.maxColumn
+           let minL = fr.minLine
+           let maxL = fr.maxLine
+           if position.line == minL || position.line == maxL || position.column == minC || position.column == maxC {
+               if position.line == minL && position.column == minC {
+                   outCell = Cell(char: "┌", attributes: CellAttributes(inverted: true))
+               } else if position.line == minL && position.column == maxC {
+                   outCell = Cell(char: "┐", attributes: CellAttributes(inverted: true))
+               } else if position.line == maxL && position.column == minC {
+                   outCell = Cell(char: "└", attributes: CellAttributes(inverted: true))
+               } else if position.line == maxL && position.column == maxC {
+                   outCell = Cell(char: "┘", attributes: CellAttributes(inverted: true))
+               } else if position.line == minL || position.line == maxL {
+                   outCell = Cell(char: "─", attributes: CellAttributes(inverted: true))
+               } else {
+                   outCell = Cell(char: "│", attributes: CellAttributes(inverted: true))
+               }
+           }
+       }
        if asciiSnapshot, outCell.char == " ", let bg = outCell.backgroundColor, bg != .default { outCell.char = "█" }
        if cache[position.line.intValue][position.column.intValue] != outCell {
            cache[position.line.intValue][position.column.intValue] = outCell
@@ -98,8 +122,8 @@ class Renderer {
                write(backgroundColor.backgroundEscapeSequence)
                self.currentBackgroundColor = backgroundColor
            }
-           self.updateAttributes(cell.attributes)
-           write(String(cell.char))
+           self.updateAttributes(outCell.attributes)
+           write(String(outCell.char))
            self.currentPosition.column += 1
        }
    }
