@@ -65,7 +65,7 @@ Environment keys employed:
 
 ## Differences vs SwiftUI (keep in mind)
 
-- [~] `ScrollView` has no indicators; axis is supported; keeps focused control visible. A no-op `.scrollIndicators(_:)` modifier is provided for source parity.
+- [~] `ScrollView` axis is supported; keeps focused control visible. Minimal scroll indicators are available via `.scrollIndicators(_:)` (automatic/hidden/visible). Indicators are drawn as a lightweight overlay thumb (no track), tuned for TUI.
 - [~] `TextField`: supports both action-on-Enter (clears) and live `Binding<String>` editing (onCommit does not clear)
 - [~] `Button` exposes `hover` closure on focus changes
 - [~] `.background(_:)` supports both `Color` and view variants; the view variant composes behind content
