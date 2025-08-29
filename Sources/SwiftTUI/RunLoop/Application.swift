@@ -241,7 +241,9 @@ public class Application {
               if window.firstResponder?.isTextInput == true {
                   window.firstResponder?.handleEvent(char)
               } else if tryNavigationPopFromFirstResponder() {
-                  // Pop handled by navigation container; it schedules an update
+                  // Pop handled by navigation container; ensure immediate redraw to
+                  // avoid coalescing races in interactive terminals (e.g., tmux).
+                  update()
               }
               continue
           }

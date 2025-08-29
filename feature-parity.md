@@ -39,12 +39,15 @@ Legend
 - [x] `.overlay(_ view:, alignment:)`
 - [x] `.cornerRadius(_:)` (via `clipShape(RoundedRectangle)`)
 - [x] `.bold()`, `.italic()`, `.underline()`, `.strikethrough()`
+- [x] `.hidden()` (preserves layout size; non-selectable; draws nothing)
 - [x] `.onAppear { ... }`
 - [x] `.onDisappear { ... }`
 - [x] `.onFocusChange { isFocused in ... }`
 - [x] `.onSubmit { ... }` (for TextField/SecureField binding mode)
 - [x] `.onChange(of:perform:)` (fires on subsequent value changes; initial appearance does not fire)
 - [x] `.disabled(_:)` (disables interaction for view subtree; disabled controls are non-selectable and ignore input; visual dimming via terminal faint where applicable)
+- [x] `.scrollIndicators(_:)` (automatic/hidden/visible; lightweight overlay thumb for ScrollView)
+- [x] `.navigationTitle(_:)` (NavigationStack draws a single inverted title bar at the top when present)
 
 Environment keys employed:
 
@@ -52,6 +55,8 @@ Environment keys employed:
 - [x] `dividerStyle`, `placeholderColor`
 - [x] `stackOrientation` (internal for stacks/spacer/divider)
 - [x] `accentColor` (used by selected TabView tabs, ProgressView fill, and ScrollView indicators)
+- [x] `scrollIndicatorVisibility` (controls ScrollView indicator visibility)
+- [x] `navigationTitle` (used by NavigationStack to render a title bar)
 
 ## State & Data Flow (TODO)
 
@@ -73,6 +78,7 @@ Environment keys employed:
 ## Differences vs SwiftUI (keep in mind)
 
 - [~] `ScrollView` axis is supported; keeps focused control visible. Minimal scroll indicators are available via `.scrollIndicators(_:)` (automatic/hidden/visible). Indicators are drawn as a lightweight overlay thumb (no track), tuned for TUI. When focus moves isn’t possible, arrows first attempt to scroll a containing `ScrollView` before being mapped to vim-keys for the focused control.
+- [~] `NavigationStack` title: `.navigationTitle(_:)` renders a single-line, inverted title bar at the top of the stack’s content (no large titles or multi-row chrome).
 - [~] `TextField`: supports both action-on-Enter (clears) and live `Binding<String>` editing (onCommit does not clear)
 - [~] `Button` exposes `hover` closure on focus changes
 - [~] `.background(_:)` supports both `Color` and view variants; the view variant composes behind content

@@ -25,15 +25,21 @@ public struct NavigationStack<Content: View>: View, PrimitiveView, LayoutRootVie
           env._navigationPush = { [weak node] view in
               guard let node else { return }
               node.addNode(at: node.children.count, Node(view: view))
+              // Schedule invalidation on main; immediate redraw is ensured by
+              // Application.handleInput calling update() after pop when needed.
               DispatchQueue.main.async {
                   node.root.application?.invalidateNode(node)
+                  node.root.application?.scheduleUpdate()
               }
           }
           let popClosure: () -> Void = { [weak node] in
               guard let node, node.children.count > 1 else { return }
               node.removeNode(at: node.children.count - 1)
+              // Schedule invalidation on main; immediate redraw is ensured by
+              // Application.handleInput calling update() after pop when needed.
               DispatchQueue.main.async {
                   node.root.application?.invalidateNode(node)
+                  node.root.application?.scheduleUpdate()
               }
           }
           env._navigationPop = popClosure
