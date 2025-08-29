@@ -37,6 +37,7 @@ Legend
 - [x] `.cornerRadius(_:)` (via `clipShape(RoundedRectangle)`)
 - [x] `.bold()`, `.italic()`, `.underline()`, `.strikethrough()`
 - [x] `.onAppear { ... }`
+- [x] `.onDisappear { ... }`
 - [x] `.onFocusChange { isFocused in ... }`
 - [x] `.onSubmit { ... }` (for TextField/SecureField binding mode)
 
