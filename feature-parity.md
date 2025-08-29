@@ -61,11 +61,11 @@ Environment keys employed:
 
 - [x] Keyboard activation for `Button` (Enter/Space)
 - [x] Focus movement with arrow keys (and vim keys h/j/k/l)
-- [~] `ScrollView` auto-focus scrolling only; now supports axis parameter
+- [x] `ScrollView` auto-focus scrolling and manual keyboard scroll fallback (arrows): when focus can’t move, arrow keys scroll the nearest enclosing ScrollView by one line/column; axis parameter supported
 
 ## Differences vs SwiftUI (keep in mind)
 
-- [~] `ScrollView` axis is supported; keeps focused control visible. Minimal scroll indicators are available via `.scrollIndicators(_:)` (automatic/hidden/visible). Indicators are drawn as a lightweight overlay thumb (no track), tuned for TUI.
+- [~] `ScrollView` axis is supported; keeps focused control visible. Minimal scroll indicators are available via `.scrollIndicators(_:)` (automatic/hidden/visible). Indicators are drawn as a lightweight overlay thumb (no track), tuned for TUI. When focus moves isn’t possible, arrows first attempt to scroll a containing `ScrollView` before being mapped to vim-keys for the focused control.
 - [~] `TextField`: supports both action-on-Enter (clears) and live `Binding<String>` editing (onCommit does not clear)
 - [~] `Button` exposes `hover` closure on focus changes
 - [~] `.background(_:)` supports both `Color` and view variants; the view variant composes behind content
