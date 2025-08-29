@@ -26,6 +26,9 @@ Legend
 - [x] Conditionals/optionals via `@ViewBuilder`, `_ConditionalView`, `Optional` support
 
 ## Modifiers (TODO)
+- [~] `.opacity(_:)` (approximate; values < 1 render using terminal “faint” intensity)
+- [x] `.tint(_:)` (alias to `.accentColor(_:)`)
+- [~] Opacity: terminals have no alpha blending; `.opacity(_:)` maps to low-intensity (faint) when value < 1 and does not fully hide at 0.
 
 - [x] `.padding(_:)`, `.padding(_:_: )` (edges/length; `Int`/`Extended`)
 - [x] `.frame(width:height:alignment:)` (fixed)
